@@ -1,0 +1,6 @@
+hstore_plpython3u uuid-ossp
+jsonb_plpython3u uuid-ossp
+ltree_plpython3u uuid-ossp
+uuid-ossp hstore_plpython3u
+uuid-ossp jsonb_plpython3u
+uuid-ossp ltree_plpython3u

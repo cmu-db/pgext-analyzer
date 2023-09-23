@@ -1,0 +1,27 @@
+{
+  "download_method": "tar",
+  "download_url": "https://github.com/darold/pgtt/archive/refs/tags/v2.10.tar.gz",
+  "folder_name": "pgtt-2.10",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "no_preload": true,
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": "test",
+    "test_list": [
+      "00_init",
+      "01_oncommitdelete",
+      "02_oncommitpreserve",
+      "03_createontruncate",
+      "04_rename",
+      "05_useindex",
+      "06_createas",
+      "07_createlike",
+      "08_plplgsql",
+      "09_transaction",
+      "10_foreignkey",
+      "11_after_error",
+      "12_droptable"
+    ]
+  }
+}

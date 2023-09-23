@@ -1,0 +1,7 @@
+{
+  "download_method": "contrib",
+  "folder_name": "basebackup_to_shell",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "no_create_extn": true
+}

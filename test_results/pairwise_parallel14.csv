@@ -1,0 +1,6 @@
+pgcrypto,uuid-ossp,True
+pgjwt,uuid-ossp,True
+sslinfo,uuid-ossp,True
+uuid-ossp,pgcrypto,True
+uuid-ossp,pgjwt,True
+uuid-ossp,sslinfo,True

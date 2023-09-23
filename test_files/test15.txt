@@ -1,0 +1,6 @@
+pgcrypto xml2
+pgjwt xml2
+sslinfo xml2
+xml2 pgcrypto
+xml2 pgjwt
+xml2 sslinfo

@@ -1,0 +1,18 @@
+{
+  "download_method": "tar",
+  "download_url": "https://github.com/aws/pg_tle/archive/refs/tags/v1.0.4.tar.gz",
+  "folder_name": "pg_tle-1.0.4",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": "test",
+    "test_list": [
+      "pg_tle_api",
+      "pg_tle_management",
+      "pg_tle_injection",
+      "pg_tle_perms",
+      "pg_tle_requires"
+    ]
+  }
+}

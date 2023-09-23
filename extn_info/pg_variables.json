@@ -1,0 +1,18 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/postgrespro/pg_variables",
+  "folder_name": "pg_variables",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "test_list": [
+      "pg_variables",
+      "pg_variables_any",
+      "pg_variables_trans",
+      "pg_variables_atx",
+      "pg_variables_atx_pkg"
+    ]
+  }
+}

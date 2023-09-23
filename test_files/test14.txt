@@ -1,0 +1,6 @@
+pgcrypto uuid-ossp
+pgjwt uuid-ossp
+sslinfo uuid-ossp
+uuid-ossp pgcrypto
+uuid-ossp pgjwt
+uuid-ossp sslinfo

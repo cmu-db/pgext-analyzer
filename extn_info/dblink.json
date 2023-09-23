@@ -1,0 +1,12 @@
+{
+  "download_method": "contrib",
+  "folder_name": "dblink",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "options": ["--dbname=contrib_regression", "--dlpath=../../src/test/regress"],
+    "test_list": ["dblink"]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/pgsentinel/pgsentinel",
+  "folder_name": "pgsentinel/src",
+  "dependencies": ["pg_stat_statements"],
+  "install_method": "pgxs",
+  "custom_config": [
+    "pgsentinel.db_name = 'contrib_regression'"
+  ],
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "options": [
+      "--dbname=contrib_regression"
+    ],
+    "test_list": ["pgsentinel-test"]
+  }
+}

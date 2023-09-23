@@ -1,0 +1,31 @@
+{
+  "download_method": "tar",
+  "download_url": "https://plproxy.github.io/downloads/files/2.10.0/plproxy-2.10.0.tar.gz",
+  "folder_name": "plproxy-2.10.0",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "no_preload": true,
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": "test",
+    "options": ["--dbname=regression"],
+    "test_list": [
+      "plproxy_init",
+      "plproxy_test",
+      "plproxy_select",
+      "plproxy_many",
+      "plproxy_errors",
+      "plproxy_clustermap",
+      "plproxy_dynamic_record",
+      "plproxy_encoding",
+      "plproxy_split",
+      "plproxy_target",
+      "plproxy_alter",
+      "plproxy_cancel",
+      "plproxy_range",
+      "plproxy_sqlmed",
+      "plproxy_table",
+      "plproxy_modular"
+    ]
+  }
+}

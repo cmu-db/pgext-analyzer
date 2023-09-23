@@ -1,0 +1,6 @@
+{
+  "download_method": "contrib",
+  "folder_name": "old_snapshot",
+  "dependencies": [],
+  "install_method": "pgxs"
+}

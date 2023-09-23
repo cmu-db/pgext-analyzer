@@ -1,0 +1,12 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/postgrespro/vops",
+  "folder_name": "vops",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "test_list": ["test"]
+  }
+}

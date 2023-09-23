@@ -1,0 +1,18 @@
+{
+  "download_method": "contrib",
+  "folder_name": "jsonb_plpython",
+  "dependencies": ["plpython3u"],
+  "install_method": "pgxs",
+  "configure_options": [
+    "--with-python"
+  ],
+  "no_preload": true,
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "options": [
+      "--dbname=contrib_regression"
+    ],
+    "test_list": ["jsonb_plpython"]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "download_method": "contrib",
+  "folder_name": "adminpack",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "test_list": ["adminpack"]
+  }
+}

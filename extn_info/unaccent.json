@@ -1,0 +1,16 @@
+{
+  "download_method": "contrib",
+  "folder_name": "unaccent",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "options": [
+      "--encoding=UTF8",
+      "--no-locale",
+      "--dbname=contrib_regression"
+    ],
+    "test_list": ["unaccent"]
+  }
+}

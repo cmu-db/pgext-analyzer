@@ -1,0 +1,13 @@
+{
+  "download_method": "tar",
+  "download_url": "https://github.com/debezium/postgres-decoderbufs/archive/refs/tags/v1.7.0.Final.tar.gz",
+  "folder_name": "postgres-decoderbufs-1.7.0.Final",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "no_create_extn": true,
+  "custom_config": [
+    "wal_level = logical",
+    "max_wal_senders = 8",
+    "max_replication_slots = 4"
+  ]
+}

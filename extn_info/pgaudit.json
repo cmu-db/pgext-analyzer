@@ -1,0 +1,12 @@
+{
+  "download_method": "tar",
+  "download_url": "https://github.com/pgaudit/pgaudit/archive/refs/tags/1.7.0.tar.gz",
+  "folder_name": "pgaudit-1.7.0",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "test_list": ["pgaudit"]
+  }
+}

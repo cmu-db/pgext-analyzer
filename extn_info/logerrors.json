@@ -1,0 +1,18 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/munakoiso/logerrors.git",
+  "folder_name": "logerrors",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "options": [
+      "--create-role=postgres",
+      "--temp-config logerrors.conf",
+      "--load-extension=logerrors",
+      "--dbname=contrib_regression"
+    ],
+    "test_list": ["logerrors"]
+  }
+}

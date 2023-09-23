@@ -1,0 +1,23 @@
+{
+  "download_method": "contrib",
+  "folder_name": "pageinspect",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "options": [
+      "--dbname=contrib_regression"
+    ],
+    "test_list": [
+      "page",
+      "btree",
+      "brin",
+      "gin",
+      "gist",
+      "hash",
+      "checksum",
+      "oldextversions"
+    ]
+  }
+}

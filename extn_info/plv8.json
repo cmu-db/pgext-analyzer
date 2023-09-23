@@ -1,0 +1,38 @@
+{
+  "download_method": "tar",
+  "download_url": "https://github.com/plv8/plv8/archive/refs/tags/v3.1.6.tar.gz",
+  "folder_name": "plv8-3.1.6",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "no_preload": true,
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "test_list": [
+      "init-extension",
+      "plv8",
+      "plv8-errors",
+      "inline",
+      "json",
+      "startup_pre",
+      "startup",
+      "varparam",
+      "json_conv",
+      "jsonb_conv",
+      "window",
+      "guc",
+      "es6",
+      "arraybuffer",
+      "composites",
+      "currentresource",
+      "startup_perms",
+      "bytea",
+      "find_function_perms",
+      "memory_limits",
+      "reset",
+      "show",
+      "array_spread",
+      "regression"
+    ]
+  }
+}

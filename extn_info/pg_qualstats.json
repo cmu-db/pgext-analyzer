@@ -1,0 +1,15 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/powa-team/pg_qualstats",
+  "folder_name": "pg_qualstats",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": "test",
+    "expected_dir": ".",
+    "test_list": [
+      "pg_qualstats"
+    ]
+  }
+}

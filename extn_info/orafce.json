@@ -1,0 +1,29 @@
+{
+  "download_method": "tar",
+  "download_url": "https://github.com/orafce/orafce/archive/refs/tags/VERSION_4_2_1.tar.gz",
+  "folder_name": "orafce-VERSION_4_2_1",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "options": [
+      "--schedule=parallel_schedule",
+      "--encoding=utf8"
+    ],
+    "test_list": [
+      "orafce",
+      "orafce2",
+      "dbms_output",
+      "dbms_utility",
+      "files",
+      "varchar2",
+      "nvarchar2",
+      "aggregates",
+      "nlssort",
+      "dbms_random",
+      "regexp_func",
+      "dbms_sql"
+    ]
+  }
+}

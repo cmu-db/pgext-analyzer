@@ -1,0 +1,9 @@
+{
+  "download_method": "downloaded",
+  "dependencies": [],
+  "configure_options": [
+    "--with-python"
+  ],
+  "install_method": "installed",
+  "no_preload": true
+}

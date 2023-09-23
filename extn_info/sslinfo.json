@@ -1,0 +1,10 @@
+{
+  "download_method": "contrib",
+  "folder_name": "sslinfo",
+  "dependencies": [],
+  "configure_options": [
+    "--with-openssl"
+  ],
+  "install_method": "pgxs",
+  "no_preload": true
+}

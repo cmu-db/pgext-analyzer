@@ -1,0 +1,24 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/pgvector/pgvector",
+  "folder_name": "pgvector",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": "test",
+    "options": ["--load-extension=vector"],
+    "test_list": [
+      "btree",
+      "cast",
+      "copy",
+      "functions",
+      "input",
+      "ivfflat_cosine",
+      "ivfflat_ip",
+      "ivfflat_l2",
+      "ivfflat_options",
+      "ivfflat_unlogged"
+    ]
+  }
+}

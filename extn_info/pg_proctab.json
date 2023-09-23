@@ -1,0 +1,8 @@
+{
+  "download_method": "git",
+  "download_url": "https://gitlab.com/pg_proctab/pg_proctab.git",
+  "folder_name": "pg_proctab",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "post_install_shell_script": "pg_proctab_post_install.sh"
+}

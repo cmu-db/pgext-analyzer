@@ -1,0 +1,6 @@
+{
+  "download_method": "tar",
+  "download_url": "https://github.com/pgRouting/pgrouting/archive/v3.4.2.tar.gz",
+  "folder_name": "pgrouting-3.4.2 ",
+  "dependencies": []
+}

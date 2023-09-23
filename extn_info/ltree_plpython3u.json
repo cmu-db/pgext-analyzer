@@ -1,0 +1,24 @@
+{
+  "download_method": "contrib",
+  "folder_name": "ltree_plpython",
+  "dependencies": [
+    "ltree",
+    "plpython3u"
+  ],
+  "install_method": "pgxs",
+  "configure_options": [
+    "--with-python"
+  ],
+  "no_preload": true,
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "options": [
+      "--dbname=contrib_regression",
+      "--load-extension=ltree"
+    ],
+    "test_list": [
+      "ltree_plpython"
+    ]
+  }
+}

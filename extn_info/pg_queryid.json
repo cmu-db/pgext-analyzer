@@ -1,0 +1,18 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/rjuju/pg_queryid",
+  "folder_name": "pg_queryid",
+  "dependencies": ["pg_stat_statements"],
+  "install_method": "pgxs",
+  "custom_config": [
+    "compute_query_id = off"
+  ],
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": "test",
+    "expected_dir": ".",
+    "test_list": [
+      "pg_queryid"
+    ]
+  }
+}

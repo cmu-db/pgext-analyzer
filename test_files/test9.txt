@@ -1,0 +1,6 @@
+bool_plperl uuid-ossp
+hstore_plperl uuid-ossp
+jsonb_plperl uuid-ossp
+uuid-ossp bool_plperl
+uuid-ossp hstore_plperl
+uuid-ossp jsonb_plperl

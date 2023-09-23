@@ -1,0 +1,41 @@
+{
+  "download_method": "contrib",
+  "folder_name": "pgcrypto",
+  "dependencies": [],
+  "configure_options": [
+    "--with-openssl"
+  ],
+  "install_method": "pgxs",
+  "no_preload": true,
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "options": [
+      "--dbname=contrib_regression"
+    ],
+    "test_list": [
+      "init",
+      "md5",
+      "sha1",
+      "hmac-md5",
+      "hmac-sha1",
+      "blowfish",
+      "rijndael",
+      "sha2",
+      "des",
+      "3des",
+      "cast5",
+      "crypt-des",
+      "crypt-md5",
+      "crypt-blowfish",
+      "crypt-xdes",
+      "pgp-armor",
+      "pgp-decrypt",
+      "pgp-encrypt",
+      "pgp-compression",
+      "pgp-pubkey-decrypt",
+      "pgp-pubkey-encrypt",
+      "pgp-info"
+    ]
+  }
+}

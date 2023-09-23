@@ -1,0 +1,30 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/pierreforstmann/pg_query_rewrite.git",
+  "folder_name": "pg_query_rewrite",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "custom_config": [
+    "logging_collector=on",
+    "log_statement=all",
+    "pg_query_rewrite.max_rules=10"
+  ],
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "options": [
+      "--dbname=contrib_regression"
+    ],
+    "test_list": [
+      "test0",
+      "test1",
+      "test2",
+      "test3",
+      "test4",
+      "test5",
+      "test6",
+      "test7",
+      "test8"
+    ]
+  }
+}

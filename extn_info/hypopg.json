@@ -1,0 +1,20 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/HypoPG/hypopg.git",
+  "folder_name": "hypopg",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": "test",
+    "expected_dir": ".",
+    "test_list": [
+      "hypopg",
+      "hypo_brin",
+      "hypo_index_part",
+      "hypo_include",
+      "hypo_hash",
+      "hypo_hide_index"
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/percona/pg_stat_monitor",
+  "folder_name": "pg_stat_monitor",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": "regression",
+    "options": [
+      "--dbname=contrib_regression"
+    ],
+    "test_list": [
+      "basic",
+      "version",
+      "guc",
+      "pgsm_query_id",
+      "functions",
+      "counters",
+      "relations",
+      "database",
+      "error_insert",
+      "application_name",
+      "application_name_unique",
+      "top_query",
+      "cmd_type",
+      "error",
+      "rows",
+      "tags",
+      "user"
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "download_method": "contrib",
+  "folder_name": "pg_stat_statements",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "test_list": [
+      "pg_stat_statements",
+      "oldextversions"
+    ]
+  }
+}

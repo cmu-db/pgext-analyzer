@@ -1,0 +1,18 @@
+{
+  "download_method": "tar",
+  "download_url": "https://github.com/okbob/plpgsql_check/archive/refs/tags/v2.3.3.tar.gz",
+  "folder_name": "plpgsql_check-2.3.3",
+  "dependencies": ["plpgsql"],
+  "install_method": "pgxs",
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "options": ["--dbname=pl_regression"],
+    "test_list": [
+      "plpgsql_check_passive",
+      "plpgsql_check_active",
+      "plpgsql_check_active-15",
+      "plpgsql_check_passive-15"
+    ]
+  }
+}

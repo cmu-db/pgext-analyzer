@@ -1,0 +1,16 @@
+{
+  "download_method": "tar",
+  "download_url": "https://github.com/sraoss/pg_ivm/archive/refs/tags/v1.5.1.tar.gz",
+  "folder_name": "pg_ivm-1.5.1",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "test_list": [
+      "pg_ivm",
+      "create_immv",
+      "refresh_immv"
+    ]
+  }
+}

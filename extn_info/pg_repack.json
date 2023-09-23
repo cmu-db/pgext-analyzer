@@ -1,0 +1,33 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/reorg/pg_repack.git",
+  "folder_name": "pg_repack",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "no_preload": true,
+  "test_method": "pg_regress",
+  "before_test_scripts": [
+    "$PWD/../../extn_scripts/pg_repack_before.sh"
+  ],
+  "pg_regress": {
+    "input_dir": "regress",
+    "path": "$PWD/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "options": [
+      "--dbname=contrib_regression"
+    ],
+    "test_list": [
+      "init-extension",
+      "repack-setup",
+      "repack-run",
+      "error-on-invalid-idx",
+      "after-schema",
+      "repack-check",
+      "nosuper",
+      "tablespace",
+      "get_order_by"
+    ]
+  },
+  "after_test_scripts": [
+    "$PWD/../../extn_scripts/pg_repack_after.sh"
+  ]
+}

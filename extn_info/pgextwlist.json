@@ -1,0 +1,19 @@
+{
+  "download_method": "tar",
+  "download_url": "https://github.com/dimitri/pgextwlist/archive/refs/tags/v1.15.tar.gz",
+  "folder_name": "pgextwlist-1.15",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "no_create_extn": true,
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "test_list": [
+      "setup",
+      "pgextwlist",
+      "errors",
+      "crossuser",
+      "hooks"
+    ]
+  }
+}

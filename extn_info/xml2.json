@@ -1,0 +1,18 @@
+{
+  "download_method": "contrib",
+  "folder_name": "xml2",
+  "dependencies": [],
+  "configure_options": [
+    "--with-libxml"
+  ],
+  "install_method": "pgxs",
+  "no_preload": true,
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "options": [
+      "--dbname=contrib_regression"
+    ],
+    "test_list": ["xml2"]
+  }
+}

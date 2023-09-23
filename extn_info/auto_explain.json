@@ -1,0 +1,10 @@
+{
+  "download_method": "contrib",
+  "folder_name": "auto_explain",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "no_create_extn": true,
+  "custom_config": [
+    "auto_explain.log_min_duration = '3s'"
+  ]
+}

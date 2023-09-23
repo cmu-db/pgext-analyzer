@@ -1,0 +1,13 @@
+{
+  "download_method": "contrib",
+  "folder_name": "earthdistance",
+  "dependencies": [
+    "cube"
+  ],
+  "install_method": "pgxs",
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "test_list": ["earthdistance"]
+  }
+}

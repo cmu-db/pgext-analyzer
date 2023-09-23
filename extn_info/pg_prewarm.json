@@ -1,0 +1,6 @@
+{
+  "download_method": "contrib",
+  "folder_name": "pg_prewarm",
+  "dependencies": [],
+  "install_method": "pgxs"
+}

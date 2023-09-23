@@ -1,0 +1,8 @@
+{
+  "download_method": "tar",
+  "download_url": "https://github.com/gleu/pg_log_userqueries/archive/refs/tags/v1.4.0.tar.gz",
+  "folder_name": "pg_log_userqueries-1.4.0",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "no_create_extn": true
+}

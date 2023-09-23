@@ -1,0 +1,10 @@
+{
+  "download_method": "contrib",
+  "folder_name": "auth_delay",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "no_create_extn": true,
+  "custom_config": [
+    "auth_delay.milliseconds = '500'"
+  ]
+}

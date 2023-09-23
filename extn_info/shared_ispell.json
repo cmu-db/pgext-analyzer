@@ -1,0 +1,16 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/postgrespro/shared_ispell",
+  "folder_name": "shared_ispell",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "custom_config": ["shared_ispell.max_size = 1MB"],
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "test_list": [
+      "security",
+      "shared_ispell"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "download_method": "contrib",
+  "folder_name": "hstore_plpython",
+  "dependencies": [
+    "hstore",
+    "plpython3u"
+  ],
+  "install_method": "pgxs",
+  "configure_options": [
+    "--with-python"
+  ],
+  "no_preload": true,
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "options": [
+      "--dbname=contrib_regression",
+      "--load-extension=hstore"
+    ],
+    "test_list": ["hstore_plpython"]
+  }
+}

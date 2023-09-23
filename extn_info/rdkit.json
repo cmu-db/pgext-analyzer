@@ -1,0 +1,6 @@
+{
+  "download_method": "tar",
+  "download_url": "https://github.com/rdkit/rdkit/archive/refs/tags/Release_2023_03_1.tar.gz",
+  "folder_name": "rdkit-Release_2023_03_1",
+  "dependencies": []
+}

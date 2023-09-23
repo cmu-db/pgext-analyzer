@@ -1,0 +1,6 @@
+{
+  "download_method": "contrib",
+  "folder_name": "pgrowlocks",
+  "dependencies": [],
+  "install_method": "pgxs"
+}

@@ -1,0 +1,2 @@
+timescaledb amcheck
+amcheck timescaledb

@@ -1,0 +1,6 @@
+{
+  "download_method": "contrib",
+  "folder_name": "tcn",
+  "dependencies": [],
+  "install_method": "pgxs"
+}

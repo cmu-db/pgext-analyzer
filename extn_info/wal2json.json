@@ -1,0 +1,47 @@
+{
+  "download_method": "tar",
+  "download_url": "https://github.com/eulerto/wal2json/archive/refs/tags/wal2json_2_5.tar.gz",
+  "folder_name": "wal2json-wal2json_2_5",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "custom_config": [
+    "wal_level = logical",
+    "max_replication_slots = 10"
+  ],
+  "no_create_extn": true,
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "test_list": [
+      "cmdline",
+      "insert1",
+      "update1",
+      "update2",
+      "update3",
+      "update4",
+      "delete1",
+      "delete2",
+      "delete3",
+      "delete4",
+      "savepoint",
+      "specialvalue",
+      "toast",
+      "bytea",
+      "message",
+      "typmod",
+      "filtertable",
+      "selecttable",
+      "include_timestamp",
+      "include_lsn",
+      "include_xids",
+      "include_domain_data_type",
+      "truncate",
+      "type_oid",
+      "actions",
+      "position",
+      "default",
+      "pk",
+      "rename_column"
+    ]
+  }
+}

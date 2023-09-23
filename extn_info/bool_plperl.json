@@ -1,0 +1,20 @@
+{
+  "download_method": "contrib",
+  "folder_name": "bool_plperl",
+  "dependencies": ["plperl"],
+  "install_method": "pgxs",
+  "configure_options": [
+    "--with-perl"
+  ],
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "options": [
+      "--dbname=contrib_regression"
+    ],
+    "test_list": [
+      "bool_plperl", 
+      "bool_plperlu"
+    ]
+  }
+}

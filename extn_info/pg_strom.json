@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/heterodb/pg-strom",
+  "folder_name": "pg-strom",
+  "dependencies": [],
+  "install_method": "pgxs"
+}

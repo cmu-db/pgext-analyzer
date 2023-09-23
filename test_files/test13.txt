@@ -1,0 +1,6 @@
+hstore_plpython3u xml2
+jsonb_plpython3u xml2
+ltree_plpython3u xml2
+xml2 hstore_plpython3u
+xml2 jsonb_plpython3u
+xml2 ltree_plpython3u

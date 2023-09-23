@@ -1,0 +1,36 @@
+{
+  "download_method": "zip",
+  "download_url": "https://github.com/ossc-db/pg_hint_plan/archive/refs/tags/REL15_1_5_0.zip",
+  "folder_name": "pg_hint_plan-REL15_1_5_0",
+  "dependencies": [
+    "pg_stat_statements"
+  ],
+  "install_method": "pgxs",
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "options": [
+      "--encoding=UTF8",
+      "--dbname=contrib_regression"
+    ],
+    "test_list": [
+      "init",
+      "base_plan",
+      "pg_hint_plan",
+      "ut-init",
+      "ut-A",
+      "ut-S",
+      "ut-J",
+      "ut-L",
+      "ut-G",
+      "ut-R",
+      "ut-fdw",
+      "ut-W",
+      "ut-T",
+      "ut-fini",
+      "hints_anywhere",
+      "plpgsql",
+      "oldextversions"
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "download_method": "contrib",
+  "folder_name": "pg_surgery",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "test_list": ["heap_surgery"]
+  }
+}

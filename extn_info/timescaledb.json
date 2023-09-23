@@ -1,0 +1,42 @@
+{
+  "download_method": "tar",
+  "download_url": "https://github.com/timescale/timescaledb/archive/refs/tags/2.11.1.tar.gz",
+  "folder_name": "timescaledb-2.11.1",
+  "configure_options": [
+    "--with-openssl"
+  ],
+  "dependencies": [],
+  "install_method": "shell_script",
+  "shell_script": "timescale_install.sh",
+  "custom_config": [
+    "max_worker_processes=24",
+    "autovacuum=false",
+    "random_page_cost=1.0",
+    "timezone='US/Pacific'",
+    "datestyle='Postgres, MDY'",
+    "timescaledb.license='apache'",
+    "timescaledb.telemetry_level=off",
+    "timescaledb.last_tuned='1971-02-03 04:05:06.789012 -0300'",
+    "timescaledb.last_tuned_version='0.0.1'",
+    "timescaledb_telemetry.cloud='ci'",
+    "log_line_prefix='%m: %u [%p] %d '",
+    "extra_float_digits=0",
+    "timescaledb.passfile='$PATH/build/test/pgpass.conf'",
+    "hba_file='$PATH/build/test/pg_hba.conf'"
+  ],
+  "test_method": "custom_test_script",
+  "custom_test_script": {
+    "script": "timescale_test.sh",
+    "expected": "timescale_test_output.txt",
+    "expected_location": "end",
+    "fail_files": [
+      "build/test/regression.out",
+      "build/test/regression.diffs"
+    ],
+    "fail_file_names": [
+      "timescale.out",
+      "timescale.diffs"
+    ]
+  }
+  
+}

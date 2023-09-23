@@ -1,0 +1,13 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/adjust/pg_querylog",
+  "folder_name": "pg_querylog",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "custom_config": ["log_statement=all"],
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "test_list": ["basic"]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "download_method": "contrib",
+  "folder_name": "basic_archive",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "custom_config": [
+    "archive_mode = on",
+    "archive_library = 'basic_archive'",
+    "basic_archive.archive_directory = '.'",
+    "wal_level = replica"
+  ],
+  "no_create_extn": true,
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "options": [
+      "--dbname=contrib_regression"
+    ],
+    "test_list": ["basic_archive"]
+  }
+}

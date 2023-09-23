@@ -1,0 +1,50 @@
+{
+  "download_method": "tar",
+  "download_url": "https://gitlab.com/dalibo/postgresql_anonymizer/-/archive/1.1.0/postgresql_anonymizer-1.1.0.tar.gz",
+  "folder_name": "postgresql_anonymizer-1.1.0",
+  "dependencies": [
+    "pgcrypto"
+  ],
+  "install_method": "pgxs",
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": "tests",
+    "options": [
+      "--dbname=contrib_regression",
+      "--create-role=postgres"
+    ],
+    "test_list": [
+      "init",
+      "populate",
+      "extschema",
+      "detection",
+      "get_function_schema",
+      "trusted_schemas",
+      "multiple_masking_policies",
+      "destruction",
+      "noise",
+      "shuffle",
+      "random",
+      "faking",
+      "partial",
+      "pseudonymization",
+      "hashing",
+      "dynamic_masking",
+      "anonymize",
+      "privacy_by_default",
+      "pg_dump_anon_sh",
+      "restore",
+      "hasmask",
+      "masked_roles",
+      "masking",
+      "masking_search_path",
+      "masking_foreign_tables",
+      "generalization",
+      "k_anonymity",
+      "permissions_owner",
+      "permissions_masked_role",
+      "injection",
+      "syntax_checks"
+    ]
+  }
+}

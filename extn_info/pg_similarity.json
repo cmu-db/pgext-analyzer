@@ -1,0 +1,17 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/eulerto/pg_similarity.git",
+  "folder_name": "pg_similarity",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "test_list": [
+      "test1",
+      "test2",
+      "test3",
+      "test4"
+    ]
+  }
+}

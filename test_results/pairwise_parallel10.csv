@@ -1,0 +1,6 @@
+bool_plperl,xml2,True
+hstore_plperl,xml2,True
+jsonb_plperl,xml2,True
+xml2,bool_plperl,True
+xml2,hstore_plperl,True
+xml2,jsonb_plperl,True

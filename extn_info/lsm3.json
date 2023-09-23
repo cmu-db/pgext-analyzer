@@ -1,0 +1,13 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/postgrespro/lsm3.git",
+  "folder_name": "lsm3",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "custom_config": ["lsm3.top_index_size=1MB"],
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "test_list": ["test"]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "download_method": "contrib",
+  "folder_name": "hstore_plperl",
+  "dependencies": [
+    "hstore",
+    "plperl"
+  ],
+  "install_method": "pgxs",
+  "configure_options": [
+    "--with-perl"
+  ],
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "options": [
+      "--dbname=contrib_regression"
+    ],
+    "test_list": [
+      "hstore_plperl",
+      "hstore_plperlu",
+      "create_transform"
+    ]
+  }
+}

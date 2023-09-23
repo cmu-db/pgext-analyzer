@@ -1,0 +1,17 @@
+{
+  "download_method": "contrib",
+  "folder_name": "uuid-ossp",
+  "dependencies": [],
+  "configure_options": [
+    "--with-uuid=ossp"
+  ],
+  "install_method": "pgxs",
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "options": [
+      "--dbname=contrib_regression"
+    ],
+    "test_list": ["uuid_ossp"]
+  }
+}

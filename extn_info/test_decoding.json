@@ -1,0 +1,43 @@
+{
+  "download_method": "contrib",
+  "folder_name": "test_decoding",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "custom_config": [
+    "wal_level = logical",
+    "max_replication_slots = 4",
+    "logical_decoding_work_mem = 64kB",
+    "autovacuum_naptime = 1d",
+    "max_prepared_transactions = 1"
+  ],
+  "no_preload": true,
+  "no_create_extn": true,
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "options": [
+      "--dbname=contrib_regression"
+    ],
+    "test_list": [
+      "ddl",
+      "xact",
+      "rewrite",
+      "toast",
+      "permissions",
+      "decoding_in_xact",
+      "decoding_into_rel",
+      "binary",
+      "prepared",
+      "replorigin",
+      "time",
+      "messages",
+      "spill",
+      "slot",
+      "truncate",
+      "stream",
+      "stats",
+      "twophase",
+      "twophase_stream"
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+pgcrypto,xml2,True
+pgjwt,xml2,True
+sslinfo,xml2,True
+xml2,pgcrypto,True
+xml2,pgjwt,True
+xml2,sslinfo,True

@@ -1,0 +1,11 @@
+{
+  "download_method": "contrib",
+  "folder_name": "tsm_system_time",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "test_list": ["tsm_system_time"]
+  }
+}

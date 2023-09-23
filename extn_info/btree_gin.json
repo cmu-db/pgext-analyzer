@@ -1,0 +1,43 @@
+{
+  "download_method": "contrib",
+  "folder_name": "btree_gin",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "options": ["--dbname=contrib_regression"],
+    "test_list": [
+      "install_btree_gin", 
+      "int2",
+      "int4",
+      "int8",
+      "float4",
+      "float8",
+      "money",
+      "oid",
+      "timestamp",
+      "timestamptz",
+      "time",
+      "timetz",
+      "date",
+      "interval",
+      "macaddr",
+      "macaddr8",
+      "inet",
+      "cidr",
+      "text",
+      "varchar",
+      "char",
+      "bytea",
+      "bit",
+      "varbit",
+      "numeric",
+      "enum",
+      "uuid",
+      "name",
+      "bool",
+      "bpchar"
+    ]
+  }
+}

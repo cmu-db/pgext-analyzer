@@ -1,0 +1,12 @@
+{
+  "download_method": "contrib",
+  "folder_name": "ltree",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "options": ["--dbname=contrib_regression"],
+    "test_list": ["ltree"]
+  }
+}

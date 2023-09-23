@@ -1,0 +1,44 @@
+{
+  "download_method": "tar",
+  "download_url": "https://github.com/EnterpriseDB/mysql_fdw/archive/refs/tags/REL-2_9_0.tar.gz",
+  "folder_name": "mysql_fdw-REL-2_9_0",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "no_preload": true,
+  "test_method": "pg_regress",
+  "before_test_scripts": [
+    "sudo systemctl start mysql",
+    "mysql -u root --password=hello123 -e \"INSTALL COMPONENT 'file://component_validate_password';\"",
+    "mysql -u root --password=hello123 -e \"CREATE DATABASE mysql_fdw_regress; CREATE DATABASE mysql_fdw_regress1;\"",
+    "mysql -u root --password=hello123 -e \"SET GLOBAL validate_password.policy = LOW;\"",
+    "mysql -u root --password=hello123 -e \"SET GLOBAL validate_password.mixed_case_count = 0;\"",
+    "mysql -u root --password=hello123 -e \"SET GLOBAL validate_password.number_count = 0;\"",
+    "mysql -u root --password=hello123 -e \"SET GLOBAL validate_password.special_char_count = 0;\"",
+    "mysql -u root --password=hello123 -e \"SET GLOBAL validate_password.length = 1;\"",
+    "mysql -u root --password=hello123 -e \"CREATE USER 'edb'@'localhost' IDENTIFIED BY 'edb';\"",
+    "mysql -u root --password=hello123 -e \"GRANT ALL PRIVILEGES ON mysql_fdw_regress.* TO 'edb'@'localhost';\"",
+    "mysql -u root --password=hello123 -e \"GRANT ALL PRIVILEGES ON mysql_fdw_regress1.* TO 'edb'@'localhost';\"",
+    "./mysql_init.sh"
+  ],
+  "pg_regress": {
+    "input_dir": ".",
+    "options": [
+      "--dbname=contrib_regression"
+    ],
+    "test_list": [
+      "server_options",
+      "connection_validation",
+      "dml",
+      "select",
+      "pushdown",
+      "join_pushdown",
+      "aggregate_pushdown",
+      "limit_offset_pushdown",
+      "misc"
+    ]
+  },
+  "after_test_scripts": [
+    "mysql -u root --password=hello123 -e \"DROP DATABASE mysql_fdw_regress; DROP DATABASE mysql_fdw_regress1; DROP USER 'edb'@'localhost';\"", 
+    "mysql -u root --password=hello123 -e \"UNINSTALL COMPONENT 'file://component_validate_password';\"",
+    "sudo systemctl stop mysql"]
+}

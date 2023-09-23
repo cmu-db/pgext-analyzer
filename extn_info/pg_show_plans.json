@@ -1,0 +1,15 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/cybertec-postgresql/pg_show_plans",
+  "folder_name": "pg_show_plans",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "test_list": [
+      "pg_show_plans",
+      "formats"
+    ]
+  }
+}

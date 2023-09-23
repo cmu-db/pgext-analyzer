@@ -1,0 +1,30 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/knizhnik/imcs.git",
+  "folder_name": "imcs",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "custom_config": ["extra_float_digits=0"],
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "test_list": [
+      "create",
+      "span",
+      "operators",
+      "math",
+      "datetime",
+      "transform",
+      "scalarop",
+      "grandagg",
+      "groupbyagg",
+      "gridagg",
+      "windowagg",
+      "hashagg",
+      "cumagg",
+      "sort",
+      "spec",
+      "drop"
+    ]
+  }
+}
