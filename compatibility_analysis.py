@@ -228,6 +228,8 @@ def modify_postgresql_conf(extns_to_install):
       continue
     elif "preload_name" in extn_entry:
       extns_to_preload.append(extn_entry["preload_name"])
+    elif "preload_first" in extn_entry:
+      extns_to_preload.insert(0, extn)
     else:
       extns_to_preload.append(extn)
 
@@ -394,11 +396,24 @@ def custom_script_test(test_extn, compat_extn, test_extn_dir, terminal_file):
 
   total_command = "./" + test_script
 
+  env_var_list = []
+
+  # Get compatible extension configs 
+  if compat_extn != "":
+    env_var_list += ["COMPATIBLE_EXTENSION="+compat_extn]
+
+    compat_extn_entry = extn_db[compat_extn]
+    if "custom_config" in compat_extn_entry:
+      extra_config_string = ';'.join(compat_extn_entry["custom_config"])
+      env_var_list += ["EXTRA_CONFIGS="+extra_config_string]
+
   # Determine environment variables
   if "env" in test_extn_entry:
-    env_var_list = test_extn_entry["env"]
-    env_var_list = list(map(lambda x: "export " + x, env_var_list))
-    env_txt = " && ".join(env_var_list)
+    env_var_list += test_extn_entry["env"]
+
+  if env_var_list:
+    export_list = list(map(lambda x: "export " + x, env_var_list))
+    env_txt = " && ".join(export_list)
     total_command = env_txt + " && " + total_command
 
   # Run tests

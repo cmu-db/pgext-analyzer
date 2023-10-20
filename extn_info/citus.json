@@ -181,5 +181,34 @@
   "source_dir": "src",
   "dependencies": [],
   "install_method": "shell_script",
-  "shell_script": "citus_install.sh"
+  "shell_script": "citus_install.sh",
+  "preload_first": true,
+  "configure_options": [
+    "--with-icu",
+    "--with-libxml",
+    "--with-libxslt",
+    "--with-lz4"
+  ],
+  "custom_config": [
+    "citus.enable_unsupported_feature_messages=false"
+  ],
+  "test_method": "custom_test_script",
+  "custom_test_script": {
+    "script": "citus_test.sh",
+    "expected": "citus_test_output.txt",
+    "expected_location": "end",
+    "fail_files": [
+      "src/test/regress/regression.out",
+      "src/test/regress/regression.diffs",
+      "src/test/regress/check-multi.log",
+      "src/test/regress/tmp_check/master/log/postmaster.log"
+    ],
+    "fail_file_names": [
+      "regression.out",
+      "regression.diffs",
+      "check-multi.log",
+      "coordinator.log"
+    ]
+  }
+
 }
