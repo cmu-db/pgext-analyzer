@@ -2,6 +2,7 @@
   "download_method": "tar",
   "download_url": "https://github.com/EnterpriseDB/mysql_fdw/archive/refs/tags/REL-2_9_0.tar.gz",
   "folder_name": "mysql_fdw-REL-2_9_0",
+  "source_dir": ".",
   "dependencies": [],
   "install_method": "pgxs",
   "no_preload": true,

@@ -2,6 +2,7 @@
   "download_method": "git",
   "download_url": "https://github.com/adjust/pg_querylog",
   "folder_name": "pg_querylog",
+  "source_dir": ".",
   "dependencies": [],
   "install_method": "pgxs",
   "custom_config": ["log_statement=all"],

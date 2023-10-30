@@ -2,6 +2,7 @@
   "download_method": "tar",
   "download_url": "https://gitlab.com/dalibo/postgresql_anonymizer/-/archive/1.1.0/postgresql_anonymizer-1.1.0.tar.gz",
   "folder_name": "postgresql_anonymizer-1.1.0",
+  "source_dir": ".",
   "dependencies": [
     "pgcrypto"
   ],

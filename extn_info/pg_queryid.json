@@ -2,6 +2,7 @@
   "download_method": "git",
   "download_url": "https://github.com/rjuju/pg_queryid",
   "folder_name": "pg_queryid",
+  "source_dir": ".",
   "dependencies": ["pg_stat_statements"],
   "install_method": "pgxs",
   "custom_config": [

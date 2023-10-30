@@ -2,6 +2,7 @@
   "download_method": "git",
   "download_url": "https://github.com/dimitri/prefix.git",
   "folder_name": "prefix",
+  "source_dir": ".",
   "dependencies": [],
   "install_method": "pgxs",
   "no_preload": true

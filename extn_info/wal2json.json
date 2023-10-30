@@ -2,6 +2,7 @@
   "download_method": "tar",
   "download_url": "https://github.com/eulerto/wal2json/archive/refs/tags/wal2json_2_5.tar.gz",
   "folder_name": "wal2json-wal2json_2_5",
+  "source_dir": ".",
   "dependencies": [],
   "install_method": "pgxs",
   "custom_config": [

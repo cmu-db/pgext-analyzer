@@ -2,6 +2,7 @@
   "download_method": "tar",
   "download_url": "https://github.com/plv8/plv8/archive/refs/tags/v3.1.6.tar.gz",
   "folder_name": "plv8-3.1.6",
+  "source_dir": ".",
   "dependencies": [],
   "install_method": "pgxs",
   "no_preload": true,

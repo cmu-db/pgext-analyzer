@@ -2,5 +2,6 @@
   "download_method": "tar",
   "download_url": "https://download.osgeo.org/postgis/source/postgis-3.3.0alpha1.tar.gz",
   "folder_name": "postgis-3.3.0alpha1",
+  "source_dir": ".",
   "dependencies": []
 }

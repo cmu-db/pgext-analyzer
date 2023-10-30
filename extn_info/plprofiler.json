@@ -2,6 +2,7 @@
   "download_method": "tar",
   "download_url": "https://github.com/bigsql/plprofiler/archive/refs/tags/REL4_2_1.tar.gz",
   "folder_name": "plprofiler-REL4_2_1",
+  "source_dir": ".",
   "dependencies": [],
   "install_method": "pgxs"
 }

@@ -2,6 +2,7 @@
   "download_method": "tar",
   "download_url": "https://github.com/darold/pgtt/archive/refs/tags/v2.10.tar.gz",
   "folder_name": "pgtt-2.10",
+  "source_dir": ".",
   "dependencies": [],
   "install_method": "pgxs",
   "no_preload": true,

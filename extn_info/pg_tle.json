@@ -2,6 +2,7 @@
   "download_method": "tar",
   "download_url": "https://github.com/aws/pg_tle/archive/refs/tags/v1.0.4.tar.gz",
   "folder_name": "pg_tle-1.0.4",
+  "source_dir": "src",
   "dependencies": [],
   "install_method": "pgxs",
   "test_method": "pg_regress",

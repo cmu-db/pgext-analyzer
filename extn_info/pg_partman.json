@@ -2,6 +2,7 @@
   "download_method": "tar",
   "download_url": "https://github.com/pgpartman/pg_partman/archive/refs/tags/v4.5.1.tar.gz",
   "folder_name": "pg_partman-4.5.1",
+  "source_dir": "src",
   "dependencies": [],
   "install_method": "pgxs",
   "preload_name": "pg_partman_bgw"

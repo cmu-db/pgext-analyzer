@@ -2,6 +2,7 @@
   "download_method": "tar",
   "download_url": "https://github.com/debezium/postgres-decoderbufs/archive/refs/tags/v1.7.0.Final.tar.gz",
   "folder_name": "postgres-decoderbufs-1.7.0.Final",
+  "source_dir": "src",
   "dependencies": [],
   "install_method": "pgxs",
   "no_create_extn": true,

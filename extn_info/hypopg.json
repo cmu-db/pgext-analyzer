@@ -2,6 +2,7 @@
   "download_method": "git",
   "download_url": "https://github.com/HypoPG/hypopg.git",
   "folder_name": "hypopg",
+  "source_dir": ".",
   "dependencies": [],
   "install_method": "pgxs",
   "test_method": "pg_regress",

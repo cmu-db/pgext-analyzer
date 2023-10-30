@@ -2,6 +2,7 @@
   "download_method": "git",
   "download_url": "https://github.com/pgsentinel/pgsentinel",
   "folder_name": "pgsentinel/src",
+  "source_dir": ".",
   "dependencies": ["pg_stat_statements"],
   "install_method": "pgxs",
   "custom_config": [

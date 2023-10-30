@@ -2,6 +2,7 @@
   "download_method": "git",
   "download_url": "https://github.com/pierreforstmann/pg_query_rewrite.git",
   "folder_name": "pg_query_rewrite",
+  "source_dir": ".",
   "dependencies": [],
   "install_method": "pgxs",
   "custom_config": [

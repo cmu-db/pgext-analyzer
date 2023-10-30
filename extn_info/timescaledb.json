@@ -2,6 +2,7 @@
   "download_method": "tar",
   "download_url": "https://github.com/timescale/timescaledb/archive/refs/tags/2.11.1.tar.gz",
   "folder_name": "timescaledb-2.11.1",
+  "source_dir": "src",
   "configure_options": [
     "--with-openssl"
   ],

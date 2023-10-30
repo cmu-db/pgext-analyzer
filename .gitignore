@@ -1,0 +1,7 @@
+pg-15-data/
+pg-15-dist/
+pgextworkdir/
+testing-output-*
+postgresql-*
+*.csv
+logfile

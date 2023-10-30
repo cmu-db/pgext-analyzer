@@ -2,6 +2,7 @@
   "download_method": "tar",
   "download_url": "https://github.com/pgbigm/pg_bigm/archive/refs/tags/v1.2-20200228.tar.gz",
   "folder_name": "pg_bigm-1.2-20200228",
+  "source_dir": ".",
   "dependencies": [],
   "install_method": "pgxs",
   "test_method": "pg_regress",

@@ -2,6 +2,7 @@
   "download_method": "git",
   "download_url": "https://github.com/postgrespro/shared_ispell",
   "folder_name": "shared_ispell",
+  "source_dir": "src",
   "dependencies": [],
   "install_method": "pgxs",
   "custom_config": ["shared_ispell.max_size = 1MB"],

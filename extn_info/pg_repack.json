@@ -2,6 +2,7 @@
   "download_method": "git",
   "download_url": "https://github.com/reorg/pg_repack.git",
   "folder_name": "pg_repack",
+  "source_dir": "bin",
   "dependencies": [],
   "install_method": "pgxs",
   "no_preload": true,

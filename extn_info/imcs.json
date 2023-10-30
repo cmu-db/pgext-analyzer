@@ -2,6 +2,7 @@
   "download_method": "git",
   "download_url": "https://github.com/knizhnik/imcs.git",
   "folder_name": "imcs",
+  "source_dir": ".",
   "dependencies": [],
   "install_method": "pgxs",
   "custom_config": ["extra_float_digits=0"],

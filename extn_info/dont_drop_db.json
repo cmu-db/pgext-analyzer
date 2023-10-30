@@ -2,6 +2,7 @@
   "download_method": "git",
   "download_url": "https://github.com/s-hironobu/dont_drop_db",
   "folder_name": "dont_drop_db",
+  "source_dir": ".",
   "dependencies": [],
   "install_method": "pgxs"
 }

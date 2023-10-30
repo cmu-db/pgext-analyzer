@@ -2,6 +2,7 @@
   "download_method": "tar",
   "download_url": "https://github.com/klando/pgfincore/archive/refs/tags/1.2.4.tar.gz",
   "folder_name": "pgfincore-1.2.4",
+  "source_dir": ".",
   "dependencies": [],
   "install_method": "pgxs",
   "no_preload": true,

@@ -2,6 +2,7 @@
   "download_method": "tar",
   "download_url": "https://plproxy.github.io/downloads/files/2.10.0/plproxy-2.10.0.tar.gz",
   "folder_name": "plproxy-2.10.0",
+  "source_dir": "src",
   "dependencies": [],
   "install_method": "pgxs",
   "no_preload": true,

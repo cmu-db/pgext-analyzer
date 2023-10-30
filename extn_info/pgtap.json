@@ -2,6 +2,7 @@
   "download_method": "tar",
   "download_url": "https://github.com/theory/pgtap/archive/refs/tags/v1.2.0.tar.gz",
   "folder_name": "pgtap-1.2.0",
+  "source_dir": ".",
   "dependencies": [],
   "install_method": "pgxs",
   "no_preload": true

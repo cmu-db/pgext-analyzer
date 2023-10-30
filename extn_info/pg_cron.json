@@ -2,6 +2,7 @@
   "download_method": "tar",
   "download_url": "https://github.com/citusdata/pg_cron/archive/refs/tags/v1.5.1.tar.gz",
   "folder_name": "pg_cron-1.5.1",
+  "source_dir": "src",
   "dependencies": [],
   "install_method": "pgxs",
   "test_method": "pg_regress",

@@ -13,6 +13,10 @@ Python scripts for generating compatibility tables (and maybe other things).
 - libtinfo5
 - ninja-build
 - libsybdb5 freetds-dev freetds-common (tds_fdw)
+-  sctokenizer (for source_code_analysis.py)
+
+# Dependencies (Source Code Analysis)
+- PMD CPD
 
 # extn_info Directory Structure
 The `./extn_info` directory contains info on how Postgres extensions are downloaded, installed, and tested.

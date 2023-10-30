@@ -2,6 +2,7 @@
   "download_method": "tar",
   "download_url": "https://github.com/citusdata/citus/archive/refs/tags/v11.3.0.tar.gz",
   "folder_name": "citus-11.3.0",
+  "source_dir": "src",
   "dependencies": [],
   "install_method": "shell_script",
   "shell_script": "citus_install.sh"
