@@ -7,7 +7,6 @@
   "install_method": "pgxs",
   "test_method": "pg_regress",
   "custom_config": [
-    "shared_preload_libraries = 'pg_squeeze'",
     "wal_level = logical",
     "max_replication_slots = 1"
   ],
