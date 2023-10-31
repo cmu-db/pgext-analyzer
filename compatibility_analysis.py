@@ -4,6 +4,7 @@ from datetime import datetime
 import json
 import os
 import subprocess
+import multiprocessing
 import sys
 
 # File paths (globals)
@@ -20,6 +21,8 @@ postgres_version = "15.3"
 default_port_num = 5432
 port_num = 5432
 exit_flag = False
+
+nproc = multiprocessing.cpu_count();
 
 # Load extension database
 extn_files = os.listdir(current_working_dir + "/" + extn_info_dir)
@@ -79,8 +82,8 @@ def install_extn(extn_name, extn_entry, terminal_file):
     return
   elif install_type == "pgxs":
     install_extn_dir = current_working_dir + "/" + ext_work_dir + "/" + extn_entry["folder_name"]
-    subprocess.run("make USE_PGXS=1 PG_CONFIG=" + pg_config_path + " -j8", shell=True, cwd=install_extn_dir, stdout=terminal_file, stderr=terminal_file)
-    subprocess.run("make USE_PGXS=1 PG_CONFIG=" + pg_config_path + " install -j8", shell=True, cwd=install_extn_dir, stdout=terminal_file, stderr=terminal_file)
+    subprocess.run("make USE_PGXS=1 PG_CONFIG=" + pg_config_path + f" -j{nproc}", shell=True, cwd=install_extn_dir, stdout=terminal_file, stderr=terminal_file)
+    subprocess.run("make USE_PGXS=1 PG_CONFIG=" + pg_config_path + f" install -j{nproc}", shell=True, cwd=install_extn_dir, stdout=terminal_file, stderr=terminal_file)
   elif install_type == "shell_script":
     # Copy shell script over to the installation directory and run it.
     install_extn_dir = current_working_dir + "/" + ext_work_dir + "/" + extn_entry["folder_name"]
@@ -165,8 +168,8 @@ def install_postgres(postgres_config_options = []):
 
   subprocess.run("./configure --prefix=" + prefix + " " + config_options_str, capture_output=True, shell=True, cwd=postgres_dir)
   subprocess.run("make clean", capture_output=True, shell=True, cwd=postgres_dir)
-  subprocess.run("make world-bin -j8", capture_output=True, shell=True, cwd=postgres_dir)
-  subprocess.run("make install-world-bin -j8", capture_output=True, shell=True, cwd=postgres_dir)
+  subprocess.run(f"make world-bin -j{nproc}", capture_output=True, shell=True, cwd=postgres_dir)
+  subprocess.run(f"make install-world-bin -j{nproc}", capture_output=True, shell=True, cwd=postgres_dir)
   print("Done installing Postgres " + postgres_version + "...")
 
 def get_configure_options(extns_to_install):
@@ -764,3 +767,4 @@ if __name__ == '__main__':
   elif mode == 'combinatorial':
     ### TODO: Support combinatorial mode
     print("Combinatorial mode not supported yet!")
+
