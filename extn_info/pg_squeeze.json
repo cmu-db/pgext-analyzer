@@ -1,0 +1,18 @@
+{
+  "download_method": "tar",
+  "download_url": "https://github.com/cybertec-postgresql/pg_squeeze/archive/refs/tags/debian/1.6.2-1.tar.gz",
+  "folder_name": "pg_squeeze-debian-1.6.2-1",
+  "source_dir": ".",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "test_method": "pg_regress",
+  "custom_config": [
+    "shared_preload_libraries = 'pg_squeeze'",
+    "wal_level = logical",
+    "max_replication_slots = 1"
+  ],
+  "pg_regress": {
+    "input_dir": ".",
+    "test_list": ["squeeze"]
+  }
+}
