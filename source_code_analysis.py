@@ -7,7 +7,7 @@ import subprocess
 from sctokenizer import CppTokenizer
 
 # Debug flag
-DEBUG = False
+DEBUG = True
 
 # File paths (globals)
 current_working_dir = os.getcwd()
