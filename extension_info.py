@@ -1,0 +1,201 @@
+import csv
+from datetime import datetime
+import json
+import os
+import subprocess
+
+# Debug flag
+DEBUG = True
+
+# File path globals
+current_working_dir = os.getcwd()
+extn_info_dir = "extn_info"
+ext_work_dir = "pgextworkdir"
+postgres_version = "15.3"
+now = datetime.now()
+date_time = now.strftime("%m-%d-%Y_%H:%M")
+testing_output_dir = "testing-output-" + date_time
+
+# Common C/C++ extensions
+common_c_file_extns = ["h", "hh", "c", "cpp", "cc", "cxx", "cpp"]
+
+# List of hooks
+misc_hooks = [
+  "emit_log_hook",
+  "shmem_startup_hook",
+  "shmem_request_hook",
+  "needs_fmgr_hook",
+  "fmgr_hook",
+  "post_parse_analyze_hook"
+]
+
+query_processing_hooks = [
+  "explain_get_index_name_hook",
+  "ExplainOneQuery_hook",
+  "get_attavgwidth_hook",
+  "get_index_stats_hook",
+  "get_relation_info_hook",
+  "get_relation_stats_hook",
+  "planner_hook",
+  "join_search_hook",
+  "set_rel_pathlist_hook",
+  "set_join_pathlist_hook",
+  "create_upper_paths_hook",
+  "ExecutorStart_hook",
+  "ExecutorRun_hook",
+  "ExecutorFinish_hook",
+  "ExecutorEnd_hook",
+  "ProcessUtility_hook"
+]
+
+client_auth_hooks = [
+  "check_password_hook",
+  "ClientAuthentication_hook",
+  "ExecutorCheckPerms_hook",
+  "object_access_hook",
+  "row_security_policy_hook_permissive",
+  "row_security_policy_hook_restrictive"
+]
+
+# Types of Extensions
+
+postgres_hooks = misc_hooks + query_processing_hooks + client_auth_hooks
+
+# Creating the extension DB with the JSON files in extn_info
+extn_files = os.listdir(current_working_dir + "/" + extn_info_dir)
+extn_db = {}
+for file in extn_files:
+  extn_info_file = open(current_working_dir + "/" + extn_info_dir + "/" + file, "r")
+  extn_info_json = json.load(extn_info_file)
+  key = os.path.splitext(file)[0]
+  extn_db[key] = extn_info_json
+  extn_info_file.close()
+
+def initial_setup():
+  url = "https://ftp.postgresql.org/pub/source/v" + postgres_version + "/postgresql-" + postgres_version + ".tar.gz"
+  subprocess.run("wget " + url, cwd=current_working_dir, shell=True)
+  subprocess.run("tar -xvf postgresql-" + postgres_version + ".tar.gz", cwd=current_working_dir, shell=True, capture_output=True)
+  subprocess.run("mkdir " + ext_work_dir, cwd=current_working_dir, shell=True)
+  subprocess.run("mkdir " + testing_output_dir, cwd=current_working_dir, shell=True)
+  subprocess.run("touch terminal.txt", shell=True, cwd=current_working_dir + "/" + testing_output_dir)
+
+def cleanup():
+  subprocess.run("rm -r postgresql-" + postgres_version, shell=True, cwd=current_working_dir)
+  subprocess.run("rm -rf " + ext_work_dir, shell=True, cwd=current_working_dir)
+  subprocess.run("rm postgresql-" + postgres_version + ".tar.gz", shell=True, cwd=current_working_dir)
+
+def download_extn(extn_name, terminal_file):
+  extn_entry = extn_db[extn_name]
+  print("Downloading extension " + extn_name)
+  extension_dir = current_working_dir + "/" + ext_work_dir
+  download_type = extn_entry["download_method"]
+  if download_type == "git":
+    git_repo = extn_entry["download_url"]
+    subprocess.run("git clone " + git_repo, shell=True, cwd=extension_dir, stdout=terminal_file, stderr=terminal_file)
+  elif download_type == "tar" or download_type == "zip":
+    url = extn_entry["download_url"]
+    base_name = os.path.basename(url)
+    subprocess.run("wget " + url, shell=True, cwd=extension_dir, stdout=terminal_file, stderr=terminal_file)
+    if download_type == "tar":
+      subprocess.run("tar -xvf " + base_name, shell=True, cwd=extension_dir, stdout=terminal_file, stderr=terminal_file)
+    elif download_type == "zip":
+      subprocess.run("unzip " + base_name, shell=True, cwd=extension_dir, stdout=terminal_file, stderr=terminal_file)
+    subprocess.run("rm " + base_name, shell=True, cwd=extension_dir, stdout=terminal_file, stderr=terminal_file)
+  print("Finished downloading extension " + extn_name)
+
+def does_hook_exist(cl : str, hook):
+  return (cl.startswith(hook + "=") or cl.startswith(hook + " =")) and cl.endswith(";")
+
+def source_analysis(extn_name):
+  extn_entry = extn_db[extn_name]
+  download_type = extn_entry["download_method"]
+  source_dir ="" 
+  if download_type == "contrib":
+    source_dir = current_working_dir + "/postgresql-" + postgres_version + "/contrib/" + extn_entry["folder_name"]
+  else:
+    extension_dir = current_working_dir + "/" + ext_work_dir
+    source_dir = extension_dir + "/" + extn_entry["folder_name"] + "/" + extn_entry["source_dir"]
+
+  hooks_map = {}
+  features_map = {
+    "query_processing": False,
+    "client_auth": False
+  }
+
+  for hook in postgres_hooks:
+    hooks_map[hook] = False
+
+  for root, _, files in os.walk(source_dir):
+    for name in files:
+      _, file_ext = os.path.splitext(name)
+      if file_ext[1:] in common_c_file_extns:
+        tmp_source_file = open(os.path.join(source_dir, os.path.join(root, name)), "r")
+        code_lines = tmp_source_file.readlines()
+        for cl in code_lines:
+          processed_cl = " ".join(cl.strip().split())
+          for hook in misc_hooks:
+            if does_hook_exist(processed_cl, hook):
+              hooks_map[hook] = True
+
+          for hook in query_processing_hooks:
+            if does_hook_exist(processed_cl, hook):
+              hooks_map[hook] = True
+              features_map["query_processing"] = True
+
+          for hook in client_auth_hooks:
+            if does_hook_exist(processed_cl, hook):
+              hooks_map[hook] = True
+              features_map["client_auth"] = True
+
+        tmp_source_file.close()
+
+  return hooks_map, features_map
+  
+def run_extension_info_analysis(extn_name, hooks_csv_file_writer):
+  extn_entry = extn_db[extn_name]
+  download_type = extn_entry["download_method"]
+  if download_type == "downloaded":
+    return 
+
+  print("Running extension info analysis on " + extn_name)
+  hook_map, features_map = source_analysis(extn_name)
+
+  if DEBUG:
+    print(hook_map)
+    print(features_map)
+
+  output_to_hooks_csv = [extn_name]
+  for hook in postgres_hooks:
+    output_val = "Yes" if hook_map[hook] else "No"
+    output_to_hooks_csv.append(output_val)
+
+  hooks_csv_file_writer.writerow(output_to_hooks_csv)
+
+if __name__ == '__main__':
+  # Download Postgres 
+  initial_setup()
+
+  # Terminal file
+  terminal_file = open(testing_output_dir + "/terminal.txt", "a")
+
+  # CSV files
+  hooks_csv_file = open("hooks.csv", "w")
+  hooks_csv_file_writer = csv.writer(hooks_csv_file)
+  total_hooks_list = ["Extension Name"] + postgres_hooks
+  hooks_csv_file_writer.writerow(total_hooks_list)
+
+  if DEBUG:
+    download_extn("citus", terminal_file)
+    run_extension_info_analysis("citus", hooks_csv_file_writer)
+  else:
+    for extn in extn_db:
+      download_extn(extn, terminal_file)
+    
+    # Determine the percentage of source code copied from Postgres
+    extns_list = list(extn_db.keys())
+    extns_list.sort()
+    for extn in extns_list:
+      run_extension_info_analysis(extn, hooks_csv_file_writer)
+
+  cleanup()
+  
