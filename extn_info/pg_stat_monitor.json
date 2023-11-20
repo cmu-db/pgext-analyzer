@@ -3,6 +3,7 @@
   "download_url": "https://github.com/percona/pg_stat_monitor",
   "folder_name": "pg_stat_monitor",
   "source_dir": ".",
+  "sql_dirs": ["."],
   "dependencies": [],
   "install_method": "pgxs",
   "test_method": "pg_regress",

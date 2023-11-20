@@ -3,6 +3,7 @@
   "download_url": "https://github.com/postgrespro/pg_variables",
   "folder_name": "pg_variables",
   "source_dir": ".",
+  "sql_dirs": ["."],
   "dependencies": [],
   "install_method": "pgxs",
   "test_method": "pg_regress",

@@ -2,6 +2,7 @@
   "download_method": "tar",
   "download_url": "https://github.com/laurenz/oracle_fdw/archive/refs/tags/ORACLE_FDW_1_2_0.tar.gz",
   "source_dir": ".",
+  "sql_dirs": ["."],
   "folder_name": "oracle_fdw-ORACLE_FDW_1_2_0",
   "dependencies": [],
   "install_method": "pgxs"

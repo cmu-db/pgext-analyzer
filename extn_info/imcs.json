@@ -3,6 +3,7 @@
   "download_url": "https://github.com/knizhnik/imcs.git",
   "folder_name": "imcs",
   "source_dir": ".",
+  "sql_files": ["imcs--1.1.sql"],
   "dependencies": [],
   "install_method": "pgxs",
   "custom_config": ["extra_float_digits=0"],

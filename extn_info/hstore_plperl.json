@@ -5,6 +5,7 @@
     "hstore",
     "plperl"
   ],
+  "sql_dirs": ["."],
   "install_method": "pgxs",
   "configure_options": [
     "--with-perl"

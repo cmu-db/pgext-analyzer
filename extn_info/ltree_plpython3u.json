@@ -5,6 +5,7 @@
     "ltree",
     "plpython3u"
   ],
+  "sql_dirs": ["."],
   "install_method": "pgxs",
   "configure_options": [
     "--with-python"

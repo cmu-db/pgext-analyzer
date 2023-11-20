@@ -2,6 +2,7 @@
   "download_method": "contrib",
   "folder_name": "xml2",
   "dependencies": [],
+  "sql_dirs": ["."],
   "configure_options": [
     "--with-libxml"
   ],

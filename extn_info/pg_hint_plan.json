@@ -3,6 +3,7 @@
   "download_url": "https://github.com/ossc-db/pg_hint_plan/archive/refs/tags/REL15_1_5_0.zip",
   "folder_name": "pg_hint_plan-REL15_1_5_0",
   "source_dir": ".",
+  "sql_dirs": ["."],
   "dependencies": [
     "pg_stat_statements"
   ],

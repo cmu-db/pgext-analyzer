@@ -2,6 +2,28 @@
   "download_method": "tar",
   "download_url": "https://download.osgeo.org/postgis/source/postgis-3.3.0alpha1.tar.gz",
   "folder_name": "postgis-3.3.0alpha1",
+  "sql_dirs": [
+    "raster/scripts/plpgsql",
+    "postgis",
+    "extensions/postgis",
+    "extensions",
+    "extras/tiger_geocoder",
+    "extras/tiger_geocoder/normalize",
+    "extras/tiger_geocoder/geocode",
+    "extras/tiger_geocoder/utility",
+    "extras/tiger_geocoder/pagc_normalize"
+  ],
+  "sql_files": [
+    "extensions/address_standardizer/address_standardizer_functions.sql.in",
+    "extensions/address_standardizer/address_standardizer_types.sql.in",
+    "extensions/address_standardizer/us_rules.sql",
+    "extensions/address_standardizer/micro-macro.sql",
+    "extensions/address_standardizer/us_lex.sql",
+    "extensions/address_standardizer/us_gaz.sql",
+    "spatial_ref_sys.sql",
+    "extras/history_table/history_table.sql",
+    "extras/tiger_geocoder/topology/tiger_topology_loader.sql"
+  ],
   "source_dir": ".",
   "dependencies": []
 }

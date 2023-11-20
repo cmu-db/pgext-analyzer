@@ -1,6 +1,7 @@
 {
   "download_method": "contrib",
   "folder_name": "fuzzystrmatch",
+  "sql_dirs": ["."],
   "dependencies": [],
   "install_method": "pgxs",
   "test_method": "pg_regress",

@@ -3,6 +3,7 @@
   "download_url": "https://github.com/munakoiso/logerrors.git",
   "folder_name": "logerrors",
   "source_dir": ".",
+  "sql_dirs": ["."],
   "dependencies": [],
   "install_method": "pgxs",
   "test_method": "pg_regress",

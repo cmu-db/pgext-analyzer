@@ -1,6 +1,7 @@
 {
   "download_method": "contrib",
   "folder_name": "tcn",
+  "sql_dirs": ["."],
   "dependencies": [],
   "install_method": "pgxs"
 }

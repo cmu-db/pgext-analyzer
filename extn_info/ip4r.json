@@ -2,6 +2,7 @@
   "download_method": "tar",
   "download_url": "https://github.com/RhodiumToad/ip4r/archive/refs/tags/2.4.tar.gz",
   "folder_name": "ip4r-2.4",
+  "sql_dirs": ["scripts"],
   "source_dir": "src",
   "dependencies": [],
   "install_method": "pgxs",

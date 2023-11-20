@@ -2,6 +2,7 @@
   "download_method": "contrib",
   "folder_name": "pg_walinspect",
   "dependencies": [],
+  "sql_dirs": ["."],
   "install_method": "pgxs",
   "custom_config": [
     "wal_level = replica",

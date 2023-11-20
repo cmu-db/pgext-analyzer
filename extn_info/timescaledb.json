@@ -3,6 +3,11 @@
   "download_url": "https://github.com/timescale/timescaledb/archive/refs/tags/2.11.1.tar.gz",
   "folder_name": "timescaledb-2.11.1",
   "source_dir": "src",
+  "sql_dirs": [
+    "sql",
+    "sql/pre_install",
+    "sql/updates"
+  ],
   "configure_options": [
     "--with-openssl"
   ],

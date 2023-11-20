@@ -2,5 +2,6 @@
   "download_method": "contrib",
   "folder_name": "pgrowlocks",
   "dependencies": [],
+  "sql_dirs": ["."],
   "install_method": "pgxs"
 }

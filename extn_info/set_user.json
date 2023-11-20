@@ -3,6 +3,7 @@
   "download_url": "https://github.com/pgaudit/set_user/archive/refs/tags/REL4_0_1.tar.gz",
   "folder_name": "set_user-REL4_0_1",
   "source_dir": "src",
+  "sql_dirs": ["extension"],
   "dependencies": [],
   "install_method": "pgxs",
   "test_method": "pg_regress",

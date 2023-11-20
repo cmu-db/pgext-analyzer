@@ -2,6 +2,7 @@
   "download_method": "git",
   "download_url": "https://github.com/postgrespro/lsm3.git",
   "folder_name": "lsm3",
+  "sql_dirs": ["."],
   "source_dir": ".",
   "dependencies": [],
   "install_method": "pgxs",

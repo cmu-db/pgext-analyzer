@@ -3,6 +3,7 @@
   "download_url": "https://github.com/heterodb/pg-strom",
   "folder_name": "pg-strom",
   "source_dir": "src",
+  "sql_dirs": ["src/sql"],
   "dependencies": [],
   "install_method": "pgxs"
 }

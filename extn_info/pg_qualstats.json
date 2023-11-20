@@ -2,6 +2,7 @@
   "download_method": "git",
   "download_url": "https://github.com/powa-team/pg_qualstats",
   "folder_name": "pg_qualstats",
+  "sql_dirs": ["."],
   "source_dir": ".",
   "dependencies": [],
   "install_method": "pgxs",

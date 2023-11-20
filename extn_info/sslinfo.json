@@ -1,6 +1,7 @@
 {
   "download_method": "contrib",
   "folder_name": "sslinfo",
+  "sql_dirs": ["."],
   "dependencies": [],
   "configure_options": [
     "--with-openssl"

@@ -2,6 +2,7 @@
   "download_method": "contrib",
   "folder_name": "basic_archive",
   "dependencies": [],
+  "sql_dirs": [],
   "install_method": "pgxs",
   "custom_config": [
     "archive_mode = on",

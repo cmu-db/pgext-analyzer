@@ -2,6 +2,15 @@
   "download_method": "tar",
   "download_url": "https://github.com/rdkit/rdkit/archive/refs/tags/Release_2023_03_1.tar.gz",
   "folder_name": "rdkit-Release_2023_03_1",
+  "sql_files": [
+    "Code/PgSQL/rdkit/update_sql/rdkit--4.2--4.3.0.sql.in",
+    "Code/PgSQL/rdkit/update_sql/rdkit--4.0.1--4.1.sql.in",
+    "Code/PgSQL/rdkit/update_sql/rdkit--4.0--4.0.1.sql.in",
+    "Code/PgSQL/rdkit/update_sql/rdkit--4.1.1--4.2.sql.in",
+    "Code/PgSQL/rdkit/update_sql/rdkit--4.1--4.1.1.sql.in",
+    "Code/PgSQL/rdkit/update_sql/rdkit--3.8--4.0.sql.in",
+    "Code/PgSQL/rdkit/rdkit.sql.in"
+  ],
   "source_dir": ".",
   "dependencies": []
 }

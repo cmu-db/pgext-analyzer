@@ -3,6 +3,7 @@
   "download_url": "https://github.com/citusdata/postgresql-hll.git",
   "folder_name": "postgresql-hll",
   "source_dir": "src",
+  "sql_dirs": ["update"],
   "dependencies": [],
   "install_method": "pgxs",
   "test_method": "pg_regress",

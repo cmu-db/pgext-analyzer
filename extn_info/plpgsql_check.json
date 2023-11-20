@@ -3,6 +3,7 @@
   "download_url": "https://github.com/okbob/plpgsql_check/archive/refs/tags/v2.3.3.tar.gz",
   "folder_name": "plpgsql_check-2.3.3",
   "source_dir": "src",
+  "sql_dirs": ["."],
   "dependencies": ["plpgsql"],
   "install_method": "pgxs",
   "test_method": "pg_regress",

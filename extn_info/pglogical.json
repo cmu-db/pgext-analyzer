@@ -3,6 +3,7 @@
   "download_url": "https://github.com/2ndQuadrant/pglogical/archive/refs/tags/REL2_4_2.tar.gz",
   "folder_name": "pglogical-REL2_4_2",
   "source_dir": ".",
+  "sql_dirs": ["."],
   "dependencies": [],
   "install_method": "pgxs",
   "custom_config": [

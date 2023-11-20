@@ -3,6 +3,7 @@
   "download_url": "https://github.com/pgvector/pgvector",
   "folder_name": "pgvector",
   "source_dir": "src",
+  "sql_dirs": ["sql"],
   "dependencies": [],
   "install_method": "pgxs",
   "test_method": "pg_regress",

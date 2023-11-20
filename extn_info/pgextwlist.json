@@ -3,6 +3,7 @@
   "download_url": "https://github.com/dimitri/pgextwlist/archive/refs/tags/v1.15.tar.gz",
   "folder_name": "pgextwlist-1.15",
   "source_dir": ".",
+  "sql_dirs": [],
   "dependencies": [],
   "install_method": "pgxs",
   "no_create_extn": true,

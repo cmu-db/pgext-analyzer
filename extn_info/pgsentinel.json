@@ -3,6 +3,7 @@
   "download_url": "https://github.com/pgsentinel/pgsentinel",
   "folder_name": "pgsentinel/src",
   "source_dir": ".",
+  "sql_dirs": ["."],
   "dependencies": ["pg_stat_statements"],
   "install_method": "pgxs",
   "custom_config": [

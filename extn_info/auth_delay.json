@@ -1,6 +1,7 @@
 {
   "download_method": "contrib",
   "folder_name": "auth_delay",
+  "sql_dirs": [],
   "dependencies": [],
   "install_method": "pgxs",
   "no_create_extn": true,

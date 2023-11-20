@@ -3,6 +3,7 @@
   "download_url": "https://github.com/michelp/pgjwt/archive/9742dab1b2f297ad3811120db7b21451bca2d3c9.tar.gz",
   "folder_name": "pgjwt-9742dab1b2f297ad3811120db7b21451bca2d3c9",
   "source_dir": ".",
+  "sql_dirs": ["."],
   "dependencies": [
     "pgcrypto"
   ],

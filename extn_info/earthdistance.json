@@ -4,6 +4,7 @@
   "dependencies": [
     "cube"
   ],
+  "sql_dirs": ["."],
   "install_method": "pgxs",
   "test_method": "pg_regress",
   "pg_regress": {

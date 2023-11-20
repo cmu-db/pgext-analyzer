@@ -3,6 +3,7 @@
   "download_url": "https://github.com/s-hironobu/dont_drop_db",
   "folder_name": "dont_drop_db",
   "source_dir": ".",
+  "sql_dirs": ["."],
   "dependencies": [],
   "install_method": "pgxs"
 }

@@ -1,6 +1,7 @@
 {
   "download_method": "contrib",
   "folder_name": "vacuumlo",
+  "sql_dirs": [],
   "dependencies": [],
   "install_method": "pgxs"
 }

@@ -3,6 +3,7 @@
   "download_url": "https://github.com/tds-fdw/tds_fdw.git",
   "folder_name": "tds_fdw",
   "source_dir": "src",
+  "sql_dirs": ["."],
   "dependencies": [],
   "install_method": "pgxs",
   "no_preload": true

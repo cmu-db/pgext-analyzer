@@ -3,6 +3,7 @@
   "download_url": "https://github.com/postgrespro/pg_wait_sampling",
   "folder_name": "pg_wait_sampling",
   "source_dir": ".",
+  "sql_dirs": ["."],
   "dependencies": [],
   "install_method": "pgxs",
   "test_method": "pg_regress",

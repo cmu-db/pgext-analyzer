@@ -2,6 +2,7 @@
   "download_method": "git",
   "download_url": "https://gitlab.com/pg_proctab/pg_proctab.git",
   "folder_name": "pg_proctab",
+  "sql_dirs": ["sql"],
   "source_dir": "src",
   "dependencies": [],
   "install_method": "pgxs",

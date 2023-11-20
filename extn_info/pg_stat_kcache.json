@@ -3,6 +3,7 @@
   "download_url": "https://github.com/powa-team/pg_stat_kcache",
   "folder_name": "pg_stat_kcache",
   "source_dir": ".",
+  "sql_dirs": ["."],
   "dependencies": [
     "pg_stat_statements"
   ],

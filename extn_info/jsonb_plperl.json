@@ -2,6 +2,7 @@
   "download_method": "contrib",
   "folder_name": "jsonb_plperl",
   "dependencies": ["plperl"],
+  "sql_dirs": ["."],
   "install_method": "pgxs",
   "configure_options": [
     "--with-perl"
