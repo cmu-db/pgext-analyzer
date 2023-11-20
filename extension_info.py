@@ -5,7 +5,7 @@ import os
 import subprocess
 
 # Debug flag
-DEBUG = True
+DEBUG = False
 
 # File path globals
 current_working_dir = os.getcwd()
@@ -18,6 +18,17 @@ testing_output_dir = "testing-output-" + date_time
 
 # Common C/C++ extensions
 common_c_file_extns = ["h", "hh", "c", "cpp", "cc", "cxx", "cpp"]
+
+# Info CSV Ordering
+types_of_extns = [
+  "Functions",
+  "Types",
+  "Access Methods",
+  "External Tables",
+  "Client Authentication",
+  "Query Procesing",
+  "Utility Commands"
+]
 
 # List of hooks
 misc_hooks = [
@@ -45,6 +56,9 @@ query_processing_hooks = [
   "ExecutorRun_hook",
   "ExecutorFinish_hook",
   "ExecutorEnd_hook",
+]
+
+utility_hooks = [
   "ProcessUtility_hook"
 ]
 
@@ -59,7 +73,7 @@ client_auth_hooks = [
 
 # Types of Extensions
 
-postgres_hooks = misc_hooks + query_processing_hooks + client_auth_hooks
+postgres_hooks = misc_hooks + query_processing_hooks + utility_hooks + client_auth_hooks
 
 # Creating the extension DB with the JSON files in extn_info
 extn_files = os.listdir(current_working_dir + "/" + extn_info_dir)
@@ -106,6 +120,22 @@ def download_extn(extn_name, terminal_file):
 def does_hook_exist(cl : str, hook):
   return (cl.startswith(hook + "=") or cl.startswith(hook + " =")) and cl.endswith(";")
 
+def does_udf_exist(cl : str):
+  udf1_str = "create function"
+  udf2_str = "create or replace function"
+  return udf1_str in cl.lower() or udf2_str in cl.lower()
+
+def does_udt_exist(cl : str):
+  udt1_str = "create type"
+  udt2_str = "create or replace type"
+  return udt1_str in cl.lower() or udt2_str in cl.lower()
+
+def does_external_table_exist(cl : str):
+  return "create foreign data wrapper" in cl.lower()
+
+def does_access_method_exist(cl : str):
+  return "create access method" in cl.lower()
+
 def source_analysis(extn_name):
   extn_entry = extn_db[extn_name]
   download_type = extn_entry["download_method"]
@@ -118,8 +148,9 @@ def source_analysis(extn_name):
 
   hooks_map = {}
   features_map = {
-    "query_processing": False,
-    "client_auth": False
+    "Client Authentication": False,
+    "Query Procesing": False,
+    "Utility Commands": False
   }
 
   for hook in postgres_hooks:
@@ -140,18 +171,72 @@ def source_analysis(extn_name):
           for hook in query_processing_hooks:
             if does_hook_exist(processed_cl, hook):
               hooks_map[hook] = True
-              features_map["query_processing"] = True
+              features_map["Query Procesing"] = True
+
+          for hook in utility_hooks:
+            if does_hook_exist(processed_cl, hook):
+              hooks_map[hook] = True
+              features_map["Utility Commands"] = True
 
           for hook in client_auth_hooks:
             if does_hook_exist(processed_cl, hook):
               hooks_map[hook] = True
-              features_map["client_auth"] = True
+              features_map["Client Authentication"] = True
 
         tmp_source_file.close()
 
   return hooks_map, features_map
-  
-def run_extension_info_analysis(extn_name, hooks_csv_file_writer):
+
+def sql_analysis(extn_name):
+  extn_entry = extn_db[extn_name]
+  download_type = extn_entry["download_method"]
+  codebase_dir ="" 
+  if download_type == "contrib":
+    codebase_dir = current_working_dir + "/postgresql-" + postgres_version + "/contrib/" + extn_entry["folder_name"]
+  else:
+    extension_dir = current_working_dir + "/" + ext_work_dir
+    codebase_dir = extension_dir + "/" + extn_entry["folder_name"]
+
+  features_map = {
+    "Functions": False,
+    "Types": False,
+    "Access Methods": False,
+    "External Tables": False
+  }
+
+  sql_files_list = []
+
+  if "sql_files" in extn_entry:
+    sql_files_list = extn_entry["sql_files"]
+
+  if "sql_dirs" in extn_entry:
+    sql_dirs_list = extn_entry["sql_dirs"]
+    for dir in sql_dirs_list:
+      for file_path in os.listdir(codebase_dir + "/" + dir):
+        _, file_extension = os.path.splitext(file_path)
+        if file_extension == ".sql":
+          sql_files_list.append(dir + "/" + file_path)
+
+  if DEBUG:
+    print(sql_files_list)
+
+  for file in sql_files_list:
+    total_file_path = codebase_dir + "/" + file
+    file_obj = open(total_file_path, "r")
+    file_lines = file_obj.readlines()
+    for fl in file_lines:
+      if does_udf_exist(fl):
+        features_map["Functions"] = True
+      if does_udt_exist(fl):
+        features_map["Types"] = True
+      if does_access_method_exist(fl):
+        features_map["Access Methods"] = True
+      if does_external_table_exist(fl):
+        features_map["External Tables"] = True
+
+  return features_map
+
+def run_extension_info_analysis(extn_name, hooks_csv_file_writer, info_csv_file_writer):
   extn_entry = extn_db[extn_name]
   download_type = extn_entry["download_method"]
   if download_type == "downloaded":
@@ -159,6 +244,8 @@ def run_extension_info_analysis(extn_name, hooks_csv_file_writer):
 
   print("Running extension info analysis on " + extn_name)
   hook_map, features_map = source_analysis(extn_name)
+  sql_features_map = sql_analysis(extn_name)
+  features_map.update(sql_features_map)
 
   if DEBUG:
     print(hook_map)
@@ -170,6 +257,13 @@ def run_extension_info_analysis(extn_name, hooks_csv_file_writer):
     output_to_hooks_csv.append(output_val)
 
   hooks_csv_file_writer.writerow(output_to_hooks_csv)
+
+  output_to_info_csv = [extn_name]
+  for ty in types_of_extns:
+    output_val = "Yes" if features_map[ty] else "No"
+    output_to_info_csv.append(output_val)
+
+  info_csv_file_writer.writerow(output_to_info_csv)
 
 if __name__ == '__main__':
   # Download Postgres 
@@ -184,9 +278,13 @@ if __name__ == '__main__':
   total_hooks_list = ["Extension Name"] + postgres_hooks
   hooks_csv_file_writer.writerow(total_hooks_list)
 
+  info_csv_file = open("info.csv", "w")
+  info_csv_file_writer = csv.writer(info_csv_file)
+  info_csv_file_writer.writerow(["Extension Name"] + types_of_extns)
+
   if DEBUG:
-    download_extn("citus", terminal_file)
-    run_extension_info_analysis("citus", hooks_csv_file_writer)
+    download_extn("postgis", terminal_file)
+    run_extension_info_analysis("postgis", hooks_csv_file_writer, info_csv_file_writer)
   else:
     for extn in extn_db:
       download_extn(extn, terminal_file)
@@ -195,7 +293,7 @@ if __name__ == '__main__':
     extns_list = list(extn_db.keys())
     extns_list.sort()
     for extn in extns_list:
-      run_extension_info_analysis(extn, hooks_csv_file_writer)
+      run_extension_info_analysis(extn, hooks_csv_file_writer, info_csv_file_writer)
 
   cleanup()
   

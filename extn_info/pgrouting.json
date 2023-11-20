@@ -1,7 +1,7 @@
 {
   "download_method": "tar",
   "download_url": "https://github.com/pgRouting/pgrouting/archive/v3.4.2.tar.gz",
-  "folder_name": "pgrouting-3.4.2 ",
+  "folder_name": "pgrouting-3.4.2",
   "sql_dirs": [
     "sql/allpairs",
     "sql/alpha_shape",
