@@ -4,6 +4,7 @@ import json
 import os
 import re
 import subprocess
+import sys
 from sctokenizer import CppTokenizer
 
 # Debug flag
@@ -40,6 +41,10 @@ for file in extn_files:
   extn_db[key] = extn_info_json
   extn_info_file.close()
 
+############################################################
+# SETUP HELPER FUNCTIONS
+############################################################
+
 def initial_setup():
   url = "https://ftp.postgresql.org/pub/source/v" + postgres_version + "/postgresql-" + postgres_version + ".tar.gz"
   subprocess.run("wget " + url, cwd=current_working_dir, shell=True)
@@ -55,6 +60,11 @@ def cleanup():
   subprocess.run("rm -rf " + tmp_dir, cwd=current_working_dir + "/" + testing_output_dir, shell=True)
   subprocess.run("rm postgresql-" + postgres_version + ".tar.gz", shell=True, cwd=current_working_dir)
 
+def move_sca_files():
+  subprocess.run("mkdir sca_analysis_output", shell=True, cwd=current_working_dir)
+  subprocess.run("cp -R *_cpd.txt ../sca_analysis_output", shell=True, cwd=current_working_dir + "/" + testing_output_dir)
+
+# Function that downloads the extension source code
 def download_extn(extn_name, terminal_file):
   extn_entry = extn_db[extn_name]
   print("Downloading extension " + extn_name)
@@ -74,6 +84,11 @@ def download_extn(extn_name, terminal_file):
     subprocess.run("rm " + base_name, shell=True, cwd=extension_dir, stdout=terminal_file, stderr=terminal_file)
   print("Finished downloading extension " + extn_name)
 
+############################################################
+# PARSING THE CPD TOOL OUTPUT
+############################################################
+
+# Function to get the number of lines of code from the output
 def parse_stats(stats):
   if DEBUG:
     print("Stats line: " + stats)
@@ -81,7 +96,9 @@ def parse_stats(stats):
   num_lines = int(stats_list[2])
   return num_lines
 
-# The interval returned is inclusive: [s, e]
+# Returns a tuple (key, (start, end)) with the key as the file that the copied
+# code is from, with start=starting line of duplicated code, and end=ending
+# line of duplicated code. The interval returned is inclusive: [s, e].
 def parse_interval(line, num_lines):
   list_of_words = line.split(" ")
   key = list_of_words[-1]
@@ -126,9 +143,8 @@ def get_num_tokens(line):
   tokens = c_source_tokenizer.tokenize(line)
   return len(tokens)
 
-def convert_mapping_to_stats(err_mapping):
-  sum_loc = 0
-  sum_tokens = 0
+def convert_mapping_to_itvl_map(err_mapping):
+  itvl_map = {}
   for key in err_mapping:
     intervals = err_mapping[key]
     key_file = open(key, "r")
@@ -148,8 +164,20 @@ def convert_mapping_to_stats(err_mapping):
         ci_stack[-1][1] = max(ci_stack[-1][1], itvl[1])
       else:
         ci_stack.append(itvl)
-    
-    # Now ci_stack contains the intervals we need to account for
+
+    itvl_map[key] = ci_stack
+    key_file.close()
+  return itvl_map
+
+def convert_mapping_to_stats(err_mapping):
+  sum_loc = 0
+  sum_tokens = 0
+  interval_map = convert_mapping_to_itvl_map(err_mapping)
+  
+  for key in interval_map:  
+    key_file = open(key, "r")
+    key_file_lines = key_file.readlines()
+    ci_stack = interval_map[key]
     for itvl in ci_stack:
       for i in range(itvl[0], itvl[1] + 1):
         sum_loc += 1
@@ -170,6 +198,30 @@ def get_total_loc(extn_name, source_dir):
         total_loc += len(code_lines)
         tmp_source_file.close()
   return total_loc
+
+############################################################
+# VERSIONING HELPERS
+############################################################
+def get_version_nums(cl : str):
+  if DEBUG:
+    print(cl)
+  cl_list = cl.split()
+  version_nums = []
+  for i in range(0, len(cl_list) - 2):
+    if "PG_VERSION_NUM" in cl_list[i]:
+      version_num_str = cl_list[i + 2]
+      version_num_str = version_num_str.replace('(','').replace(')','')
+      if version_num_str.isdigit():
+        version_nums.append(int(version_num_str) // 10000)
+      elif "PG_VERSION_" in version_num_str:
+        version_nums.append(int(version_num_str[11:]))
+      else:
+        raise RuntimeError("Could not find a match for version number")
+  return version_nums
+
+############################################################
+# CPD ANALYSIS
+############################################################
 
 # Return total_copied_loc/tokens, copied_postgres_loc/tokens, copied_extn_loc/tokens
 def run_cpd_analysis(extn_name, source_dir):
@@ -222,6 +274,7 @@ def run_version_analysis(extn_name, source_dir):
   print("Running version analysis on " + extn_name)
   versioning_loc = 0
   versioning_files = []
+  pg_version_list = []
   for root, _, files in os.walk(source_dir):
     for name in files:
       _, file_ext = os.path.splitext(name)
@@ -237,6 +290,8 @@ def run_version_analysis(extn_name, source_dir):
           if "#if" in cl:
             flag = "PG_VERSION_NUM" in cl
             pstack.append((i, flag))
+            if flag:
+              pg_version_list += get_version_nums(cl)
           elif "#endif" in cl:
             if len(pstack) == 0:
               raise IndexError("No matching closing endif at line " + str(i) + " in file " + name)
@@ -268,7 +323,9 @@ def run_version_analysis(extn_name, source_dir):
           tmp_version_code_file.close()
 
   if versioning_loc == 0:
-    return 0, (0, 0)
+    return 0, (0, 0), []
+  
+  pg_version_list = list(set(pg_version_list))
 
   # Running CPD analysis on just versioning code
   version_source_dir = current_working_dir + "/" + testing_output_dir + "/" + tmp_dir
@@ -279,7 +336,7 @@ def run_version_analysis(extn_name, source_dir):
   version_decoded_output = version_analysis.stdout.decode('utf-8')
   
   if version_decoded_output == "":
-    return (versioning_loc, (0, 0))
+    return versioning_loc, (0, 0), pg_version_list
 
   version_list_of_errors = version_decoded_output.split("=====================================================================")
   err_mapping = {}
@@ -292,9 +349,9 @@ def run_version_analysis(extn_name, source_dir):
   # Clear temp for other extensions
   subprocess.run("rm -rf *", shell=True, cwd=version_source_dir)
 
-  return versioning_loc, (vc_loc, vc_tokens)
+  return versioning_loc, (vc_loc, vc_tokens), pg_version_list
 
-def run_sca_analysis(extn_name, results_csv, versioning_csv):
+def run_sca_analysis(extn_name, results_csv, versioning_csv, vers_chcklist_csv):
   extn_entry = extn_db[extn_name]
   download_type = extn_entry["download_method"]
   if download_type == "downloaded":
@@ -314,7 +371,8 @@ def run_sca_analysis(extn_name, results_csv, versioning_csv):
   # Run CPD analysis
   (tc_loc, tc_tokens), (pc_loc, pc_tokens), (ec_loc, ec_tokens) = run_cpd_analysis(extn_name, source_dir)
 
-  versioning_loc, (vc_loc, vc_tokens) = run_version_analysis(extn_name, source_dir)
+  versioning_loc, (vc_loc, vc_tokens), pg_version_list = run_version_analysis(extn_name, source_dir)
+  pg_version_list.sort()
   
   results_csv.writerow([
     extn_name, 
@@ -334,6 +392,12 @@ def run_sca_analysis(extn_name, results_csv, versioning_csv):
     str(versioning_loc),
     str(vc_loc), 
     str(vc_tokens)])
+  
+  output_to_version_checklist = []
+  for v in range(1, 17):
+    output_val = "Yes" if v in pg_version_list else "No"
+    output_to_version_checklist.append(output_val)
+  vers_chcklist_csv.writerow([extn_name] + output_to_version_checklist)
 
   print("Finished running source code analysis on " + extn_name)
 
@@ -366,14 +430,36 @@ if __name__ == '__main__':
     "Versioning LOC", 
     "Copied Versioning LOC",
     "Copied Versioning Tokens"])
-  
+
+  # Version List File
+  vers_chcklist_file = open("version_checklist.csv", "w")
+  vers_chcklist_file_writer = csv.writer(vers_chcklist_file)
+  vers_chcklist_file_writer.writerow([
+    "Extension Name", 
+    "V1",
+    "V2", 
+    "V3", 
+    "V4",
+    "V5", 
+    "V6", 
+    "V7",
+    "V8", 
+    "V9", 
+    "V10",
+    "V11", 
+    "V12", 
+    "V13",
+    "V14", 
+    "V15", 
+    "V16"])
+
   if DEBUG:
     download_extn("cube", terminal_file)
     download_extn("citus", terminal_file)
     download_extn("hypopg", terminal_file)
-    run_sca_analysis("cube", sca_csv_file_writer, vers_csv_file_writer)
-    run_sca_analysis("citus", sca_csv_file_writer, vers_csv_file_writer)
-    run_sca_analysis("hypopg", sca_csv_file_writer, vers_csv_file_writer)
+    run_sca_analysis("cube", sca_csv_file_writer, vers_csv_file_writer, vers_chcklist_file_writer)
+    run_sca_analysis("citus", sca_csv_file_writer, vers_csv_file_writer, vers_chcklist_file_writer)
+    run_sca_analysis("hypopg", sca_csv_file_writer, vers_csv_file_writer, vers_chcklist_file_writer)
   else:
     for extn in extn_db:
       download_extn(extn, terminal_file)
@@ -382,9 +468,10 @@ if __name__ == '__main__':
     extns_list = list(extn_db.keys())
     extns_list.sort()
     for extn in extns_list:
-      run_sca_analysis(extn, sca_csv_file_writer, vers_csv_file_writer)
+      run_sca_analysis(extn, sca_csv_file_writer, vers_csv_file_writer, vers_chcklist_file_writer)
 
   terminal_file.close()
   sca_csv_file.close()
   vers_csv_file.close()
+  move_sca_files()
   cleanup()

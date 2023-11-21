@@ -6,3 +6,5 @@ postgresql-*
 *.csv
 logfile
 pmd-bin-7.0.0-rc4/
+versioning.txt
+sca_analysis_output
