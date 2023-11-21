@@ -8,7 +8,7 @@ import sys
 from sctokenizer import CppTokenizer
 
 # Debug flag
-DEBUG = True
+DEBUG = False
 
 # File paths (globals)
 current_working_dir = os.getcwd()
@@ -213,10 +213,12 @@ def get_version_nums(cl : str):
       version_num_str = version_num_str.replace('(','').replace(')','')
       if version_num_str.isdigit():
         version_nums.append(int(version_num_str) // 10000)
-      elif "PG_VERSION_" in version_num_str:
+      elif "PG_VERSION_" in version_num_str and version_num_str[11:].isdigit():
         version_nums.append(int(version_num_str[11:]))
       else:
-        raise RuntimeError("Could not find a match for version number")
+        if DEBUG:
+          print("pg_version_num: " + version_num_str)
+        continue
   return version_nums
 
 ############################################################
@@ -454,12 +456,13 @@ if __name__ == '__main__':
     "V16"])
 
   if DEBUG:
-    download_extn("cube", terminal_file)
-    download_extn("citus", terminal_file)
-    download_extn("hypopg", terminal_file)
-    run_sca_analysis("cube", sca_csv_file_writer, vers_csv_file_writer, vers_chcklist_file_writer)
-    run_sca_analysis("citus", sca_csv_file_writer, vers_csv_file_writer, vers_chcklist_file_writer)
-    run_sca_analysis("hypopg", sca_csv_file_writer, vers_csv_file_writer, vers_chcklist_file_writer)
+    #download_extn("cube", terminal_file)
+    #download_extn("citus", terminal_file)
+    #download_extn("hypopg", terminal_file)
+    download_extn("pg_ivm", terminal_file)
+    #run_sca_analysis("cube", sca_csv_file_writer, vers_csv_file_writer, vers_chcklist_file_writer)
+    #run_sca_analysis("citus", sca_csv_file_writer, vers_csv_file_writer, vers_chcklist_file_writer)
+    run_sca_analysis("pg_ivm", sca_csv_file_writer, vers_csv_file_writer, vers_chcklist_file_writer)
   else:
     for extn in extn_db:
       download_extn(extn, terminal_file)
