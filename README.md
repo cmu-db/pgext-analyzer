@@ -18,6 +18,9 @@ Python scripts for generating compatibility tables (and maybe other things).
 - PMD CPD (https://github.com/pmd/pmd/releases/tag/pmd_releases/7.0.0-rc4)
 - sctokenizer (https://pypi.org/project/sctokenizer/)
 
+# Static Analysis Dependencies
+- semgrep (pip install semgrep)
+
 # extn_info Directory Structure
 The `./extn_info` directory contains info on how Postgres extensions are downloaded, installed, and tested.
 

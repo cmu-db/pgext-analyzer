@@ -1,0 +1,20 @@
+rules:
+  - id: smaller-repro-copy
+    patterns:
+      - pattern-either:
+          - pattern: |
+              *$ARG = $SOMETHING;
+          - pattern: $ARG.$FIELD = $SOMETHINGELSE
+          - pattern: $ARG->$FIELD = $SOMETHINGELSE
+          - pattern: (*$ARG).$FIELD = $SOMETHINGELSE
+      - pattern-inside: |
+          $TY $FUNC(..., $TY2 $ARG, ...) {
+            ...
+          }
+    message: >
+      If you poetry run a script directly, you need to make sure the file is
+      executable. It's more reliable to just explicitly say you want the python
+      binary to run it.
+    languages:
+      - c
+    severity: WARNING
