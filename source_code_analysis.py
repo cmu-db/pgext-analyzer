@@ -143,6 +143,17 @@ def get_num_tokens(line):
   tokens = c_source_tokenizer.tokenize(line)
   return len(tokens)
 
+def get_merged_interval(code_intervals):
+  code_intervals.sort(key=lambda tup: tup[0])
+  merged = []
+  for interval in code_intervals:
+    if not merged or merged[-1][1] + 1 < interval[0]:
+      merged.append(interval)
+    else:
+      merged[-1][1] = max(merged[-1][1], interval[1])
+  
+  return merged
+
 def convert_mapping_to_itvl_map(err_mapping):
   itvl_map = {}
   for key in err_mapping:
@@ -156,16 +167,7 @@ def convert_mapping_to_itvl_map(err_mapping):
         if itvl[1] >= num_lines_in_file:
           raise RuntimeError("Index to file cannot be greater than num lines in file")
 
-    intervals.sort(key=lambda tup: tup[0])
-    ci_stack = []
-    ci_stack.append(intervals[0])
-    for itvl in intervals[1:]:
-      if ci_stack[-1][0] <= itvl[0] and itvl[0] <= ci_stack[-1][1]:
-        ci_stack[-1][1] = max(ci_stack[-1][1], itvl[1])
-      else:
-        ci_stack.append(itvl)
-
-    itvl_map[key] = ci_stack
+    itvl_map[key] = get_merged_interval(intervals)
     key_file.close()
   return itvl_map
 
@@ -198,6 +200,14 @@ def get_total_loc(extn_name, source_dir):
         total_loc += len(code_lines)
         tmp_source_file.close()
   return total_loc
+
+def output_error_mapping(extn_name, err_mapping):
+  file_name =  extn_name + "_err_mapping.txt"
+  subprocess.run("touch " + file_name, shell=True, cwd=current_working_dir + "/" + testing_output_dir)
+  file_obj = open(current_working_dir + "/" + testing_output_dir + "/" + file_name, "w")
+  json_formatted_str = json.dumps(err_mapping, indent=2)
+  file_obj.write(json_formatted_str)
+  file_obj.close()
 
 ############################################################
 # VERSIONING HELPERS
@@ -266,6 +276,8 @@ def run_cpd_analysis(extn_name, source_dir):
     subprocess.run("rm " + extn_error_file_name, shell=True, cwd=current_working_dir + "/" + testing_output_dir)
     return (0, 0), (0, 0), (0, 0)
   
+  output_error_mapping(extn_name, convert_mapping_to_itvl_map(postgres_err_mapping))
+
   tc_loc, tc_tokens = convert_mapping_to_stats(total_err_mapping)
   pc_loc, pc_tokens = convert_mapping_to_stats(postgres_err_mapping)
   ec_loc, ec_tokens = convert_mapping_to_stats(extn_err_mapping)
@@ -302,14 +314,7 @@ def run_version_analysis(extn_name, source_dir):
               code_intervals.append([last_entry[0], i])
 
         if len(code_intervals) != 0:
-          code_intervals.sort(key=lambda tup: tup[0])
-          ci_stack = []
-          ci_stack.append(code_intervals[0])
-          for itvl in code_intervals[1:]:
-            if ci_stack[-1][0] <= itvl[0] and itvl[0] <= ci_stack[-1][1]:
-              ci_stack[-1][1] = max(ci_stack[-1][1], itvl[1])
-            else:
-              ci_stack.append(itvl)
+          ci_stack = get_merged_interval(code_intervals)
         
           # In the tmp directory we create a file called tmp_name and copy all the code from these
           # intervals in this code
@@ -457,12 +462,12 @@ if __name__ == '__main__':
 
   if DEBUG:
     #download_extn("cube", terminal_file)
-    #download_extn("citus", terminal_file)
+    download_extn("bloom", terminal_file)
     #download_extn("hypopg", terminal_file)
-    download_extn("pg_ivm", terminal_file)
+    #download_extn("pg_ivm", terminal_file)
     #run_sca_analysis("cube", sca_csv_file_writer, vers_csv_file_writer, vers_chcklist_file_writer)
-    #run_sca_analysis("citus", sca_csv_file_writer, vers_csv_file_writer, vers_chcklist_file_writer)
-    run_sca_analysis("pg_ivm", sca_csv_file_writer, vers_csv_file_writer, vers_chcklist_file_writer)
+    run_sca_analysis("bloom", sca_csv_file_writer, vers_csv_file_writer, vers_chcklist_file_writer)
+    #run_sca_analysis("pg_ivm", sca_csv_file_writer, vers_csv_file_writer, vers_chcklist_file_writer)
   else:
     for extn in extn_db:
       download_extn(extn, terminal_file)
@@ -476,5 +481,5 @@ if __name__ == '__main__':
   terminal_file.close()
   sca_csv_file.close()
   vers_csv_file.close()
-  move_sca_files()
+  #move_sca_files()
   cleanup()
