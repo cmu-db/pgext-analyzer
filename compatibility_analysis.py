@@ -398,23 +398,9 @@ def custom_script_test(test_extn, compat_extn, test_extn_dir, terminal_file):
 
   env_var_list = []
 
-  # Get compatible extension configs 
-  if compat_extn != "":
-    env_var_list += ["COMPATIBLE_EXTENSION="+compat_extn]
-
-    compat_extn_entry = extn_db[compat_extn]
-    if "custom_config" in compat_extn_entry:
-      extra_config_string = ';'.join(compat_extn_entry["custom_config"])
-      env_var_list += ["EXTRA_CONFIGS="+extra_config_string]
-
   # Determine environment variables
   if "env" in test_extn_entry:
     env_var_list += test_extn_entry["env"]
-
-  if env_var_list:
-    export_list = list(map(lambda x: "export " + x, env_var_list))
-    env_txt = " && ".join(export_list)
-    total_command = env_txt + " && " + total_command
 
   # Run tests
   subprocess.run("cp ./extn_scripts/" + test_script + " " + extn_source_dir, shell=True, cwd=current_working_dir, stdout=terminal_file, stderr=terminal_file)
@@ -428,10 +414,20 @@ def custom_script_test(test_extn, compat_extn, test_extn_dir, terminal_file):
       if dep not in test_extn_deps:
         extns_to_load.append(dep)
 
+    create_extension_list = []
+
     for extn in extns_to_load:
       extn_entry = extn_db[extn]
       if "no_create_extn" not in extn_entry:
         subprocess.run("./" + pg_dist_dir + "/bin/psql --port=" + str(port_num) + " -c \"CREATE EXTENSION " + extn + ";\" template1", shell=True, cwd=current_working_dir, stdout=terminal_file, stderr=terminal_file)
+        create_extension_list.append(extn)
+
+    env_var_list += ["CREATE_EXTENSIONS="+",".join(create_extension_list)]
+
+  if env_var_list:
+    export_list = list(map(lambda x: "export " + x, env_var_list))
+    env_txt = " && ".join(export_list)
+    total_command = env_txt + " && " + total_command
 
   # Run testing command
   test_proc = subprocess.run(total_command, shell=True, cwd=extn_source_dir, capture_output=True)
