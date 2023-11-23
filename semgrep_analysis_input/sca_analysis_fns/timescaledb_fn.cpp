@@ -555,9 +555,7 @@ ts_catalog_index_insert(ResultRelInfo *indstate, HeapTuple heapTuple)
 					 &(heapTuple->t_self), /* tid of heap tuple */
 					 heapRelation,
 					 index->rd_index->indisunique ? UNIQUE_CHECK_YES : UNIQUE_CHECK_NO,
-#if PG14_GE
 					 false,
-#endif
 					 indexInfo);
 	}
 

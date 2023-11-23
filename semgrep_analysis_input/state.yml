@@ -1,0 +1,18 @@
+rules:
+  - id: state_rule
+    patterns:
+      - pattern-either:
+          - pattern: |
+              *$ARG = $SOMETHING;
+          - pattern: $ARG.$FIELD = $SOMETHINGELSE
+          - pattern: $ARG->$FIELD = $SOMETHINGELSE
+          - pattern: (*$ARG).$FIELD = $SOMETHINGELSE
+      - pattern-inside: |
+          $TY $FUNC(..., $TY2 $ARG, ...) {
+            ...
+          }
+    message: >
+      State error.
+    languages:
+      - cpp
+    severity: WARNING

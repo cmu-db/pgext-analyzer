@@ -6,3 +6,4 @@ postgresql-*
 *.csv
 logfile
 pmd-bin-7.0.0-rc4/
+.vscode/
