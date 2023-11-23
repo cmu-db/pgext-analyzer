@@ -5,7 +5,7 @@ import os
 import subprocess
 
 # Debug flag
-DEBUG = False
+DEBUG = True
 
 # File paths (globals)
 current_working_dir = os.getcwd()
@@ -15,6 +15,9 @@ now = datetime.now()
 date_time = now.strftime("%m-%d-%Y_%H:%M")
 testing_output_dir = "testing-output-" + date_time
 tmp_output_file_name = current_working_dir + "/" + testing_output_dir + "/tmp_output.txt"
+
+# Invalid function names
+invalid_fn_names = ["foreach"]
 
 ################################################################
 # HELPER FUNCTIONS
@@ -59,8 +62,15 @@ def run_semgrep_command(semgrep_command):
     print(semgrep_command)
   while True:
     res = subprocess.run(semgrep_command, shell=True, cwd=current_working_dir, capture_output=True)
-    if "Segmentation fault (core dumped)" not in res.stdout.decode('utf-8'):
+    if "Segmentation fault (core dumped)" not in res.stdout.decode('utf-8') and os.path.isfile(tmp_output_file_name):
       break
+
+def process_semgrep_results():
+  results = open(tmp_output_file_name, "r")
+  results_json = json.load(results)
+  results.close()
+  subprocess.run("rm " + tmp_output_file_name, shell=True, cwd=current_working_dir, capture_output=True)
+  return results_json
 
 def store_state_results(extn_name, results_json):
   results_file_name = extn_name + "_state_results.json"
@@ -87,9 +97,7 @@ def get_csv_output(file):
   fn_semgrep_command = get_semgrep_command(file, "function.yml")
   run_semgrep_command(fn_semgrep_command)
 
-  results = open(tmp_output_file_name, "r")
-  results_json = json.load(results)
-  results.close()
+  results_json = process_semgrep_results()
   fns_list = results_json["results"]
   num_copied_fns = len(fns_list)
 
@@ -97,10 +105,7 @@ def get_csv_output(file):
   state_semgrep_command = get_semgrep_command(file, "state.yml")
   run_semgrep_command(state_semgrep_command)
 
-  results = open(tmp_output_file_name, "r")
-  results_json = json.load(results)
-  results.close()
-
+  results_json = process_semgrep_results()
   store_state_results(extn_name, results_json)
 
   state_list = results_json["results"]
@@ -108,7 +113,11 @@ def get_csv_output(file):
   state_fns_set = set()
   for robj in state_list:
     fn_name, fn_line = get_fn_info(robj)
-    state_fns_set.add((fn_name, fn_line))
+    if DEBUG:
+      print(fn_name)
+      print(fn_line)
+    if fn_name not in invalid_fn_names:
+      state_fns_set.add((fn_name, fn_line))
 
   num_state_fns = len(state_fns_set)
   return extn_name, total_loc, num_copied_fns, num_state_fns, num_state_instances
