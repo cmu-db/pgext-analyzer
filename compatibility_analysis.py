@@ -228,8 +228,6 @@ def modify_postgresql_conf(extns_to_install):
       continue
     elif "preload_name" in extn_entry:
       extns_to_preload.append(extn_entry["preload_name"])
-    elif "preload_first" in extn_entry:
-      extns_to_preload.insert(0, extn)
     else:
       extns_to_preload.append(extn)
 
