@@ -1,5 +1,5 @@
 rules:
-  - id: smaller-repro-copy
+  - id: state_rule
     patterns:
       - pattern-either:
           - pattern: |
@@ -12,9 +12,7 @@ rules:
             ...
           }
     message: >
-      If you poetry run a script directly, you need to make sure the file is
-      executable. It's more reliable to just explicitly say you want the python
-      binary to run it.
+      State error.
     languages:
       - cpp
     severity: WARNING

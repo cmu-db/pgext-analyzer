@@ -1,13 +1,11 @@
 rules:
-  - id: smaller-repro-copy
+  - id: fn_rule
     pattern: |
-      $TY $FUNC(..., $TY2 $ARG, ...) {
+      $TY $FUNC(...) {
         ...
       }
     message: >
-      If you poetry run a script directly, you need to make sure the file is
-      executable. It's more reliable to just explicitly say you want the python
-      binary to run it.
+      State error.
     languages:
       - cpp
     severity: WARNING
