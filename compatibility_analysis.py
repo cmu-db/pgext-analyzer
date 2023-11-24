@@ -596,15 +596,25 @@ def pairwise_testing_helper(file_extn_pairs):
   final_cleanup()
   return extn_compat_list
 
-def pairwise_parallel_testing_helper(file_extn_pairs, file_extn_list):
+def pairwise_parallel_testing_helper(file_extn_pairs, file_extn_list, install_at_once=False):
   initial_setup()
   extn_compat_list = []
-  install_postgres(get_configure_options(file_extn_list))
-  download_install_extn_list(file_extn_list)
 
+  if install_at_once:
+    install_postgres(get_configure_options(file_extn_list))
+    download_install_extn_list(file_extn_list)
+
+  # TODO: this does not work for Citus?
   for (first_extn, second_extn) in file_extn_pairs:
     print("Determining compatibility betweeen " + first_extn + " and " + second_extn)
     extns_to_install = get_extns_to_install([first_extn, second_extn])
+
+    if not install_at_once:
+      if os.path.exists(current_working_dir + "/" + pg_dist_dir):
+        subprocess.run("rm -rf " + pg_dist_dir, cwd=current_working_dir, shell=True)
+      install_postgres(get_configure_options(extns_to_install))
+      download_install_extn_list(extns_to_install)
+
     test_extn_dir, terminal_file = get_terminal_file(first_extn, second_extn)
 
     init_db(terminal_file)
@@ -615,7 +625,8 @@ def pairwise_parallel_testing_helper(file_extn_pairs, file_extn_list):
     extn_compat_list.append(compatibility_test(first_extn, second_extn, test_extn_dir, terminal_file))
     stop_postgres(terminal_file)
     terminal_file.close()
-    cleanup(False)
+    cleanup_var = not install_at_once
+    cleanup(cleanup_var)
   
   delete_working_pairs(file_extn_pairs, extn_compat_list)
   final_cleanup()
