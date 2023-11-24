@@ -182,6 +182,7 @@
   "dependencies": [],
   "install_method": "shell_script",
   "shell_script": "citus_install.sh",
+  "preload_first": true,
   "configure_options": [
     "--with-icu",
     "--with-libxml",
