@@ -1,0 +1,11 @@
+rules:
+  - id: fn_rule
+    pattern: |
+      $TY $FUNC(...) {
+        ...
+      }
+    message: >
+      State error.
+    languages:
+      - cpp
+    severity: WARNING
