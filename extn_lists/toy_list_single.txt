@@ -1,9 +1,1 @@
-adminpack
-amcheck
-basic_archive
-bloom
-btree_gin
-btree_gist
-citext
-cube
-dblink
+timescaledb

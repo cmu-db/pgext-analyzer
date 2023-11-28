@@ -9,6 +9,7 @@ bool_plperl
 btree_gin
 btree_gist
 citext
+citus
 cube
 dblink
 dict_int
@@ -84,6 +85,7 @@ tablefunc
 tcn
 tds_fdw
 test_decoding
+timescaledb
 tsm_system_rows
 tsm_system_time
 unaccent

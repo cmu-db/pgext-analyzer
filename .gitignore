@@ -3,7 +3,6 @@ pg-15-dist/
 pgextworkdir/
 testing-output-*
 postgresql-*
-*.csv
 logfile
 pmd-bin-7.0.0-rc4/
 .vscode/
