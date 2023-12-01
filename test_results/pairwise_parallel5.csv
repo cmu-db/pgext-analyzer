@@ -73,7 +73,7 @@ seg,uuid-ossp,True
 shared_ispell,uuid-ossp,True
 tablefunc,uuid-ossp,True
 tcn,uuid-ossp,True
-tds_fdw,uuid-ossp,False
+tds_fdw,uuid-ossp,True
 test_decoding,uuid-ossp,True
 tsm_system_rows,uuid-ossp,True
 tsm_system_time,uuid-ossp,True
@@ -153,7 +153,7 @@ uuid-ossp,seg,True
 uuid-ossp,shared_ispell,True
 uuid-ossp,tablefunc,True
 uuid-ossp,tcn,True
-uuid-ossp,tds_fdw,False
+uuid-ossp,tds_fdw,True
 uuid-ossp,test_decoding,True
 uuid-ossp,tsm_system_rows,True
 uuid-ossp,tsm_system_time,True
