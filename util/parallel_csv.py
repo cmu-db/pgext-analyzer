@@ -11,10 +11,13 @@ results_db = {}
 extn_list_file = open(script_args[1], "r")
 extn_list = extn_list_file.readlines()
 extn_list = list(map(lambda x: x.strip("\n"),extn_list))
+extn_list.sort()
 extn_list_file.close()
 
 csv_dir = os.getcwd() + "/" + directory_prefix
 files = os.listdir(csv_dir)
+
+print(files)
 
 for file in files:
   file_name, file_extension = os.path.splitext(file)
@@ -33,15 +36,18 @@ compat_csv_file = open("pairwise.csv", "w")
 writer = csv.writer(compat_csv_file)
 writer.writerow(["first =>>"] + extn_list)
 
-for first_extn in extn_list:
-  row_to_write = [first_extn]
-  for second_extn in extn_list:
+for second_extn in extn_list:
+  row_to_write = [second_extn]
+  for first_extn in extn_list:
     extn_pair = (first_extn, second_extn)
     val_to_write = "dne"
     if first_extn == second_extn:
       val_to_write = "n/a"
-    if extn_pair in results_db:
+    elif extn_pair in results_db:
       val_to_write = "yes" if results_db[extn_pair] else "no"
+    else:
+      print(extn_pair)
+      assert False
     
     row_to_write.append(val_to_write)
   writer.writerow(row_to_write)
