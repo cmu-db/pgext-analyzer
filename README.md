@@ -52,3 +52,6 @@ Each file is named after an extension, and contains the following information ab
 - "after_test_scripts": Indicates a shell script to run after running tests (mostly for cleanup)
 - "source_dir": Set for extensions that are not contrib extensions. Determines where the source code for this extension is located.
 - "sql_dirs" and "sql_files": Contains a list of directories/files that contain SQL files that *define* the extension's functionality (e.g. defining functions or custom types)
+
+# Acknowledgements
+Huge shoutout to both Marco Slot and Erik Nordström for helping me with Citus + Timescale respectively. :)
