@@ -1,5 +1,18 @@
-# pgext-cli-python
-Python scripts for generating compatibility tables (and maybe other things).
+# pgext-cli
+Python scripts for generating compatibility tables and source code analysis. This is a work in progress, and for now is badly documented :,) Feel free to submit PRs and offer feedback, we would love to hear it.
+
+# Usage
+## Compatibility Analysis
+- Takes in four arguments, two which are mandatory.
+- `--mode` (mandatory): A string value. Can be single (loads, installs, and runs tests on single extensions), pairwise (takes in a list of single extensions, generates pairs, and loads/installs/runs tests on them), pairwise-parallel (takes in a list of pairs of extensions, with a space after each other. e.g, "citus pg_cron" in this file will load and install both citus and pg_cron, then run respective tests.
+- `--list`(mandatory): the text file containing a list of extensions. Must be compatible with mode argument. For instance, if you run compatibility_analysis.py with mode argument "single" but with pairwise list of extensions, the program won't work.
+- `--port`: Port argument (default 5432). Will run PostgreSQL on a different port if needed. Probably useful if you're running something on port 5432...
+- `--exit-flag`: If this argument is set, then this program will exit as soon as tests fail. It's mainly here for debugging purposes.
+
+To run this program (as an example): (foo.txt doesn't exist)
+```python
+python3 compatibility_analysis.py --mode=pairwise-parallel --list=extn_list/foo.txt --port=5430
+```
 
 # Compatibility Analysis Dependencies
 - readline
