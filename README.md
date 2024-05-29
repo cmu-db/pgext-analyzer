@@ -14,6 +14,9 @@ To run this program (as an example): (foo.txt doesn't exist)
 python3 compatibility_analysis.py --mode=pairwise-parallel --list=extn_list/foo.txt --port=5430
 ```
 
+# System Specs
+- Runs on machine running Ubuntu 22.04. Compatibility with other OSes is not promised or guaranteed.
+
 # Compatibility Analysis Dependencies
 - readline
 - flex (for pg_tle)
