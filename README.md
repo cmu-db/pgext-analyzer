@@ -20,7 +20,7 @@ python3 compatibility_analysis.py --mode=pairwise-parallel --list=extn_list/foo.
 # Compatibility Analysis Dependencies
 - readline
 - flex (for pg_tle)
-- mysql (for mysql_fdw), mysql runs with root w password hello123
+- mysql (for mysql_fdw), mysql runs with root
 - libmysqlclient-dev (for mysql_fdw)
 - create ~/.my.cnf file with root user and password
 - libossp-uuid-dev (uuid-ossp)
