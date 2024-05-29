@@ -366,13 +366,13 @@ def pg_regress_test(test_extn, compat_extn, test_extn_dir, terminal_file):
     os.rename(run_test_dir + "/regression.diffs", current_working_dir + "/" + output_dir + "/" + test_extn + ".diffs")
     subprocess.run("cp logfile " + current_working_dir + "/" + output_dir, shell=True, cwd=current_working_dir,  stdout=terminal_file, stderr=terminal_file)
     if exit_flag: 
-      sys.exit("Exiting out of pgext-cli-python...")
+      sys.exit("Exiting out of pgext-analyzer...")
   elif test_res.returncode == 2:
     print("Tests for extension " + test_extn + " could not run!")
     val = False
     subprocess.run("cp logfile " + current_working_dir + "/" + output_dir, shell=True, cwd=current_working_dir,  stdout=terminal_file, stderr=terminal_file)
     if exit_flag: 
-      sys.exit("Exiting out of pgext-cli-python...")
+      sys.exit("Exiting out of pgext-analyzer...")
   
   if "after_test_scripts" in test_extn_entry:
     after_test_scripts = test_extn_entry["after_test_scripts"]
@@ -456,7 +456,7 @@ def custom_script_test(test_extn, compat_extn, test_extn_dir, terminal_file):
       os.rename(extn_source_dir + "/" + fail_files[i], output_dir + "/" + fail_file_names[i])
 
     if exit_flag: 
-      sys.exit("Exiting out of pgext-cli-python...")
+      sys.exit("Exiting out of pgext-analyzer...")
     return False
   
   print("Tests for extension " + test_extn + " passed!")
