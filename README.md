@@ -1,4 +1,4 @@
-# pgext-cli
+# pgext-analyzer
 Python scripts for generating compatibility tables and source code analysis. This is a work in progress, and for now is badly documented :,) Feel free to submit PRs and offer feedback, we would love to hear it.
 
 # Usage
