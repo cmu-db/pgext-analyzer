@@ -1,10 +1,15 @@
-# pgext-cli-python
-Python scripts for generating compatibility tables (and maybe other things).
+# pgext-analyzer
+Python scripts for generating compatibility tables and source code analysis. This is a work in progress, and for now is badly documented :,) Feel free to submit PRs and offer feedback, we would love to hear it.
 
-# Compatibility Analysis Dependencies
+# Specifications
+- Runs on machine with Ubuntu 22.04. Compatibility with other OSes is not supported.
+- The tools use PostgreSQL 15.3. Compatibility with other versions of PostgreSQL is not supported.
+
+# Dependencies
+## Compatibility Analysis Dependencies
 - readline
 - flex (for pg_tle)
-- mysql (for mysql_fdw), mysql runs with root w password hello123
+- mysql (for mysql_fdw), mysql runs with root
 - libmysqlclient-dev (for mysql_fdw)
 - create ~/.my.cnf file with root user and password
 - libossp-uuid-dev (uuid-ossp)
@@ -14,12 +19,25 @@ Python scripts for generating compatibility tables (and maybe other things).
 - ninja-build
 - libsybdb5 freetds-dev freetds-common (tds_fdw)
 
-# Source Code Analysis Dependencies
+## Source Code Analysis Dependencies
 - PMD CPD (https://github.com/pmd/pmd/releases/tag/pmd_releases/7.0.0-rc4)
 - sctokenizer (https://pypi.org/project/sctokenizer/)
 
-# Static Analysis Dependencies
+## Static Analysis Dependencies
 - semgrep (pip install semgrep)
+
+# Usage
+## Compatibility Analysis
+- Takes in four arguments, two which are mandatory.
+- `--mode` (mandatory): A string value. Can be single (loads, installs, and runs tests on single extensions), pairwise (takes in a list of single extensions, generates pairs, and loads/installs/runs tests on them), pairwise-parallel (takes in a list of pairs of extensions, with a space after each other. e.g, "citus pg_cron" in this file will load and install both citus and pg_cron, then run respective tests.
+- `--list`(mandatory): the text file containing a list of extensions. Must be compatible with mode argument. For instance, if you run compatibility_analysis.py with mode argument "single" but with pairwise list of extensions, the program won't work.
+- `--port`: Port argument (default 5432). Will run PostgreSQL on a different port if needed. Probably useful if you're running something on port 5432...
+- `--exit-flag`: If this argument is set, then this program will exit as soon as tests fail. It's mainly here for debugging purposes.
+
+To run this program (as an example): (foo.txt doesn't exist)
+```python
+python3 compatibility_analysis.py --mode=pairwise-parallel --list=extn_list/foo.txt --port=5430
+```
 
 # extn_info Directory Structure
 The `./extn_info` directory contains info on how Postgres extensions are downloaded, installed, and tested.
@@ -36,3 +54,6 @@ Each file is named after an extension, and contains the following information ab
 - "after_test_scripts": Indicates a shell script to run after running tests (mostly for cleanup)
 - "source_dir": Set for extensions that are not contrib extensions. Determines where the source code for this extension is located.
 - "sql_dirs" and "sql_files": Contains a list of directories/files that contain SQL files that *define* the extension's functionality (e.g. defining functions or custom types)
+
+# Acknowledgements
+Huge shoutout to both Marco Slot and Erik Nordström for helping me with Citus + Timescale respectively. :)

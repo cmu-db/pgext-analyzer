@@ -1,4 +1,9 @@
 # Usage: python3 list_to_pairs.py file_extns.txt prefix
+# This script takes a single list of extensions and converts them into text
+# files of pairs. The pairs are sorted based on the configuration options
+# passed in the "configure" Postgres script needed to get them to install. 
+# These text files are stored in prefix1.txt, prefix2.txt, etc.
+
 import json
 import sys
 import os
@@ -54,7 +59,8 @@ for extn1 in file_extns_list:
       else:
         file_extn_pairs_dict[configure_options_key] = [(extn1, extn2)]
 
-# Put them in prefix1.txt, prefix2.txt, etc
+# Put the generated pairs in files prefix1.txt, prefix2.txt, etc
+# Every pair in each file has the same configuration options.
 os.system("mkdir " + prefix)
 i = 0
 keys_list = list(file_extn_pairs_dict.keys())
