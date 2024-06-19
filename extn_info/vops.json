@@ -3,7 +3,7 @@
   "download_url": "https://github.com/postgrespro/vops",
   "folder_name": "vops",
   "source_dir": ".",
-  "sql_files": ["vops--1.0.sql"],
+  "sql_files": ["vops--1.0--1.1.sql", "vops--1.1.sql"],
   "dependencies": [],
   "install_method": "pgxs",
   "test_method": "pg_regress",

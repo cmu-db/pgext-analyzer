@@ -23,8 +23,8 @@ common_c_file_extns = ["h", "hh", "c", "cpp", "cc", "cxx", "cpp"]
 types_of_extns = [
   "Functions",
   "Types",
-  "Access Methods",
-  "External Tables",
+  "Index Access Methods",
+  "Storage Managers",
   "Client Authentication",
   "Query Procesing",
   "Utility Commands"
@@ -120,6 +120,9 @@ def download_extn(extn_name, terminal_file):
 def does_hook_exist(cl : str, hook):
   return (cl.startswith(hook + "=") or cl.startswith(hook + " =")) and cl.endswith(";")
 
+def does_utility_plugin_exist(cl : str):
+  return "_PG_output_plugin_init" in cl 
+
 def does_udf_exist(cl : str):
   udf1_str = "create function"
   udf2_str = "create or replace function"
@@ -135,6 +138,12 @@ def does_external_table_exist(cl : str):
 
 def does_access_method_exist(cl : str):
   return "create access method" in cl.lower()
+
+def does_table_access_method_exist(cl : str):
+  return does_access_method_exist(cl) and "type table" in cl.lower()
+
+def does_index_access_method_exist(cl : str):
+  return does_access_method_exist(cl) and "type index" in cl.lower()
 
 def source_analysis(extn_name):
   extn_entry = extn_db[extn_name]
@@ -162,6 +171,7 @@ def source_analysis(extn_name):
       if file_ext[1:] in common_c_file_extns:
         tmp_source_file = open(os.path.join(source_dir, os.path.join(root, name)), "r")
         code_lines = tmp_source_file.readlines()
+        void_flag = False
         for cl in code_lines:
           processed_cl = " ".join(cl.strip().split())
           for hook in misc_hooks:
@@ -183,6 +193,9 @@ def source_analysis(extn_name):
               hooks_map[hook] = True
               features_map["Client Authentication"] = True
 
+          if does_utility_plugin_exist(processed_cl):
+            features_map["Utility Commands"] = True
+
         tmp_source_file.close()
 
   return hooks_map, features_map
@@ -200,8 +213,8 @@ def sql_analysis(extn_name):
   features_map = {
     "Functions": False,
     "Types": False,
-    "Access Methods": False,
-    "External Tables": False
+    "Index Access Methods": False,
+    "Storage Managers": False
   }
 
   sql_files_list = []
@@ -220,19 +233,32 @@ def sql_analysis(extn_name):
   if DEBUG:
     print(sql_files_list)
 
+  access_method_flag = False
   for file in sql_files_list:
     total_file_path = codebase_dir + "/" + file
     file_obj = open(total_file_path, "r")
     file_lines = file_obj.readlines()
     for fl in file_lines:
+      if access_method_flag:
+        if "table" in fl.lower():
+          features_map["Storage Managers"] = True
+        elif "index" in fl.lower():
+          features_map["Index Access Methods"] = True
+        access_method_flag = False
+      
       if does_udf_exist(fl):
         features_map["Functions"] = True
       if does_udt_exist(fl):
         features_map["Types"] = True
-      if does_access_method_exist(fl):
-        features_map["Access Methods"] = True
       if does_external_table_exist(fl):
-        features_map["External Tables"] = True
+        features_map["Storage Managers"] = True
+
+      if does_table_access_method_exist(fl):
+        features_map["Storage Managers"] = True
+      elif does_index_access_method_exist(fl):
+        features_map["Index Access Methods"] = True
+      elif does_access_method_exist(fl):
+        access_method_flag = True
 
   return features_map
 
