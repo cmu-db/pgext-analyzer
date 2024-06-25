@@ -30,6 +30,21 @@ types_of_extns = [
   "Utility Commands"
 ]
 
+types_of_mechanisms = [
+  "Memory Allocation",
+  "Background Workers",
+  "Custom Configuration Variables"
+]
+
+# Function names: DefineCustomBLANKVariable
+custom_variable_fns = [
+  "Bool",
+  "Int",
+  "Real",
+  "String",
+  "Enum"
+]
+
 # List of hooks
 misc_hooks = [
   "emit_log_hook",
@@ -123,6 +138,17 @@ def does_hook_exist(cl : str, hook):
 def does_utility_plugin_exist(cl : str):
   return "_PG_output_plugin_init" in cl 
 
+def does_background_worker_exist(cl : str):
+  return "RegisterDynamicBackgroundWorker" in cl
+
+def does_config_option_exist(cl: str):
+  for elem in custom_variable_fns:
+    fn_name = "DefineCustom" + elem + "Variable"
+    if fn_name in cl:
+      return True 
+  
+  return False
+
 def does_udf_exist(cl : str):
   udf1_str = "create function"
   udf2_str = "create or replace function"
@@ -162,8 +188,13 @@ def source_analysis(extn_name):
     "Utility Commands": False
   }
 
+  mechanisms_map = {}
+
   for hook in postgres_hooks:
     hooks_map[hook] = False
+
+  for ty in types_of_mechanisms:
+    mechanisms_map[ty] = False
 
   for root, _, files in os.walk(source_dir):
     for name in files:
@@ -171,7 +202,6 @@ def source_analysis(extn_name):
       if file_ext[1:] in common_c_file_extns:
         tmp_source_file = open(os.path.join(source_dir, os.path.join(root, name)), "r")
         code_lines = tmp_source_file.readlines()
-        void_flag = False
         for cl in code_lines:
           processed_cl = " ".join(cl.strip().split())
           for hook in misc_hooks:
@@ -195,10 +225,19 @@ def source_analysis(extn_name):
 
           if does_utility_plugin_exist(processed_cl):
             features_map["Utility Commands"] = True
+          
+          if does_background_worker_exist(processed_cl):
+            mechanisms_map["Background Workers"] = True
+
+          if does_config_option_exist(processed_cl):
+            mechanisms_map["Custom Configuration Variables"] = True
 
         tmp_source_file.close()
 
-  return hooks_map, features_map
+  if hooks_map["shmem_startup_hook"] and hooks_map["shmem_request_hook"]:
+    mechanisms_map["Memory Allocation"] = True
+
+  return hooks_map, features_map, mechanisms_map
 
 def sql_analysis(extn_name):
   extn_entry = extn_db[extn_name]
@@ -233,6 +272,8 @@ def sql_analysis(extn_name):
   if DEBUG:
     print(sql_files_list)
 
+  pg_catalog = False
+
   access_method_flag = False
   for file in sql_files_list:
     total_file_path = codebase_dir + "/" + file
@@ -260,16 +301,22 @@ def sql_analysis(extn_name):
       elif does_access_method_exist(fl):
         access_method_flag = True
 
+      if "pg_catalog" in fl.lower():
+        pg_catalog = True
+
+  if pg_catalog:
+    print(extn_name)
+    
   return features_map
 
-def run_extension_info_analysis(extn_name, hooks_csv_file_writer, info_csv_file_writer):
+def run_extension_info_analysis(extn_name, hooks_csv_file_writer, info_csv_file_writer, mechanisms_csv_file_writer):
   extn_entry = extn_db[extn_name]
   download_type = extn_entry["download_method"]
   if download_type == "downloaded":
     return 
 
   print("Running extension info analysis on " + extn_name)
-  hook_map, features_map = source_analysis(extn_name)
+  hook_map, features_map, mechanisms_map = source_analysis(extn_name)
   sql_features_map = sql_analysis(extn_name)
   features_map.update(sql_features_map)
 
@@ -291,6 +338,13 @@ def run_extension_info_analysis(extn_name, hooks_csv_file_writer, info_csv_file_
 
   info_csv_file_writer.writerow(output_to_info_csv)
 
+  output_to_mechanisms_csv = [extn_name]
+  for ty in types_of_mechanisms:
+    output_val = "Yes" if mechanisms_map[ty] else "No"
+    output_to_mechanisms_csv.append(output_val)
+
+  mechanisms_csv_file_writer.writerow(output_to_mechanisms_csv)
+
 if __name__ == '__main__':
   # Download Postgres 
   initial_setup()
@@ -308,9 +362,13 @@ if __name__ == '__main__':
   info_csv_file_writer = csv.writer(info_csv_file)
   info_csv_file_writer.writerow(["Extension Name"] + types_of_extns)
 
+  mechanisms_csv_file = open("mechanisms.csv", "w")
+  mechanisms_csv_file_writer = csv.writer(mechanisms_csv_file)
+  mechanisms_csv_file_writer.writerow(["Extension Name"] + types_of_mechanisms)
+
   if DEBUG:
     download_extn("postgis", terminal_file)
-    run_extension_info_analysis("postgis", hooks_csv_file_writer, info_csv_file_writer)
+    run_extension_info_analysis("postgis", hooks_csv_file_writer, info_csv_file_writer, mechanisms_csv_file_writer)
   else:
     for extn in extn_db:
       download_extn(extn, terminal_file)
@@ -319,7 +377,7 @@ if __name__ == '__main__':
     extns_list = list(extn_db.keys())
     extns_list.sort()
     for extn in extns_list:
-      run_extension_info_analysis(extn, hooks_csv_file_writer, info_csv_file_writer)
+      run_extension_info_analysis(extn, hooks_csv_file_writer, info_csv_file_writer, mechanisms_csv_file_writer)
 
   cleanup()
   
