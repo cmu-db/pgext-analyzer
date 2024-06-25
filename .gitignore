@@ -6,3 +6,9 @@ postgresql-*
 logfile
 pmd-bin-7.0.0-rc4/
 .vscode/
+functions.csv
+hooks.csv
+info.csv
+mechanisms.csv
+pairwise_parallel.csv
+single.csv
