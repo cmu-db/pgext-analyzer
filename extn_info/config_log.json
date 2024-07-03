@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/ibarwick/config_log.git",
+  "folder_name": "config_log",
+  "sql_files": ["config_log--0.1.7.sql"],
+  "source_dir": "src"
+}

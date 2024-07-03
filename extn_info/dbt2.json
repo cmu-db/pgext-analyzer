@@ -1,0 +1,7 @@
+{
+  "download_method": "zip",
+  "pgxn_location": "dbt-2/0.61.2/dbt-2-0.61.2.zip",
+  "folder_name": "dbt-2-0.61.2",
+  "sql_dirs": ["storedproc"],
+  "source_dir": "src"
+}

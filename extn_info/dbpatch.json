@@ -1,0 +1,13 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/linz/postgresql-dbpatch.git",
+  "folder_name": "postgresql-dbpatch",
+  "sql_files": [
+    "sql/dbpatch--unpackaged--1.0.0.sql",
+    "sql/dbpatch.sql",
+    "sql/noextension.sql.in",
+    "sql/uninstall_dbpatch.sql"
+  ],
+  "sql_dirs": [],
+  "source_dir": "."
+}

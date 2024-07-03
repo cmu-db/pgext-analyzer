@@ -1,0 +1,13 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/pjungwir/aggs_for_vecs.git",
+  "folder_name": "aggs_for_vecs",
+  "sql_files": [
+    "aggs_for_vecs--1.0.1.sql",
+    "aggs_for_vecs--1.1.1.sql",
+    "aggs_for_vecs--1.2.1--1.3.0.sql",
+    "aggs_for_vecs--1.2.1.sql",
+    "aggs_for_vecs--1.3.0.sql"
+  ],
+  "source_dir": "."
+}

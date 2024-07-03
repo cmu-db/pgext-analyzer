@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/theory/explanation.git",
+  "folder_name": "explanation",
+  "sql_dirs": ["sql"],
+  "source_dir": "."
+}

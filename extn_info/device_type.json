@@ -1,0 +1,13 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/adjust/pg-device_type.git",
+  "folder_name": "pg-device_type",
+  "sql_files": [
+    "device_type--0.0.1--0.0.2.sql",
+    "device_type--0.0.1.sql",
+    "device_type--0.0.2--0.0.3.sql",
+    "device_type--0.0.2.sql"
+  ],
+  "sql_dirs": ["sql"],
+  "source_dir": "src"
+}

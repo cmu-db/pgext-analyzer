@@ -1,0 +1,7 @@
+{
+  "download_method": "zip",
+  "pgxn_location": "bgvalidators/0.1.2/bgvalidators-0.1.2.zip",
+  "folder_name": "bgvalidators-0.1.2",
+  "sql_files": ["bgValidators--1.0.sql"],
+  "source_dir": "."
+}

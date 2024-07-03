@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/komamitsu/foreign_table_exposer.git",
+  "folder_name": "foreign_table_exposer",
+  "sql_files": ["foreign_table_exposer--1.0.sql"],
+  "source_dir": "."
+}

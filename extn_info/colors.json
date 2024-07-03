@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/zejn/pg-colors.git",
+  "folder_name": "pg-colors",
+  "sql_dirs": ["sql"],
+  "source_dir": "src"
+}

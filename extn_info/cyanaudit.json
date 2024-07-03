@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://bitbucket.org/neadwerx/cyanaudit.git",
+  "folder_name": "cyanaudit",
+  "sql_dirs": ["sql", "sql/attic"],
+  "source_dir": "src"
+}

@@ -1,0 +1,10 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/asotolongo/db_info.git",
+  "folder_name": "db_info",
+  "sql_files": [
+    "db_info--0.1.0--0.2.0.sql",
+    "db_info--0.1.0.sql"
+  ],
+  "source_dir": "."
+}

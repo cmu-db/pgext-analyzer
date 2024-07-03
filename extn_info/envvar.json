@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/theory/pg-envvar.git",
+  "folder_name": "pg-envvar",
+  "sql_dirs": ["sql"],
+  "source_dir": "src"
+}

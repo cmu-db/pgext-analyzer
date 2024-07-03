@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/nmandery/pg_byteamagic.git",
+  "folder_name": "pg_byteamagic",
+  "sql_dirs": ["sql"],
+  "source_dir": "src"
+}

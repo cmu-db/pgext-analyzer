@@ -1,0 +1,11 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/pramsey/pgsql-arraymath.git",
+  "folder_name": "pgsql-arraymath",
+  "sql_files": [
+    "arraymath--1.0--1.1.sql",
+    "arraymath--1.0.sql",
+    "arraymath--1.1.sql"
+  ],
+  "source_dir": "."
+}

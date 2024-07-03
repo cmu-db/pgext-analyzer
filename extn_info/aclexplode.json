@@ -1,0 +1,7 @@
+{
+  "download_method": "zip",
+  "pgxn_location": "aclexplode/1.0.3/aclexplode-1.0.3.zip",
+  "folder_name": "aclexplode-1.0.3",
+  "sql_dirs": ["sql"],
+  "source_dir": "."
+}

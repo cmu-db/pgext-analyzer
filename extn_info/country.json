@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/adjust/pg-country.git",
+  "folder_name": "pg-country",
+  "sql_dirs": ["sql"],
+  "source_dir": "src"
+}

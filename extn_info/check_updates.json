@@ -1,0 +1,12 @@
+{
+  "download_method": "zip",
+  "pgxn_location": "check_updates/1.0.1/check_updates-1.0.1.zip",
+  "folder_name": "check_updates-1.0.1",
+  "sql_files": [
+    "allow_on_condition.sql.in",
+    "assert_misc.sql",
+    "check_updates.sql.in",
+    "deny_updates.sql.in"
+  ],
+  "source_dir": "."
+}

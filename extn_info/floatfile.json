@@ -1,0 +1,12 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/pjungwir/floatfile.git",
+  "folder_name": "floatfile",
+  "sql_files": [
+    "floatfile--1.0.0.sql",
+    "floatfile--1.1.1.sql",
+    "floatfile--1.2.0.sql",
+    "floatfile--1.3.0.sql"
+  ],
+  "source_dir": "."
+}

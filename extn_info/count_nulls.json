@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/decibel/pg_count_nulls.git",
+  "folder_name": "pg_count_nulls",
+  "sql_dirs": ["sql"],
+  "source_dir": "."
+}

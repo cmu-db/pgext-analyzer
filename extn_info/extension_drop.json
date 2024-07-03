@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/decibel/extension_tools.git",
+  "folder_name": "extension_tools",
+  "sql_dirs": ["sql"],
+  "source_dir": "."
+}

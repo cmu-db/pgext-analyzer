@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/adunstan/file_text_array_fdw.git",
+  "folder_name": "file_text_array_fdw",
+  "sql_files": ["file_textarray_fdw.sql"],
+  "source_dir": "."
+}

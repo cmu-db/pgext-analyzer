@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/ATIX-AG/postgresql-debversion-evr.git",
+  "folder_name": "postgresql-debversion-evr",
+  "sql_files": ["debversion_evr--0.0.1.sql"],
+  "source_dir": "."
+}

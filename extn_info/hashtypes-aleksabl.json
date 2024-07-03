@@ -1,0 +1,11 @@
+{
+  "download_method": "zip",
+  "pgxn_location": "hashtypes-aleksabl/0.1.4/hashtypes-aleksabl-0.1.4.zip",
+  "folder_name": "hashtypes-aleksabl-0.1.4",
+  "sql_files": [
+    "sql/sha.sql.type",
+    "sql/crc32.sql",
+    "sql/md5.sql"
+  ],
+  "source_dir": "src"
+}

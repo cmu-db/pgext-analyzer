@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/asotolongo/email.git",
+  "folder_name": "email",
+  "sql_files": ["email--0.1.sql"],
+  "source_dir": "."
+}

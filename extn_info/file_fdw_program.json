@@ -1,0 +1,7 @@
+{
+  "download_method": "zip",
+  "pgxn_location": "file_fdw_program/1.0.1/file_fdw_program-1.0.1.zip",
+  "folder_name": "file_fdw_program-1.0.1",
+  "sql_dirs": ["sql"],
+  "source_dir": "src"
+}

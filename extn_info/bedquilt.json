@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/BedquiltDB/bedquilt-core.git",
+  "folder_name": "bedquilt-core",
+  "sql_dirs": ["dist/sql", "src/sql"],
+  "source_dir": "."
+}

@@ -1,0 +1,12 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/pjungwir/aggs_for_arrays.git",
+  "folder_name": "aggs_for_arrays",
+  "sql_files": [
+    "aggs_for_arrays--1.0.0.sql",
+    "aggs_for_arrays--1.1.1.sql",
+    "aggs_for_arrays--1.2.0.sql",
+    "aggs_for_arrays--1.3.2.sql"
+  ],
+  "source_dir": "."
+}

@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/katrinaibast/constr_name_unif.git",
+  "folder_name": "constr_name_unif",
+  "sql_dirs": ["sql/conf", "sql/functions"],
+  "source_dir": "."
+}

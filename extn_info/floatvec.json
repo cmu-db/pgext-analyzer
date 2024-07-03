@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/pjungwir/floatvec.git",
+  "folder_name": "floatvec",
+  "sql_files": ["floatvec--1.0.1.sql"],
+  "source_dir": "."
+}

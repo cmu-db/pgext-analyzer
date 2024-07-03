@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/ardentperf/dsef.git",
+  "folder_name": "dsef",
+  "sql_dirs": ["sql"],
+  "source_dir": "."
+}

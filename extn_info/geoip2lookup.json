@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/adjust/pg-geoip2lookup.git",
+  "folder_name": "pg-geoip2lookup",
+  "sql_dirs": ["extension"],
+  "source_dir": "."
+}

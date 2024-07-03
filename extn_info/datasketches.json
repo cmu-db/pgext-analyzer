@@ -1,0 +1,7 @@
+{
+  "download_method": "tar",
+  "download_url": "https://github.com/apache/datasketches-postgresql/archive/refs/tags/1.7.0.tar.gz",
+  "folder_name": "datasketches-postgresql-1.7.0",
+  "sql_dirs": ["sql"],
+  "source_dir": "src"
+}

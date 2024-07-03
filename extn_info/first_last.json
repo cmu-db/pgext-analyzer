@@ -1,0 +1,10 @@
+{
+  "download_method": "zip",
+  "pgxn_location": "first_last/0.1.1/first_last-0.1.1.zip",
+  "folder_name": "first_last-0.1.1",
+  "sql_files": [
+    "first_last--0.1.0--0.1.1.sql",
+    "first_last--0.1.1.sql"
+  ],
+  "source_dir": "."
+}

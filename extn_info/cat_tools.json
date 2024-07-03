@@ -1,0 +1,8 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/decibel/cat_tools.git",
+  "folder_name": "cat_tools",
+  "sql_files": ["sql/cat_tools.sql.in"],
+  "sql_dirs": ["sql"],
+  "source_dir": "."
+}

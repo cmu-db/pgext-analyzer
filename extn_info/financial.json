@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/intgr/pg_financial.git",
+  "folder_name": "pg_financial",
+  "sql_dirs": ["sql"],
+  "source_dir": "src"
+}

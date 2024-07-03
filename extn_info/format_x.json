@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/melanieplageman/format_x.git",
+  "folder_name": "format_x",
+  "sql_dirs": ["sql"],
+  "source_dir": "src"
+}

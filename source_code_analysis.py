@@ -74,14 +74,21 @@ def download_extn(extn_name, terminal_file):
     git_repo = extn_entry["download_url"]
     subprocess.run("git clone " + git_repo, shell=True, cwd=extension_dir, stdout=terminal_file, stderr=terminal_file)
   elif download_type == "tar" or download_type == "zip":
-    url = extn_entry["download_url"]
-    base_name = os.path.basename(url)
-    subprocess.run("wget " + url, shell=True, cwd=extension_dir, stdout=terminal_file, stderr=terminal_file)
+    if "download_url" in extn_entry:
+      url = extn_entry["download_url"]
+      base_name = os.path.basename(url)
+      subprocess.run("wget " + url, shell=True, cwd=extension_dir, stdout=terminal_file, stderr=terminal_file)
+    elif "pgxn_location" in extn_entry:
+      archive_name = current_working_dir + "/pgxn/dist/" + extn_entry["pgxn_location"]
+      subprocess.run("cp " + archive_name + " " + extension_dir, shell=True, cwd=extension_dir, stdout=terminal_file, stderr=terminal_file)
+      base_name = os.path.basename(extn_entry["pgxn_location"])
+    
     if download_type == "tar":
       subprocess.run("tar -xvf " + base_name, shell=True, cwd=extension_dir, stdout=terminal_file, stderr=terminal_file)
     elif download_type == "zip":
       subprocess.run("unzip " + base_name, shell=True, cwd=extension_dir, stdout=terminal_file, stderr=terminal_file)
     subprocess.run("rm " + base_name, shell=True, cwd=extension_dir, stdout=terminal_file, stderr=terminal_file)
+
   print("Finished downloading extension " + extn_name)
 
 ############################################################

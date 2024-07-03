@@ -1,0 +1,14 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/bashtanov/argm.git",
+  "folder_name": "argm",
+  "sql_files": [
+    "argm--1.0--1.0.2.sql",
+    "argm--1.0.2--1.0.3.sql",
+    "argm--1.0.3--1.1.0.sql",
+    "argm--1.1.0--1.1.1.sql",
+    "argm--1.1.1--1.1.2.sql",
+    "argm--1.1.2.sql"
+  ],
+  "source_dir": "."
+}

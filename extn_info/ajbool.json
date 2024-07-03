@@ -1,0 +1,15 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/adjust/ajbool.git",
+  "folder_name": "ajbool",
+  "sql_files": [
+    "ajbool--0.0.1--0.0.2.sql",
+    "ajbool--0.0.1.sql",
+    "ajbool--0.0.2--0.0.1.sql",
+    "ajbool--0.0.2--0.0.3.sql",
+    "ajbool--0.0.2.sql",
+    "ajbool--0.0.3.sql"
+  ],
+  "sql_dirs": ["sql"],
+  "source_dir": "src"
+}

@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/wolfgangbrandl/db2_fdw.git",
+  "folder_name": "db2_fdw",
+  "sql_dirs": ["sql"],
+  "source_dir": "."
+}
