@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/furstenheim/jsonb_deep_sum.git",
+  "folder_name": "jsonb_deep_sum",
+  "sql_files": ["jsonb_deep_sum--0.0.2.sql"],
+  "source_dir": "."
+}

@@ -1,0 +1,10 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/postgrespro/jsquery.git",
+  "folder_name": "jsquery",
+  "sql_files": [
+    "jsquery--1.0--1.1.sql",
+    "jsquery--1.1.sql"
+  ],
+  "source_dir": "."
+}

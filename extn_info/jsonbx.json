@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/erthalion/jsonbx.git",
+  "folder_name": "jsonbx",
+  "sql_files": ["jsonbx--1.0.sql"],
+  "source_dir": "."
+}

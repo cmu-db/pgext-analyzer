@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/gleu/log_functions.git",
+  "folder_name": "log_functions",
+  "sql_dirs": [],
+  "source_dir": "."
+}

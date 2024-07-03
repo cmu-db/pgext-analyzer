@@ -1,0 +1,10 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/gojuno/lostgis.git",
+  "folder_name": "lostgis",
+  "sql_dirs": [
+    "sql/functions",
+    "sql/types"
+  ],
+  "source_dir": "."
+}

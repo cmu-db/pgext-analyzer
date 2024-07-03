@@ -1,0 +1,10 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/pjungwir/inetrange.git",
+  "folder_name": "inetrange",
+  "sql_files": [
+    "inetrange--1.0.1.sql",
+    "inetrange--1.0.2.sql"
+  ],
+  "source_dir": "."
+}

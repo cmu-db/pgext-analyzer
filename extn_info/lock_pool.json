@@ -1,0 +1,10 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/adjust/pg_lock_pool.git",
+  "folder_name": "pg_lock_pool",
+  "sql_files": [
+    "pg_lock_pool--0.0.1.sql"
+  ],
+  "sql_dirs": ["sql"],
+  "source_dir": "."
+}

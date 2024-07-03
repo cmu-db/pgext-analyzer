@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://gitlab.com/dalibo/logfmt.git",
+  "folder_name": "logfmt",
+  "sql_files": ["logfmt--1.0.0.sql"],
+  "source_dir": "."
+}

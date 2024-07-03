@@ -3,11 +3,11 @@
   "download_url": "https://github.com/arkhipov/acl/archive/refs/tags/1.0.4.tar.gz",
   "folder_name": "acl-1.0.4",
   "sql_files": [
-    "acl-1.0.4/acl--1.0.0--1.0.1.sql",
-    "acl-1.0.4/acl--1.0.1--1.0.2.sql",
-    "acl-1.0.4/acl--1.0.2--1.0.3.sql",
-    "acl-1.0.4/acl--1.0.3--1.0.4.sql",
-    "acl-1.0.4/acl--1.0.4.sql"
+    "acl--1.0.0--1.0.1.sql",
+    "acl--1.0.1--1.0.2.sql",
+    "acl--1.0.2--1.0.3.sql",
+    "acl--1.0.3--1.0.4.sql",
+    "acl--1.0.4.sql"
   ],
   "source_dir": "."
 }

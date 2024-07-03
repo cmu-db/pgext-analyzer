@@ -13,19 +13,19 @@ for file in extn_files:
   extn_db[key] = extn_info_json
 
 # Get PGXN list of extensions
-pgxn_path = "/home/abigalek/pgxn/extension"
+pgxn_path = "/home/abigalek/pgext-analyzer/pgxn/dist"
 pgxn_files = os.listdir(pgxn_path)
 pgxn_list = []
 for file in pgxn_files:
   if file.endswith(".json"):
     pgxn_json = json.load(open(pgxn_path + "/" + file, "r"))
-    if pgxn_json["extension"] != None:
-      pgxn_list.append(pgxn_json["extension"])
+    if pgxn_json["name"] != None:
+      pgxn_list.append(pgxn_json["name"])
 
 extn_db_keys_set = set(extn_db.keys())
+pgxn_list = list(map(lambda x: x.lower(), pgxn_list))
 pgxn_list_set = set(pgxn_list)
 set_diff = list(pgxn_list_set.difference(extn_db_keys_set))
-set_diff = list(map(lambda x: x.lower(), set_diff))
 set_diff.sort()
 
 output = open("output.txt", "w")
@@ -33,12 +33,12 @@ for elem in set_diff:
   output.write(elem + "\n")
 
 elem_json = {
-    "download_method": "N/A",
-    "download_url": "N/A",
-    "folder_name": "N/A",
+    "download_method": "git",
+    "download_url": "",
+    "folder_name": "",
     "sql_files": [],
     "sql_dirs": [],
-    "source_dir": "N/A"
+    "source_dir": "."
   }
 elem_json_str = json.dumps(elem_json, indent=2)
 

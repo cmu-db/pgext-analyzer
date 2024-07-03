@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/guedes/ldap_fdw.git",
+  "folder_name": "ldap_fdw",
+  "sql_dirs": ["sql"],
+  "source_dir": "src"
+}

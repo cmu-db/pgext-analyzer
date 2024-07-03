@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/lacanoid/pgddl",
+  "folder_name": "pgddl",
+  "sql_files": ["ddlx.sql"],
+  "source_dir": "."
+}

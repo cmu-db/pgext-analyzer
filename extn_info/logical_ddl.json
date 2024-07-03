@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/samedyildirim/logical_ddl.git",
+  "folder_name": "logical_ddl",
+  "sql_dirs": ["sql"],
+  "source_dir": "src"
+}

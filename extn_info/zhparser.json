@@ -1,0 +1,17 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/amutu/zhparser.git",
+  "folder_name": "zhparser",
+  "sql_files": [
+    "zhparser--1.0--2.0.sql",
+    "zhparser--1.0.sql",
+    "zhparser--2.0--2.1.sql",
+    "zhparser--2.0.sql",
+    "zhparser--2.1--2.2.sql",
+    "zhparser--2.1.sql",
+    "zhparser--2.2.sql",
+    "zhparser--unpackaged--1.0.sql"
+  ],
+  "sql_dirs": [],
+  "source_dir": "."
+}

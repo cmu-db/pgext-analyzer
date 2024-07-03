@@ -1,0 +1,10 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/dvarrazzo/italian_fts.git",
+  "folder_name": "italian_fts",
+  "sql_files": [
+    "src/italian_fts.sql",
+    "src/uninstall_italian_fts.sql"
+  ],
+  "source_dir": "."
+}

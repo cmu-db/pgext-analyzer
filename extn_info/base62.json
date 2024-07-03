@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/adjust/pg-base62",
+  "folder_name": "pg-base62",
+  "sql_files": ["base62--0.0.1.sql"],
+  "source_dir": "src"
+}

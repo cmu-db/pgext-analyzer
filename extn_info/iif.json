@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://gitlab.com/ongresinc/extensions/iif.git",
+  "folder_name": "iif",
+  "sql_files": ["iif--0.0.1.sql"],
+  "source_dir": "."
+}

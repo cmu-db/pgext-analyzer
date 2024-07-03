@@ -1,0 +1,16 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/adjust/pg-language.git",
+  "folder_name": "pg-language",
+  "sql_files": [
+    "language--0.0.1--0.0.2.sql",
+    "language--0.0.1.sql",
+    "language--0.0.2--0.0.3.sql",
+    "language--0.0.2--0.0.4.sql",
+    "language--0.0.2.sql",
+    "language--0.0.3.sql",
+    "language--0.0.4.sql"
+  ],
+  "sql_dirs": ["sql"],
+  "source_dir": "src"
+}

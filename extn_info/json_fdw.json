@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/nkhorman/json_fdw.git",
+  "folder_name": "json_fdw",
+  "sql_files": ["json_fdw--1.0.sql"],
+  "source_dir": "."
+}

@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/furstenheim/is_jsonb_valid.git",
+  "folder_name": "is_jsonb_valid",
+  "sql_files": ["is_jsonb_valid--0.1.4.sql"],
+  "source_dir": "."
+}

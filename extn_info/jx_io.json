@@ -1,0 +1,10 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/asotolongo/jx_io.git",
+  "folder_name": "jx_io",
+  "sql_files": [
+    "jx_io--0.1.0.sql",
+    "jx_io--0.1.1.sql"
+  ],
+  "source_dir": "."
+}

@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/asotolongo/pg_json_utils.git",
+  "folder_name": "pg_json_utils",
+  "sql_files": ["json_utils--0.1.sql"],
+  "source_dir": "."
+}

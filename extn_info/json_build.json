@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/pgexperts/json_build.git",
+  "folder_name": "json_build",
+  "sql_dirs": ["sql"],
+  "source_dir": "src"
+}

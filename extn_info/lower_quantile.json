@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/tvondra/lower_quantile.git",
+  "folder_name": "lower_quantile",
+  "sql_dirs": ["sql"],
+  "source_dir": "."
+}

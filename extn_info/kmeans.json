@@ -1,0 +1,10 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/umitanuki/kmeans-postgresql.git",
+  "folder_name": "kmeans-postgresql",
+  "sql_files": [
+    "kmeans.sql.in",
+    "uninstall_kmeans.sql"
+  ],
+  "source_dir": "."
+}

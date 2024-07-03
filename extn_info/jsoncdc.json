@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/instructure/jsoncdc.git",
+  "folder_name": "jsoncdc",
+  "sql_dirs": ["sql"],
+  "source_dir": "src"
+}
