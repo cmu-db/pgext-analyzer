@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/tfoertsch/pg-streaming_lag.git",
+  "folder_name": "pg-streaming_lag",
+  "sql_files": ["streaming_lag--0.0.1.sql"],
+  "source_dir": "."
+}

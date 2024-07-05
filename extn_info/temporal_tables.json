@@ -1,0 +1,17 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/arkhipov/temporal_tables.git",
+  "folder_name": "temporal_tables",
+  "sql_files": [
+    "temporal_tables--1.0.0--1.0.1.sql",
+    "temporal_tables--1.0.1--1.0.2.sql",
+    "temporal_tables--1.0.2--1.1.0.sql",
+    "temporal_tables--1.1.0--1.1.1.sql",
+    "temporal_tables--1.1.1--1.2.0.sql",
+    "temporal_tables--1.2.0--1.2.1.sql",
+    "temporal_tables--1.2.1--1.2.2.sql",
+    "temporal_tables--1.2.2.sql"
+  ],
+  "sql_dirs": [],
+  "source_dir": "."
+}

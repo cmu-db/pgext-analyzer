@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/AWeber/pg-statsd.git",
+  "folder_name": "pg-statsd",
+  "sql_dirs": ["sql"],
+  "source_dir": "src"
+}

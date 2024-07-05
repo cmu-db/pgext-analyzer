@@ -1,0 +1,17 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/splendiddata/session_variable",
+  "folder_name": "session_variable",
+  "sql_files": [
+    "session_variable--2.0--3.0.sql",
+    "session_variable--2.0.sql",
+    "session_variable--3.0--3.1.sql",
+    "session_variable--3.0.sql",
+    "session_variable--3.1--3.2.sql",
+    "session_variable--3.1.sql",
+    "session_variable--3.2--3.3.sql",
+    "session_variable--3.2.sql",
+    "session_variable--3.3.sql"
+  ],
+  "source_dir": "."
+}

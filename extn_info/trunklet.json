@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/decibel/trunklet.git",
+  "folder_name": "trunklet",
+  "sql_dirs": ["sql"],
+  "source_dir": "."
+}

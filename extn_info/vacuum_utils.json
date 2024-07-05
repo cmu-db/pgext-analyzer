@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/asotolongo/vacuum_utils.git",
+  "folder_name": "vacuum_utils",
+  "sql_files": ["vacuum_utils--0.1.0.sql"],
+  "source_dir": "."
+}

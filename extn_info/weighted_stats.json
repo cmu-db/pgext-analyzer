@@ -1,0 +1,8 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/davidfetter/weighted_stats.git",
+  "folder_name": "weighted_stats",
+  "sql_files": ["weighted_stats--0.1.0--0.2.0.sql"],
+  "sql_dirs": ["sql"],
+  "source_dir": "src"
+}

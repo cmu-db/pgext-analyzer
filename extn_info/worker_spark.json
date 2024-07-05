@@ -1,0 +1,8 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/gciolli/worker_spark.git",
+  "folder_name": "worker_spark",
+  "sql_files": [],
+  "sql_dirs": [],
+  "source_dir": "."
+}

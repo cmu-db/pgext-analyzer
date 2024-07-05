@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/ssinger/slony1-engine",
+  "folder_name": "slony1-engine",
+  "sql_dirs": ["src/backend"],
+  "source_dir": "src"
+}

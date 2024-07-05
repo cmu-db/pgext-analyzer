@@ -1,0 +1,7 @@
+{
+  "download_method": "zip",
+  "pgxn_location": "user_info/0.1.0/user_info-0.1.0.zip",
+  "folder_name": "user_info-0.1.0",
+  "sql_dirs": ["sql"],
+  "source_dir": "."
+}

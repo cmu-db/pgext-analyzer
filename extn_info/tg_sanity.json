@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/decibel/tg_sanity.git",
+  "folder_name": "tg_sanity",
+  "sql_dirs": ["sql"],
+  "source_dir": "."
+}

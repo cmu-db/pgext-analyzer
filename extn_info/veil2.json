@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/marcmunro/veil2.git",
+  "folder_name": "veil2",
+  "sql_dirs": ["sql"],
+  "source_dir": "src"
+}

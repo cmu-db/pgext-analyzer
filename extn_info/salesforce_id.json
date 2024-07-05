@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/sylvainv/pg-salesforce-id",
+  "folder_name": "pg-salesforce-id",
+  "sql_files": ["salesforce_id--1.0.sql"],
+  "source_dir": "src"
+}

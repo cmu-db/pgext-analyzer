@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/Kozea/weighted_mean.git",
+  "folder_name": "weighted_mean",
+  "sql_dirs": ["sql"],
+  "source_dir": "src"
+}

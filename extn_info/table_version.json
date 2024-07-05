@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/linz/postgresql-tableversion.git",
+  "folder_name": "postgresql-tableversion",
+  "sql_dirs": ["sql"],
+  "source_dir": "."
+}

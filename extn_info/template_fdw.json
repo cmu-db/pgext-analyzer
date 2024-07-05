@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/okbob/template_fdw.git",
+  "folder_name": "template_fdw",
+  "sql_files": ["template_fdw--0.0.sql"],
+  "source_dir": "."
+}

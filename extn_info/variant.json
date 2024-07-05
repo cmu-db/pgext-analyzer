@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/BlueTreble/variant.git",
+  "folder_name": "variant",
+  "sql_dirs": ["sql"],
+  "source_dir": "src"
+}

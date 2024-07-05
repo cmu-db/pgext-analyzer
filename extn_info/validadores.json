@@ -1,0 +1,7 @@
+{
+  "download_method": "zip",
+  "pgxn_location": "validadores/0.0.2/validadores-0.0.2.zip",
+  "folder_name": "validadores-0.0.2",
+  "sql_dirs": ["sql"],
+  "source_dir": "."
+}

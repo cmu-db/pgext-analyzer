@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://tvondra@github.com/tvondra/trimmed_aggregates.git",
+  "folder_name": "trimmed_aggregates",
+  "sql_dirs": ["sql"],
+  "source_dir": "."
+}

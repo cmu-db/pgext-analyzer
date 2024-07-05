@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/pgextensions/function-template.git",
+  "folder_name": "function-template",
+  "sql_files": ["soundex-function--1.0.0.sql"],
+  "source_dir": "src"
+}

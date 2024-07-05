@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/pgextensions/type-template.git",
+  "folder_name": "type-template",
+  "sql_files": ["soundex-type--1.0.0.sql"],
+  "source_dir": "src"
+}

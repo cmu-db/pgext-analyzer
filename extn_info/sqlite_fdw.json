@@ -1,0 +1,11 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/pgspider/sqlite_fdw.git",
+  "folder_name": "sqlite_fdw",
+  "sql_files": [
+    "sqlite_fdw--1.0--1.1.sql",
+    "sqlite_fdw--1.0.sql"
+  ],
+  "sql_dirs": [],
+  "source_dir": "."
+}

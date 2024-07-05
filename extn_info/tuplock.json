@@ -1,0 +1,7 @@
+{
+  "download_method": "zip",
+  "pgxn_location": "tuplock/1.2.2/tuplock-1.2.2.zip",
+  "folder_name": "tuplock-1.2.2",
+  "sql_files": ["tuplock--1.2.2.sql", "tuplock--unpackaged--1.2.2.sql", "tuplock.sql.in"],
+  "source_dir": "."
+}

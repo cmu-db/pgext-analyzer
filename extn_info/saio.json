@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/wulczer/saio.git",
+  "folder_name": "saio",
+  "sql_dirs": ["queries"],
+  "source_dir": "src"
+}

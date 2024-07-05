@@ -1,0 +1,11 @@
+{
+  "download_method": "zip",
+  "pgxn_location": "shard_manager/0.0.1/shard_manager-0.0.1.zip",
+  "folder_name": "shard_manager-0.0.1",
+  "sql_files": [
+    "sql/shard_manager.sql",
+    "sql/uninstall_shard_manager.sql"
+  ],
+  "sql_dirs": [],
+  "source_dir": "."
+}

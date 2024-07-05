@@ -1,5 +1,5 @@
 {
-  "download_method": "git",
+  "download_method": "zip",
   "pgxn_location": "pgjsonrpc/0.0.1/pgjsonrpc-0.0.1.zip",
   "folder_name": "pgjsonrpc-0.0.1",
   "sql_dirs": ["sql"],

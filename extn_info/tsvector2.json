@@ -1,0 +1,11 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/postgrespro/tsvector2.git",
+  "folder_name": "tsvector2",
+  "sql_files": [
+    "init.sql",
+    "rum_support.sql"
+  ],
+  "sql_dirs": [],
+  "source_dir": "src"
+}

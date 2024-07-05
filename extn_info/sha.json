@@ -1,0 +1,11 @@
+{
+  "download_method": "zip",
+  "pgxn_location": "sha/1.1.0/sha-1.1.0.zip",
+  "folder_name": "sha-1.1.0",
+  "sql_files": [
+    "md5.sql.type",
+    "sha.sql.type",
+    "uninstall_sha.sql"
+  ],
+  "source_dir": "."
+}

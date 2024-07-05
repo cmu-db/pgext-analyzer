@@ -1,0 +1,7 @@
+{
+  "download_method": "zip",
+  "pgxn_location": "tab_tier/1.1.1/tab_tier-1.1.1.zip",
+  "folder_name": "tab_tier-1.1.1",
+  "sql_dirs": ["sql"],
+  "source_dir": "."
+}

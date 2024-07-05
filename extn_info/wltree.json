@@ -1,0 +1,11 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/adjust/wltree.git",
+  "folder_name": "wltree",
+  "sql_files": ["ltreetest.sql", 
+  "wltree--2.0.sql",
+  "wltree--dummy--2.0.sql",
+  "wltree--dummy.sql",
+  "wltree--unpackaged--2.0.sql"],
+  "source_dir": "."
+}

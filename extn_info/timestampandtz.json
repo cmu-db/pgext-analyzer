@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/mweber26/timestampandtz.git",
+  "folder_name": "timestampandtz",
+  "sql_files": ["timestampandtz--1.0.0.sql"],
+  "source_dir": "."
+}

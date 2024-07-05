@@ -1,0 +1,8 @@
+{
+  "download_method": "zip",
+  "pgxn_location": "short_ids/0.1.0/short_ids-0.1.0.zip",
+  "folder_name": "short_ids-0.1.0",
+  "sql_files": ["short_ids--0.1.0.sql"],
+  "sql_dirs": [],
+  "source_dir": "."
+}

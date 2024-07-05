@@ -1,0 +1,10 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/umitanuki/tinyint-postgresql.git",
+  "folder_name": "tinyint-postgresql",
+  "sql_files": [
+    "tinyint.sql.in.c",
+    "uninstall_tinyint.sql"
+  ],
+  "source_dir": "."
+}
