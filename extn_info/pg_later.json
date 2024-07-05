@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/tembo-io/pg_later.git",
+  "folder_name": "pg_later",
+  "sql_dirs": ["sql"],
+  "source_dir": "src"
+}

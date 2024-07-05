@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/pierreforstmann/pg_readonly.git",
+  "folder_name": "pg_readonly",
+  "sql_files": ["pg_readonly--1.0.0.sql"],
+  "source_dir": "."
+}

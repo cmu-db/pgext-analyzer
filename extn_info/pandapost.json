@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/PandaPost/PandaPost.git",
+  "folder_name": "PandaPost",
+  "sql_dirs": ["sql"],
+  "source_dir": "src"
+}

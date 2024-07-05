@@ -1,0 +1,8 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/pgguru/pg_kaboom.git",
+  "folder_name": "pg_kaboom",
+  "sql_files": ["pg_kaboom--0.0.1.sql"],
+  "sql_dirs": [],
+  "source_dir": "."
+}

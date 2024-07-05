@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/decibel/object_reference.git",
+  "folder_name": "object_reference",
+  "sql_dirs": ["sql"],
+  "source_dir": "."
+}

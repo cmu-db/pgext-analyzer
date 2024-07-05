@@ -1,0 +1,11 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/einhverfr/pgxn-postgres_monitoring.git",
+  "folder_name": "pgxn-postgres_monitoring",
+  "sql_files": [
+    "pg_monitoring--0.1--0.2.sql",
+    "pg_monitoring--0.2.sql"
+  ],
+  "sql_dirs": [],
+  "source_dir": "."
+}

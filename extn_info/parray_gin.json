@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/theirix/parray_gin.git",
+  "folder_name": "parray_gin",
+  "sql_dirs": ["sql"],
+  "source_dir": "src"
+}

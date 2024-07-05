@@ -1,0 +1,12 @@
+{
+  "download_method": "git",
+  "download_url": "pg_message_queue/0.2.1/pg_message_queue-0.2.1.zip",
+  "folder_name": "pg_message_queue-0.2.1",
+  "sql_files": [
+    "pg_message_queue--0.1--0.2.sql",
+    "pg_message_queue--0.2.1.sql",
+    "pg_message_queue--0.2--0.2.1.sql"
+  ],
+  "sql_dirs": [],
+  "source_dir": "."
+}

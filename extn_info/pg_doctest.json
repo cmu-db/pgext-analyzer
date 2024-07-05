@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://gitlab.com/daamien/pg_doctest.git",
+  "folder_name": "pg_doctest",
+  "sql_files": ["pg_doctest.sql", "pg_doctest--0.0.1.sql"],
+  "source_dir": "."
+}

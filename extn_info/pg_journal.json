@@ -1,0 +1,8 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/intgr/pg_journal.git",
+  "folder_name": "pg_journal",
+  "sql_files": [],
+  "sql_dirs": [],
+  "source_dir": "src"
+}

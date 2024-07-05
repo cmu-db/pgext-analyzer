@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/2ndQuadrant/mysqlcompat.git",
+  "folder_name": "mysqlcompat",
+  "sql_dirs": ["sql", "sql_bits"],
+  "source_dir": "."
+}

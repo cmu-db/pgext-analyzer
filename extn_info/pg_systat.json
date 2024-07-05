@@ -1,0 +1,8 @@
+{
+  "download_method": "git",
+  "download_url": "pg_systat/1.0.0/pg_systat-1.0.0.zip",
+  "folder_name": "pg_systat-1.0.0",
+  "sql_files": [],
+  "sql_dirs": [],
+  "source_dir": "."
+}

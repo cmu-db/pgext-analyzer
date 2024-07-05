@@ -1,0 +1,10 @@
+{
+  "download_method": "zip",
+  "pgxn_location": "pg_image/0.3.0/pg_image-0.3.0.zip",
+  "folder_name": "pg_image-0.3.0",
+  "sql_files": [
+    "pg_image--0.1--0.2.sql",
+    "pg_image--0.3.sql",
+    "pg_image--0.2--0.3.sql"],
+  "source_dir": "."
+}

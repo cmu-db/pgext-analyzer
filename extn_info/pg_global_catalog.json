@@ -1,0 +1,10 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/pierreforstmann/pg_global_catalog.git",
+  "folder_name": "pg_global_catalog",
+  "sql_files": [
+    "pg_global_catalog--0.0.1.sql",
+    "pg_global_catalog-local--0.0.1.sql"
+  ],
+  "source_dir": "."
+}

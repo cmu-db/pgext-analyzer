@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/ccutrer/pg_collkey.git",
+  "folder_name": "pg_collkey",
+  "sql_files": ["collkey_icu.sql"],
+  "source_dir": "."
+}

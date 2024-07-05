@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/diffix/pg_diffix.git",
+  "folder_name": "pg_diffix",
+  "sql_files": ["analysis.sql", "pg_diffix--fir.sql"],
+  "source_dir": "."
+}

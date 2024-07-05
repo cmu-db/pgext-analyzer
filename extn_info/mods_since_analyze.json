@@ -1,0 +1,10 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/gleu/mods_since_analyze.git",
+  "folder_name": "mods_since_analyze",
+  "sql_files": [
+    "mods_since_analyze.sql",
+    "uninstall_mods_since_analyze.sql"
+  ],
+  "source_dir": "."
+}

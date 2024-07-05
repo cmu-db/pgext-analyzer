@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/omniti-labs/pg_jobmon.git",
+  "folder_name": "pg_jobmon",
+  "sql_dirs": ["sql/functions", "sql/tables"],
+  "source_dir": "."
+}

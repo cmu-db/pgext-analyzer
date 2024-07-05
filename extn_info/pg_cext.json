@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/IshaanAdarsh/pg_cext.git",
+  "folder_name": "pg_cext",
+  "sql_files": ["pg_cext--1.0.0.sql"],
+  "source_dir": "."
+}

@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/keithf4/pg_doc_store.git",
+  "folder_name": "pg_doc_store",
+  "sql_dirs": ["sql/functions", "updates"],
+  "source_dir": "."
+}

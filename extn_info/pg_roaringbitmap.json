@@ -1,0 +1,14 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/ChenHuajun/pg_roaringbitmap.git",
+  "folder_name": "pg_roaringbitmap",
+  "sql_files": [
+    "roaringbitmap--0.2--0.3.sql",
+    "roaringbitmap--0.2.sql",
+    "roaringbitmap--0.3--0.4.sql",
+    "roaringbitmap--0.4--0.5.sql",
+    "roaringbitmap--0.5.sql"
+  ],
+  "sql_dirs": [],
+  "source_dir": "."
+}

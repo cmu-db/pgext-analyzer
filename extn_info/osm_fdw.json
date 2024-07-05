@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/vpikulik/postgres_osm_pbf_fdw.git",
+  "folder_name": "postgres_osm_pbf_fdw",
+  "sql_dirs": ["sql"],
+  "source_dir": "src"
+}

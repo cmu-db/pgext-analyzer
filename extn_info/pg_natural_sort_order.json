@@ -1,0 +1,9 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/Bjond/pg_natural_sort_order.git",
+  "folder_name": "pg_natural_sort_order",
+  "sql_files": [
+    "pg_natural_sort_order--1.0.1.sql"
+  ],
+  "source_dir": "."
+}

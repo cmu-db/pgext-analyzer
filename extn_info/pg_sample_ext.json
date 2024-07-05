@@ -1,0 +1,14 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/IshaanAdarsh/pg_sample_ext.git",
+  "folder_name": "pg_sample_ext",
+  "sql_files": [
+    "pg_sample_ext--1.0.0--1.0.1.sql",
+    "pg_sample_ext--1.0.0.sql",
+    "pg_sample_ext--1.0.1--1.0.2.sql",
+    "pg_sample_ext--1.0.1.sql",
+    "pg_sample_ext--1.0.2.sql"
+  ],
+  "sql_dirs": [],
+  "source_dir": "."
+}

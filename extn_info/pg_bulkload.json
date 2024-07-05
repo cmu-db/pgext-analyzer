@@ -1,0 +1,11 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/ossc-db/pg_bulkload.git",
+  "folder_name": "pg_bulkload",
+  "sql_files": [
+    "util/pg_timestamp.sql.in",
+    "util/uninstall_pg_timestamp.sql",
+    "lib/pg_bulkload.sql.in"
+  ],
+  "source_dir": "."
+}

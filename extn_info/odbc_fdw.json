@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/ZhengYang/odbc_fdw.git",
+  "folder_name": "odbc_fdw",
+  "sql_files": ["odbc_fdw--1.0.sql"],
+  "source_dir": "."
+}

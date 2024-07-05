@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/pierreforstmann/pg_timeout.git",
+  "folder_name": "pg_timeout",
+  "sql_files": ["pg_timeout--1.0.sql"],
+  "source_dir": "."
+}

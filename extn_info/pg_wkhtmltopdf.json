@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/RekGRpth/pg_wkhtmltopdf.git",
+  "folder_name": "pg_wkhtmltopdf",
+  "sql_files": ["pg_wkhtmltopdf--1.0.sql"],
+  "source_dir": "."
+}

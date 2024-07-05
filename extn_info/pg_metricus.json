@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/nvorobev/pg_metricus_c.git",
+  "folder_name": "pg_metricus_c",
+  "sql_files": ["pg_metricus--1.0.sql"],
+  "source_dir": "."
+}

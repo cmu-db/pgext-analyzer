@@ -1,0 +1,21 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/rjuju/pg_track_settings.git",
+  "folder_name": "pg_track_settings",
+  "sql_files": [
+    "pg_track_settings--1.0.0--1.0.1.sql",
+    "pg_track_settings--1.0.0.sql",
+    "pg_track_settings--1.0.1--1.1.0.sql",
+    "pg_track_settings--1.0.1.sql",
+    "pg_track_settings--1.1.0.sql",
+    "pg_track_settings--2.0.0--2.0.1.sql",
+    "pg_track_settings--2.0.0.sql",
+    "pg_track_settings--2.0.1--2.1.0.sql",
+    "pg_track_settings--2.0.1.sql",
+    "pg_track_settings--2.1.0--2.1.2.sql",
+    "pg_track_settings--2.1.0.sql",
+    "pg_track_settings--2.1.2.sql"
+  ],
+  "sql_dirs": [],
+  "source_dir": "."
+}

@@ -1,0 +1,8 @@
+{
+  "download_method": "zip",
+  "pgxn_location": "pg_statsd/0.1.4/pg_statsd-0.1.4.zip",
+  "folder_name": "pg_statsd-0.1.4",
+  "sql_files": [],
+  "sql_dirs": ["sql"],
+  "source_dir": "src"
+}

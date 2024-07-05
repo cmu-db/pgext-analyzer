@@ -1,0 +1,8 @@
+{
+  "download_method": "git",
+  "pgxn_location": "pg_top/4.1.0/pg_top-4.1.0.zip",
+  "folder_name": "pg_top-4.1.0",
+  "sql_files": [],
+  "sql_dirs": [],
+  "source_dir": "."
+}

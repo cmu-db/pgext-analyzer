@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/ArturFormella/notify_now.git",
+  "folder_name": "notify_now",
+  "sql_files": ["notify_now--1.0.sql"],
+  "source_dir": "."
+}

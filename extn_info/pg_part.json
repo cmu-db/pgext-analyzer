@@ -1,0 +1,13 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/uptimejp/pg_part.git",
+  "folder_name": "pg_part",
+  "sql_files": [
+    "pg_part--0.1.0.sql",
+    "pg_part--unpackaged--0.1.0.sql",
+    "pg_part.sql",
+    "uninstall_pg_part.sql"
+  ],
+  "sql_dirs": [],
+  "source_dir": "."
+}

@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "pg_amqp/0.3.0/pg_amqp-0.3.0.zip",
+  "folder_name": "pg_amqp-0.3.0",
+  "sql_dirs": ["sql"],
+  "source_dir": "src"
+}

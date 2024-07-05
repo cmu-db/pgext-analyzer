@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/RekGRpth/pg_htmldoc.git",
+  "folder_name": "pg_htmldoc",
+  "sql_files": ["pg_htmldoc--1.0.sql"],
+  "source_dir": "."
+}

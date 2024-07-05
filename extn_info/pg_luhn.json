@@ -1,0 +1,7 @@
+{
+  "download_method": "zip",
+  "pgxn_location": "pg_luhn/0.0.1/pg_luhn-0.0.1.zip",
+  "folder_name": "pg_luhn-0.0.1",
+  "sql_files": ["pg_luhn.sql"],
+  "source_dir": "."
+}

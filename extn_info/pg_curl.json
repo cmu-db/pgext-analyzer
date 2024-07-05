@@ -1,0 +1,15 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/RekGRpth/pg_curl.git",
+  "folder_name": "pg_curl",
+  "sql_files": [
+    "pg_curl--1.0--2.0.sql",
+    "pg_curl--1.0.sql",
+    "pg_curl--2.0--2.1.sql",
+    "pg_curl--2.0.sql",
+    "pg_curl--2.1--2.2.sql",
+    "pg_curl--2.1.sql",
+    "pg_curl--2.2.sql"
+  ],
+  "source_dir": "."
+}

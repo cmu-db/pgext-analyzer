@@ -1,0 +1,11 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/pramsey/pgsql-ogr-fdw.git",
+  "folder_name": "pgsql-ogr-fdw",
+  "sql_files": [
+    "ogr_fdw--1.0--1.1.sql",
+    "ogr_fdw--1.1.sql"
+  ],
+  "sql_dirs": [],
+  "source_dir": "."
+}

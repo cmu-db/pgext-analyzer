@@ -1,0 +1,8 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/sim51/neo4j-fdw.git",
+  "folder_name": "neo4j-fdw",
+  "sql_files": [],
+  "sql_dirs": ["sql"],
+  "source_dir": "."
+}

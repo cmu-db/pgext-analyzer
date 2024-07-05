@@ -1,0 +1,8 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/paradedb/paradedb.git",
+  "folder_name": "paradedb",
+  "sql_files": [],
+  "sql_dirs": ["pg_lakehouse/sql", "pg_search/sql"],
+  "source_dir": "."
+}

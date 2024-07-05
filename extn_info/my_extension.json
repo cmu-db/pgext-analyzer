@@ -1,0 +1,11 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/IshaanAdarsh/my_extension.git",
+  "folder_name": "my_extension",
+  "sql_files": [
+    "my_extension--1.0.0.sql",
+    "my_extension--1.0.1.sql",
+    "my_extension--1.1.0.sql"
+  ],
+  "source_dir": "."
+}

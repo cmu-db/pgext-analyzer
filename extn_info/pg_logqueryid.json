@@ -1,0 +1,9 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/pierreforstmann/pg_logqueryid.git",
+  "folder_name": "pg_logqueryid",
+  "sql_files": [
+   "pg_logqueryid--0.0.1.sql"
+  ],
+  "source_dir": "."
+}

@@ -1,0 +1,8 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/RekGRpth/pg_task.git",
+  "folder_name": "pg_task",
+  "sql_files": [],
+  "sql_dirs": [],
+  "source_dir": "."
+}

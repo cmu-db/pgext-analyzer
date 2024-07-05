@@ -1,0 +1,18 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/kouber/pg_sqlog.git",
+  "folder_name": "pg_sqlog",
+  "sql_files": [
+    "srcpg_sqlog--1.0--1.1.sql",
+    "srcpg_sqlog--1.0.sql",
+    "srcpg_sqlog--1.1--1.2.sql",
+    "srcpg_sqlog--1.2--1.3.sql",
+    "srcpg_sqlog--1.3--1.4.sql",
+    "srcpg_sqlog--1.4--1.5.sql",
+    "srcpg_sqlog--1.5--1.6.sql",
+    "srcpg_sqlog--1.5.sql",
+    "srcpg_sqlog--1.6.sql"
+  ],
+  "sql_dirs": [],
+  "source_dir": "."
+}

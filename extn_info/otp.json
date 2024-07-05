@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/asio/otp.git",
+  "folder_name": "otp",
+  "sql_dirs": ["sql"],
+  "source_dir": "."
+}

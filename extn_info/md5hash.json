@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/tvondra/md5hash.git",
+  "folder_name": "md5hash",
+  "sql_dirs": ["sql"],
+  "source_dir": "."
+}

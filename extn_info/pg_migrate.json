@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/phillbaker/pg_migrate.git",
+  "folder_name": "pg_migrate",
+  "sql_files": ["lib/pg_migrate.sql.in"],
+  "source_dir": "."
+}

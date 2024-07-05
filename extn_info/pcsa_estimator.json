@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://tvondra@github.com/tvondra/distinct_estimators.git",
+  "folder_name": "distinct_estimators/pcsa",
+  "sql_dirs": ["sql"],
+  "source_dir": "src"
+}

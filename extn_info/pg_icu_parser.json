@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/IgKh/pg_icu_parser.git",
+  "folder_name": "pg_icu_parser",
+  "sql_files": ["pg_icu_parser--1.0.sql"],
+  "source_dir": "."
+}

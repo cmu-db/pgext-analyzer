@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/dverite/permuteseq.git",
+  "folder_name": "permuteseq",
+  "sql_dirs": ["sql"],
+  "source_dir": "."
+}

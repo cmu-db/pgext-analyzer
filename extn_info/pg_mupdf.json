@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/RekGRpth/pg_mupdf.git",
+  "folder_name": "pg_mupdf",
+  "sql_files": ["pg_mupdf--1.0.sql"],
+  "source_dir": "."
+}

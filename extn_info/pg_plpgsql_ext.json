@@ -1,0 +1,9 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/IshaanAdarsh/pg_plpgsql_ext.git",
+  "folder_name": "pg_plpgsql_ext",
+  "sql_files": [
+    "pg_plpgsql_ext--1.0.0.sql"
+  ],
+  "source_dir": "."
+}

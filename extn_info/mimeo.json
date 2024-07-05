@@ -1,0 +1,12 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/omniti-labs/mimeo.git",
+  "folder_name": "mimeo",
+  "sql_files": [],
+  "sql_dirs": [
+    "sql/functions",
+    "sql/tables",
+    "sql/triggers"
+  ],
+  "source_dir": "."
+}

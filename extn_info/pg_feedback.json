@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/ligurio/pg_feedback.git",
+  "folder_name": "pg_feedback",
+  "sql_files": ["pg_feedback--1.0.sql"],
+  "source_dir": "."
+}

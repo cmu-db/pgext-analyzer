@@ -1,0 +1,9 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/jackgo73/pg_memorycontext.git",
+  "folder_name": "pg_memorycontext",
+  "sql_files": [
+  "pg_memorycontext--1.0.sql",
+  "pg_memorycontext--unpackaged--1.0.sql"],
+  "source_dir": "."
+}

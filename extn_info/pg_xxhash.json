@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/hatarist/pg_xxhash.git",
+  "folder_name": "pg_xxhash",
+  "sql_files": ["xxhash--0.0.1.sql"],
+  "source_dir": "."
+}

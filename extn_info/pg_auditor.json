@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/kouber/pg_auditor.git",
+  "folder_name": "pg_auditor",
+  "sql_dirs": ["src"],
+  "source_dir": "."
+}

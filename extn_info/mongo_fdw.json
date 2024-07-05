@@ -1,0 +1,11 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/EnterpriseDB/mongo_fdw.git",
+  "folder_name": "mongo_fdw",
+  "sql_files": [
+    "mongo_fdw--1.0--1.1.sql",
+    "mongo_fdw--1.0.sql",
+    "mongo_fdw--1.1.sql"
+  ],
+  "source_dir": "."
+}

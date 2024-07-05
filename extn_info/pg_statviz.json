@@ -1,0 +1,17 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/vyruss/pg_statviz.git",
+  "folder_name": "pg_statviz",
+  "sql_files": [
+    "pg_statviz--0.1--0.3.sql",
+    "pg_statviz--0.1.sql",
+    "pg_statviz--0.3--0.4.sql",
+    "pg_statviz--0.3.sql",
+    "pg_statviz--0.4--0.5.sql",
+    "pg_statviz--0.5--0.6.sql",
+    "pg_statviz--0.6--0.7.sql",
+    "pg_statviz--0.7.sql"
+  ],
+  "sql_dirs": [],
+  "source_dir": "."
+}

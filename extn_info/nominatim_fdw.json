@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/jimjonesbr/nominatim_fdw.git",
+  "folder_name": "nominatim_fdw",
+  "sql_files": ["nominatim_fdw--1.0.sql"],
+  "source_dir": "."
+}

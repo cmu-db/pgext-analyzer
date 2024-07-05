@@ -1,0 +1,9 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/RekGRpth/pg_mustach.git",
+  "folder_name": "pg_mustach",
+  "sql_files": [
+    "pg_mustach--1.0.sql"
+  ],
+  "source_dir": "."
+}

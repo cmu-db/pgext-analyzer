@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/citusdata/pg_shard.git",
+  "folder_name": "pg_shard",
+  "sql_files": ["sql/pg_shard.sql"],
+  "source_dir": "."
+}

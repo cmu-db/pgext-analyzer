@@ -1,0 +1,10 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/pierreforstmann/pg_log_statements.git",
+  "folder_name": "pg_log_statements",
+  "sql_files": [
+    "pg_log_statements--0.0.1.sql",
+    "pg_log_statements--0.0.2.sql"
+  ],
+  "source_dir": "."
+}

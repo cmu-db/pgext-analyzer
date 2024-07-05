@@ -1,0 +1,10 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/jimjonesbr/oai_fdw.git",
+  "folder_name": "oai_fdw",
+  "sql_files": [
+    "oai_fdw--1.8--1.9.sql",
+    "oai_fdw--1.9.sql"
+  ],
+  "source_dir": "."
+}

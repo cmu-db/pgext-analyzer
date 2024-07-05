@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/decibel/pg_acl.git",
+  "folder_name": "pg_acl",
+  "sql_files": ["sql/pg_acl.in.sql"],
+  "source_dir": "."
+}

@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/fboulnois/pg_uuidv7.git",
+  "folder_name": "pg_uuidv7",
+  "sql_dirs": ["sql"],
+  "source_dir": "."
+}
