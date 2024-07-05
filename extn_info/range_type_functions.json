@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "pgxn_location": "range_type_functions/0.0.4/range_type_functions-0.0.4.zip",
+  "folder_name": "range_type_functions-0.0.4",
+  "sql_dirs": ["sql"],
+  "source_dir": "."
+}

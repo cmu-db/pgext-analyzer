@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/leto/plparrot.git",
+  "folder_name": "plparrot",
+  "sql_files": ["plparrot.sql.in"],
+  "source_dir": "."
+}

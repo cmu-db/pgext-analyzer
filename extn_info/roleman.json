@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/adjust/pg-roleman.git",
+  "folder_name": "pg-roleman",
+  "sql_dirs": ["extension"],
+  "source_dir": "."
+}

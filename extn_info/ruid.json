@@ -1,0 +1,7 @@
+{
+  "download_method": "zip",
+  "pgxn_location": "ruid/0.0.4/ruid-0.0.4.zip",
+  "folder_name": "ruid-0.0.4",
+  "sql_dirs": ["sql"],
+  "source_dir": "src"
+}

@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/wttw/pgpsl.git",
+  "folder_name": "pgpsl",
+  "sql_dirs": ["sql"],
+  "source_dir": "src"
+}

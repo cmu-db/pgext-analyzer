@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "pgxn_location": "pgdecimal/1.0.0/pgdecimal-1.0.0.zip",
+  "folder_name": "pgdecimal-1.0.0",
+  "sql_files": ["decimal--1.0.sql"],
+  "source_dir": "."
+}

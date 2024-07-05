@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/coreyhuinker/pmpp.git",
+  "folder_name": "pmpp",
+  "sql_dirs": ["sql"],
+  "source_dir": "src"
+}

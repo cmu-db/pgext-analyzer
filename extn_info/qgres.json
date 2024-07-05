@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/decibel/Qgres.git",
+  "folder_name": "Qgres",
+  "sql_dirs": ["sql"],
+  "source_dir": "."
+}

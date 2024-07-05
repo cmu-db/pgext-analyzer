@@ -1,0 +1,10 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/jimjonesbr/rdf_fdw.git",
+  "folder_name": "rdf_fdw",
+  "sql_files": [
+    "rdf_fdw--1.1--1.2.sql",
+    "rdf_fdw--1.2.sql"
+  ],
+  "source_dir": "."
+}

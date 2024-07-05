@@ -1,0 +1,17 @@
+{
+  "download_method": "git",
+  "download_url": "https://gitlab.com/dalibo/postgresql_faker.git",
+  "folder_name": "postgresql_faker",
+  "sql_files": [
+    "faker--0.1.0.sql",
+    "faker--0.2.0.sql",
+    "faker--0.3.0.sql",
+    "faker--0.4.0.sql",
+    "faker--0.5.0.sql",
+    "faker--0.5.1.sql",
+    "faker--0.5.2.sql",
+    "faker--0.5.3.sql"
+  ],
+  "sql_dirs": ["faker", "faker/providers/address", "faker/providers/person"],
+  "source_dir": "."
+}

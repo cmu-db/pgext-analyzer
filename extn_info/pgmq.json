@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/tembo-io/pgmq.git",
+  "folder_name": "pgmq",
+  "sql_dirs": ["pgmq-extension/sql"],
+  "source_dir": "pgmq-rs/src"
+}

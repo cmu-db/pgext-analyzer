@@ -1,0 +1,7 @@
+{
+  "download_method": "zip",
+  "pgxn_location": "range_partitioning/1.2.2/range_partitioning-1.2.2.zip",
+  "folder_name": "range_partitioning",
+  "sql_dirs": ["sql"],
+  "source_dir": "."
+}

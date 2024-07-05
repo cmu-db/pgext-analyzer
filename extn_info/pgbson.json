@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/maciekgajewski/postgresbson.git",
+  "folder_name": "postgresbson",
+  "sql_files": ["pgbson/pgbson--1.0.sql"],
+  "source_dir": "pgbson"
+}

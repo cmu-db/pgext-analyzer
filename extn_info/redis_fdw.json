@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/pg-redis-fdw/redis_fdw",
+  "folder_name": "redis_fdw",
+  "sql_files": ["redis_fdw--1.0.sql"],
+  "source_dir": "."
+}

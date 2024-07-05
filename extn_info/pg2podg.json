@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/gciolli/pg2podg.git",
+  "folder_name": "pg2podg",
+  "sql_dirs": ["sql"],
+  "source_dir": "."
+}

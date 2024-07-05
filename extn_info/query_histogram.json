@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/tvondra/query_histogram.git",
+  "folder_name": "query_histogram",
+  "sql_dirs": ["sql"],
+  "source_dir": "src"
+}

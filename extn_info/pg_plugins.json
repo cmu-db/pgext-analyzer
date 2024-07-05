@@ -1,0 +1,28 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/michaelpq/pg_plugins.git",
+  "folder_name": "pg_plugins",
+  "sql_files": [
+    "pg_rusage/pg_rusage--1.0.sql",
+    "scram_utils/scram_utils--1.0.sql",
+    "compress_test/compression_test--1.0.sql",
+    "pgmpc/pgmpc--0.1.0.sql",
+    "mcxtalloc_test/mcxtalloc_test--1.0.sql",
+    "pg_statvfs/pg_statvfs--1.0.sql",
+    "overflow/overflow--1.0.sql",
+    "pg_swap_pages/pg_swap_pages--1.0.sql",
+    "pg_sasl_prepare/pg_sasl_prepare--1.0.sql",
+    "lwlock_test/lwlock_test--1.0.sql",
+    "wal_utils/wal_utils--1.0.sql",
+    "blackhole_cplusplus/blackhole_cplusplus--1.0.sql",
+    "hmac_funcs/hmac_funcs--1.0.sql",
+    "custom_wal/custom_wal--1.0.sql",
+    "blackhole/blackhole--1.0.sql",
+    "blackhole_am/blackhole_am--1.0.sql",
+    "hint_parser/hint_parser--1.0.sql",
+    "signal_rmgr/signal_rmgr--1.0.sql",
+    "pg_fix_truncation/pg_fix_truncation--1.0.sql"
+  ],
+  "sql_dirs": [],
+  "source_dir": "."
+}

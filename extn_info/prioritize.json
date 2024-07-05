@@ -1,0 +1,11 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/schmiddy/pg_prioritize.git",
+  "folder_name": "pg_prioritize",
+  "sql_files": [
+    "prioritize.sql.in",
+    "uninstall_prioritize.sql"
+  ],
+  "sql_dirs": [],
+  "source_dir": "."
+}

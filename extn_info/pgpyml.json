@@ -1,0 +1,8 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/Minoro/pgpyml.git",
+  "folder_name": "pgpyml",
+  "sql_files": [],
+  "sql_dirs": ["sql", "sql/io", "sql/boostrap", "sql/prediction"],
+  "source_dir": "."
+}

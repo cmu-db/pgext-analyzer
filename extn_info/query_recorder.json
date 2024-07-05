@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/tvondra/query_recorder.git",
+  "folder_name": "query_recorder",
+  "sql_dirs": ["sql"],
+  "source_dir": "src"
+}

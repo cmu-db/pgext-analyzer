@@ -1,0 +1,13 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/davidbeauchamp/pgzint.git",
+  "folder_name": "pgzint",
+  "sql_files": [
+    "pgzint--0.1.0--0.1.4.sql",
+    "pgzint--0.1.1--0.1.4.sql",
+    "pgzint--0.1.2--0.1.4.sql",
+    "pgzint--0.1.3--0.1.4.sql",
+    "pgzint--0.1.4.sql"
+  ],
+  "source_dir": "."
+}

@@ -1,0 +1,7 @@
+{
+  "download_method": "zip",
+  "download_url": "pgwaffles/1.0.1/pgwaffles-1.0.1.zip",
+  "folder_name": "pgwaffles-1.0.1",
+  "sql_files": ["pgwaffles--1.sql", "pgwaffles--1.0.1.sql"],
+  "source_dir": "."
+}

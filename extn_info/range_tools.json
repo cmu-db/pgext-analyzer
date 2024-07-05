@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/decibel/pg_range_tools.git",
+  "folder_name": "pg_range_tools",
+  "sql_files": ["sql/range_tools.sql"],
+  "source_dir": "."
+}

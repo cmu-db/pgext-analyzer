@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/pierreforstmann/pgds.git",
+  "folder_name": "pgds",
+  "sql_files": ["pgds--0.0.3.sql"],
+  "source_dir": "."
+}

@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/eschmar/postgresql-popcount.git",
+  "folder_name": "postgresql-popcount",
+  "sql_files": ["popcount--1.0.0.sql"],
+  "source_dir": "."
+}

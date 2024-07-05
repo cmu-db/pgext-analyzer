@@ -1,0 +1,12 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/2ndquadrant-it/pgespresso.git",
+  "folder_name": "pgespresso",
+  "sql_files": [
+    "pgespresso--1.0--1.1.sql",
+    "pgespresso--1.1--1.2.sql",
+    "pgespresso--1.2.sql"
+  ],
+  "sql_dirs": [],
+  "source_dir": "."
+}

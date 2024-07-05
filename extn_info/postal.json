@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/pramsey/pgsql-postal.git",
+  "folder_name": "pgsql-postal",
+  "sql_files": ["postal--1.0.sql"],
+  "source_dir": "."
+}

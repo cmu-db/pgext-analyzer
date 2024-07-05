@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "pgvihash/1.0.0-dirty/pgvihash-1.0.0-dirty",
+  "folder_name": "pgvihash-1.0.0-dirty",
+  "sql_files": ["uninstall_vihash.sql", "vihash.sql.in"],
+  "source_dir": "."
+}

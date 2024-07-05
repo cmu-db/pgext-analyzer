@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/adjust/pg-telemetry.git",
+  "folder_name": "pg-telemetry",
+  "sql_dirs": ["extension"],
+  "source_dir": "."
+}

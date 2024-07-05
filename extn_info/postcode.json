@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/patchsoft/postcode.git",
+  "folder_name": "postcode",
+  "sql_files": ["postcode--1.3.0.sql"],
+  "source_dir": "."
+}

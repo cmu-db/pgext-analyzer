@@ -1,0 +1,12 @@
+{
+  "download_method": "zip",
+  "pgxn_location": "resetsequence/1.0.0/resetsequence-1.0.0.zip",
+  "folder_name": "resetsequence-1.0.0",
+  "sql_files": [
+    "resetsequence--1.0.0.sql",
+    "uninstall_resetsequence.sql",
+    "resetsequence--unpackaged--1.0.0.sql"
+  ],
+  "sql_dirs": [],
+  "source_dir": "."
+}

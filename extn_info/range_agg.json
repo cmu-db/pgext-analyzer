@@ -1,0 +1,13 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/pjungwir/range_agg.git",
+  "folder_name": "range_agg",
+  "sql_files": [
+    "range_agg--1.0.0.sql",
+    "range_agg--1.1.0.sql",
+    "range_agg--1.2.0.sql",
+    "range_agg--1.2.1.sql"
+  ],
+  "sql_dirs": [],
+  "source_dir": "."
+}

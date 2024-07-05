@@ -1,0 +1,8 @@
+{
+  "download_method": "git",
+  "download_url": "http://github.com/vitesse-ftian/pgdecimal.git",
+  "folder_name": "pgdecimal",
+  "sql_files": ["decimal--2.0.sql"],
+  "sql_dirs": [],
+  "source_dir": "."
+}

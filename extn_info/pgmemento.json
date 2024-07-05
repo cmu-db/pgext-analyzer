@@ -1,0 +1,16 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/pgMemento/pgMemento.git",
+  "folder_name": "pgMemento",
+  "sql_files": [
+    "INIT.sql",
+    "INSTALL_PGMEMENTO.sql",
+    "START_AUDITING.sql",
+    "STOP_AUDITING.sql",
+    "UNINSTALL_PGMEMENTO.sql",
+    "UPGRADE_v061_to_v07.sql",
+    "UPGRADE_v07_to_v074.sql"
+  ],
+  "sql_dirs": ["src"],
+  "source_dir": "."
+}
