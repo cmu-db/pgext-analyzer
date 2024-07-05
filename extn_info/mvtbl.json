@@ -1,7 +1,7 @@
 {
   "download_method": "git",
   "download_url": "https://github.com/adjust/pg-mvtbl.git",
-  "folder_name": "mvtbl",
+  "folder_name": "pg-mvtbl",
   "sql_files": [
     "mvtbl--0.0.1--0.0.2.sql",
     "mvtbl--0.0.1.sql",

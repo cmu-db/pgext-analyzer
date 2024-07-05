@@ -2,6 +2,6 @@
   "download_method": "git",
   "download_url": "https://github.com/dvarrazzo/italian_codes.git",
   "folder_name": "italian_codes",
-  "sql_files": ["sql"],
+  "sql_dirs": ["sql"],
   "source_dir": "."
 }
