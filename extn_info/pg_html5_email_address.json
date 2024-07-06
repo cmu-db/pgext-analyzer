@@ -3,16 +3,16 @@
   "download_url": "https://github.com/bigsmoke/pg_html5_email_address.git",
   "folder_name": "pg_html5_email_address",
   "sql_files": [
-    "pg_html5_email_address--1.0.0--1.1.0.sql",
-    "pg_html5_email_address--1.0.0.sql",
-    "pg_html5_email_address--1.1.0--1.1.1.sql",
-    "pg_html5_email_address--1.1.1--1.1.2.sql",
-    "pg_html5_email_address--1.1.2--1.2.0.sql",
-    "pg_html5_email_address--1.2.0--1.2.1.sql",
-    "pg_html5_email_address--1.2.1--1.2.2.sql",
-    "pg_html5_email_address--1.2.2--1.2.3.sql",
-    "pg_html5_email_address--1.2.2.sql",
-    "pg_html5_email_address--1.2.3.sql"
+    "sql/pg_html5_email_address--1.0.0--1.1.0.sql",
+    "sql/pg_html5_email_address--1.0.0.sql",
+    "sql/pg_html5_email_address--1.1.0--1.1.1.sql",
+    "sql/pg_html5_email_address--1.1.1--1.1.2.sql",
+    "sql/pg_html5_email_address--1.1.2--1.2.0.sql",
+    "sql/pg_html5_email_address--1.2.0--1.2.1.sql",
+    "sql/pg_html5_email_address--1.2.1--1.2.2.sql",
+    "sql/pg_html5_email_address--1.2.2--1.2.3.sql",
+    "sql/pg_html5_email_address--1.2.2.sql",
+    "sql/pg_html5_email_address--1.2.3.sql"
   ],
   "sql_dirs": [],
   "source_dir": "."

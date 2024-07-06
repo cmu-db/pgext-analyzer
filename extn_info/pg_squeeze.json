@@ -1,0 +1,15 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/cybertec-postgresql/pg_squeeze.git",
+  "folder_name": "pg_squeeze",
+  "sql_files": [
+    "pg_squeeze--1.2--1.3.sql",
+    "pg_squeeze--1.2.sql",
+    "pg_squeeze--1.3--1.4.sql",
+    "pg_squeeze--1.4--1.5.sql",
+    "pg_squeeze--1.5--1.6.sql",
+    "pg_squeeze--1.6--1.7.sql"
+  ],
+  "sql_dirs": [],
+  "source_dir": "."
+}

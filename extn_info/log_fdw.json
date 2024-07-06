@@ -1,0 +1,7 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/aws/postgresql-logfdw.git",
+  "folder_name": "postgresql-logfdw",
+  "sql_files": ["log_fdw--1.4.sql"],
+  "source_dir": "."
+}

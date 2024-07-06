@@ -4,5 +4,8 @@
   "folder_name": "pg-jsonschema-boon",
   "sql_files": [],
   "sql_dirs": ["sql"],
-  "source_dir": "src"
+  "source_dir": "src",
+  "rust": {
+    "hook_files": []
+  }
 }

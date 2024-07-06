@@ -1,6 +1,7 @@
 {
   "download_method": "git",
   "download_url": "https://github.com/cohenjo/pg_idx_advisor.git",
+  "folder_name": "pg_idx_advisor",
   "sql_dirs": ["sql"],
   "source_dir": "src"
 }

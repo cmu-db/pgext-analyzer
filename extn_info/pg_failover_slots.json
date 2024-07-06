@@ -1,0 +1,8 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/EnterpriseDB/pg_failover_slots.git",
+  "folder_name": "pg_failover_slots",
+  "sql_files": [],
+  "sql_dirs": [],
+  "source_dir": "."
+}

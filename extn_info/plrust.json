@@ -1,0 +1,10 @@
+{
+  "download_method": "git",
+  "download_url": "https://github.com/tcdi/plrust.git",
+  "folder_name": "plrust",
+  "sql_dirs": ["sql"],
+  "source_dir": ".",
+  "rust": {
+    "hook_files": []
+  }
+}

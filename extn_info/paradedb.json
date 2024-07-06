@@ -4,5 +4,14 @@
   "folder_name": "paradedb",
   "sql_files": [],
   "sql_dirs": ["pg_lakehouse/sql", "pg_search/sql"],
-  "source_dir": "."
+  "source_dir": ".",
+  "rust": {
+    "hook_files": [
+      {
+        "filename": "pg_lakehouse/src/hooks/mod.rs",
+        "line_start": 26,
+        "line_end": 53
+      }
+    ]
+  }
 }
