@@ -1,5 +1,3 @@
-address_standardizer
-address_standardizer_data_us
 amcheck
 azure_ai
 azure_local_ai
@@ -42,13 +40,8 @@ pg_stat_statements
 pgstattuple
 pg_trgm
 pg_visibility
-plpgsql
 plv8
 postgis
-postgis_raster
-postgis_sfcgal
-postgis_tiger_geocoder
-postgis_topology
 postgres_fdw
 semver
 session_variable

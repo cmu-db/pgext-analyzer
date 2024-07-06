@@ -44,8 +44,10 @@ def cleanup():
 
 def download_extn(extn_name, terminal_file):
   extn_entry = extn_db[extn_name]
+
   print("Downloading extension " + extn_name)
   extension_dir = current_working_dir + "/" + ext_work_dir
+
   download_type = extn_entry["download_method"]
   if download_type == "git":
     git_repo = extn_entry["download_url"]
@@ -189,6 +191,9 @@ if __name__ == '__main__':
   for extn in extns_list:
     print("Analyzing " + extn + "...")
     download_extn(extn, terminal_file)
+    if extn_db[extn]["download_method"] == "downloaded":
+      continue
+    
     language_dict = function_analysis(extn)
     output_list = []
     for verified_lang in language_list:

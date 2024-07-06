@@ -18,6 +18,19 @@ testing_output_dir = "testing-output-" + date_time
 
 # Common C/C++ extensions
 common_c_file_extns = ["h", "hh", "c", "cpp", "cc", "cxx", "cpp"]
+rust_file_extn = "rs"
+
+rust_hook_map = {
+  "emit_log_hook": "emit_log",
+  "ExecutorStart_hook": "executor_start",
+  "ExecutorRun_hook": "executor_run",
+  "ExecutorFinish_hook": "executor_finish",
+  "ExecutorEnd_hook": "executor_end",
+  "ExecutorCheckPerms_hook": "executor_check_perms",
+  "ProcessUtility_hook": "process_utility_hook",
+  "planner_hook": "planner",
+  "post_parse_analyze_hook": "post_parse_analyze",
+}
 
 # Info CSV Ordering
 types_of_extns = [
@@ -86,6 +99,12 @@ client_auth_hooks = [
   "row_security_policy_hook_restrictive"
 ]
 
+misc_utility_keywords = [
+  "BaseBackupAddTarget",
+  '_PG_archive_module_init',
+  "_PG_output_plugin_init"
+]
+
 # Types of Extensions
 
 postgres_hooks = misc_hooks + query_processing_hooks + utility_hooks + client_auth_hooks
@@ -115,8 +134,10 @@ def cleanup():
 
 def download_extn(extn_name, terminal_file):
   extn_entry = extn_db[extn_name]
+
   print("Downloading extension " + extn_name)
   extension_dir = current_working_dir + "/" + ext_work_dir
+
   download_type = extn_entry["download_method"]
   if download_type == "git":
     git_repo = extn_entry["download_url"]
@@ -139,11 +160,18 @@ def download_extn(extn_name, terminal_file):
 
   print("Finished downloading extension " + extn_name)
 
+#####################################################################
+# EXTENSION SOURCE CODE ANALYSIS HELPER FUNCTIONS
+#####################################################################
+
 def does_hook_exist(cl : str, hook):
   return (cl.startswith(hook + "=") or cl.startswith(hook + " =")) and cl.endswith(";")
 
 def does_utility_plugin_exist(cl : str):
-  return "_PG_output_plugin_init" in cl 
+  for keyword in misc_utility_keywords:
+    if keyword in cl:
+      return True
+  return False
 
 def does_background_worker_exist(cl : str):
   return "RegisterDynamicBackgroundWorker" in cl
@@ -178,6 +206,27 @@ def does_table_access_method_exist(cl : str):
 def does_index_access_method_exist(cl : str):
   return does_access_method_exist(cl) and "type index" in cl.lower()
 
+def does_bw_worker_exist_rust(cl : str):
+  return "BackgroundWorkerBuilder::new" in cl
+
+def does_config_option_exist_rust(cl: str):
+  return "PostgresGlobalGucSettings::new()" in cl
+
+def does_shmem_exist_rust(cl: str):
+  return "pg_shmem_init!" in cl
+
+def does_fdw_exist_rust(cl: str):
+  return "impl ForeignDataWrapper" in cl
+
+def does_hook_exist_rust(cl: str, hook):
+  if hook not in rust_hook_map:
+    return False
+  hook_fn = rust_hook_map[hook]
+  return "fn " + hook_fn in cl
+
+#####################################################################
+# EXTENSION SOURCE CODE ANALYSIS
+#####################################################################
 def source_analysis(extn_name):
   extn_entry = extn_db[extn_name]
   download_type = extn_entry["download_method"]
@@ -190,6 +239,10 @@ def source_analysis(extn_name):
 
   hooks_map = {}
   features_map = {
+    "Functions": False,
+    "Types": False,
+    "Index Access Methods": False,
+    "Storage Managers": False,
     "Client Authentication": False,
     "Query Procesing": False,
     "Utility Commands": False
@@ -240,13 +293,64 @@ def source_analysis(extn_name):
             mechanisms_map["Custom Configuration Variables"] = True
 
         tmp_source_file.close()
+      elif file_ext[1:] == rust_file_extn:
+        tmp_source_file = open(os.path.join(source_dir, os.path.join(root, name)), "r")
+        code_lines = tmp_source_file.readlines()
+        for cl in code_lines:
+          processed_cl = " ".join(cl.strip().split())
+          if does_shmem_exist_rust(processed_cl):
+            mechanisms_map["Memory Allocation"] = True
+          
+          if does_config_option_exist_rust(processed_cl):
+            mechanisms_map["Custom Configuration Variables"] = True
+          
+          if does_bw_worker_exist_rust(processed_cl):
+            mechanisms_map["Background Workers"] = True
+
+          if does_fdw_exist_rust(processed_cl):
+            features_map["Storage Managers"] = True
+
+        tmp_source_file.close()
 
   if hooks_map["shmem_startup_hook"] and hooks_map["shmem_request_hook"]:
     mechanisms_map["Memory Allocation"] = True
+  
+  if "rust" in extn_entry:
+    hook_files = extn_entry["rust"]["hook_files"]
+    for hf in hook_files:
+      filename = hf["filename"]
+      hf_file = open(os.path.join(source_dir, filename), "r")
+      hf_code_lines = hf_file.readlines()
+      start_idx = hf["line_start"] - 1
+      end_idx = hf["line_end"]
+      for i in range(start_idx, end_idx):
+        cl = hf_code_lines[i]
+        processed_cl = " ".join(cl.strip().split())
+        
+        for hook in misc_hooks:
+          if does_hook_exist_rust(processed_cl, hook):
+            hooks_map[hook] = True
+
+        for hook in query_processing_hooks:
+          if does_hook_exist_rust(processed_cl, hook):
+            hooks_map[hook] = True
+            features_map["Query Procesing"] = True
+
+        for hook in utility_hooks:
+          if does_hook_exist_rust(processed_cl, hook):
+            hooks_map[hook] = True
+            features_map["Utility Commands"] = True
+
+        for hook in client_auth_hooks:
+          if does_hook_exist_rust(processed_cl, hook):
+            hooks_map[hook] = True
+            features_map["Client Authentication"] = True
+
+      hf_file.close()
 
   return hooks_map, features_map, mechanisms_map
 
-def sql_analysis(extn_name):
+def sql_analysis(extn_name, features_map):
   extn_entry = extn_db[extn_name]
   download_type = extn_entry["download_method"]
   codebase_dir ="" 
@@ -255,13 +359,6 @@ def sql_analysis(extn_name):
   else:
     extension_dir = current_working_dir + "/" + ext_work_dir
     codebase_dir = extension_dir + "/" + extn_entry["folder_name"]
-
-  features_map = {
-    "Functions": False,
-    "Types": False,
-    "Index Access Methods": False,
-    "Storage Managers": False
-  }
 
   sql_files_list = []
 
@@ -289,22 +386,22 @@ def sql_analysis(extn_name):
     for fl in file_lines:
       if access_method_flag:
         if "table" in fl.lower():
-          features_map["Storage Managers"] = True
+          features_map.update({"Storage Managers": True})
         elif "index" in fl.lower():
-          features_map["Index Access Methods"] = True
+          features_map.update({"Index Access Methods": True})
         access_method_flag = False
       
       if does_udf_exist(fl):
-        features_map["Functions"] = True
+        features_map.update({"Functions": True})
       if does_udt_exist(fl):
-        features_map["Types"] = True
+        features_map.update({"Types": True})
       if does_external_table_exist(fl):
-        features_map["Storage Managers"] = True
+        features_map.update({"Storage Managers": True})
 
       if does_table_access_method_exist(fl):
-        features_map["Storage Managers"] = True
+        features_map.update({"Storage Managers": True})
       elif does_index_access_method_exist(fl):
-        features_map["Index Access Methods"] = True
+        features_map.update({"Index Access Methods": True})
       elif does_access_method_exist(fl):
         access_method_flag = True
 
@@ -324,8 +421,7 @@ def run_extension_info_analysis(extn_name, hooks_csv_file_writer, info_csv_file_
 
   print("Running extension info analysis on " + extn_name)
   hook_map, features_map, mechanisms_map = source_analysis(extn_name)
-  sql_features_map = sql_analysis(extn_name)
-  features_map.update(sql_features_map)
+  features_map = sql_analysis(extn_name, features_map)
 
   if DEBUG:
     print(hook_map)
@@ -374,16 +470,22 @@ if __name__ == '__main__':
   mechanisms_csv_file_writer.writerow(["Extension Name"] + types_of_mechanisms)
 
   if DEBUG:
-    download_extn("postgis", terminal_file)
-    run_extension_info_analysis("postgis", hooks_csv_file_writer, info_csv_file_writer, mechanisms_csv_file_writer)
+    download_extn("paradedb", terminal_file)
+    run_extension_info_analysis("paradedb", hooks_csv_file_writer, info_csv_file_writer, mechanisms_csv_file_writer)
+    #extns_list = list(extn_db.keys())
+    #extns_list.sort()
+    #start_extn = "unidecode"
+    #start_index = extns_list.index(start_extn, 0)
+
+    #for i in range(start_index, len(extns_list)):
+    #  download_extn(extns_list[i], terminal_file)
+    #  run_extension_info_analysis(extns_list[i], hooks_csv_file_writer, info_csv_file_writer, mechanisms_csv_file_writer)
   else:
-    for extn in extn_db:
-      download_extn(extn, terminal_file)
-    
     # Determine the percentage of source code copied from Postgres
     extns_list = list(extn_db.keys())
     extns_list.sort()
     for extn in extns_list:
+      download_extn(extn, terminal_file)
       run_extension_info_analysis(extn, hooks_csv_file_writer, info_csv_file_writer, mechanisms_csv_file_writer)
 
   cleanup()

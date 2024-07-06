@@ -16,6 +16,7 @@ for file in extn_files:
 
 
 def analysis(category : str):
+  print("Not included extensions from " + category + " are ")
   extensions_file = open("allow_lists/" + category + ".txt", "r")
   extensions = list(map(lambda x: x.strip("\n"), extensions_file.readlines()))
 
@@ -24,6 +25,8 @@ def analysis(category : str):
   for e in extensions:
     if e in extn_db:
       total_in_extn_db += 1
+    else:
+      print(e)
 
   pct = round(total_in_extn_db * 100/total_count, 2)
     

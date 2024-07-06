@@ -67,8 +67,10 @@ def move_sca_files():
 # Function that downloads the extension source code
 def download_extn(extn_name, terminal_file):
   extn_entry = extn_db[extn_name]
+
   print("Downloading extension " + extn_name)
   extension_dir = current_working_dir + "/" + ext_work_dir
+  
   download_type = extn_entry["download_method"]
   if download_type == "git":
     git_repo = extn_entry["download_url"]
@@ -198,10 +200,11 @@ def convert_mapping_to_stats(err_mapping):
 def get_total_loc(extn_name, source_dir):
   total_loc = 0
   print("Determining Total LOC for " + extn_name)
+  extn_entry = extn_db[extn_name]
   for root, _, files in os.walk(source_dir):
     for name in files:
       _, file_ext = os.path.splitext(name)
-      if file_ext[1:] in common_c_file_extns:
+      if (file_ext[1:] in common_c_file_extns and "rust" not in extn_entry) or (file_ext[1:] == "rs" and "rust" in extn_entry):
         tmp_source_file = open(os.path.join(source_dir, os.path.join(root, name)), "r")
         code_lines = tmp_source_file.readlines()
         total_loc += len(code_lines)
@@ -308,7 +311,7 @@ def run_version_analysis(extn_name, source_dir):
         pstack = []
         code_intervals = []
         for i, cl in enumerate(code_lines):
-          if "#if" in cl:
+          if "#if" in cl or "# if" in cl:
             flag = "PG_VERSION_NUM" in cl
             pstack.append((i, flag))
             if flag:
@@ -468,13 +471,15 @@ if __name__ == '__main__':
     "V16"])
 
   if DEBUG:
-    #download_extn("cube", terminal_file)
-    download_extn("bloom", terminal_file)
-    #download_extn("hypopg", terminal_file)
-    #download_extn("pg_ivm", terminal_file)
-    #run_sca_analysis("cube", sca_csv_file_writer, vers_csv_file_writer, vers_chcklist_file_writer)
-    run_sca_analysis("bloom", sca_csv_file_writer, vers_csv_file_writer, vers_chcklist_file_writer)
-    #run_sca_analysis("pg_ivm", sca_csv_file_writer, vers_csv_file_writer, vers_chcklist_file_writer)
+    extns_list = list(extn_db.keys())
+    extns_list.sort()
+    start_extn = "bson"
+    start_index = extns_list.index(start_extn, 0)
+
+    for i in range(start_index, len(extns_list)):
+      download_extn(extns_list[i], terminal_file)
+      run_sca_analysis(extns_list[i], sca_csv_file_writer, vers_csv_file_writer, vers_chcklist_file_writer)
+    
   else:
     for extn in extn_db:
       download_extn(extn, terminal_file)

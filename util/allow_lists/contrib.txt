@@ -18,16 +18,15 @@ file_fdw
 fuzzystrmatch
 hstore
 hstore_plperl
-hstore_plpython
+hstore_plpython3u
 intagg
 intarray
 isn
 jsonb_plperl
-jsonb_plpython
+jsonb_plpython3u
 lo
 ltree
-ltree_plpython
-oid2name
+ltree_plpython3u
 old_snapshot
 pageinspect
 passwordcheck
@@ -47,7 +46,6 @@ seg
 sepgsql
 spi
 sslinfo
-start-scripts
 tablefunc
 tcn
 test_decoding
