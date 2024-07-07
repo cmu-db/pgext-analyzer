@@ -1,7 +1,0 @@
-{
-  "download_method": "git",
-  "download_url": "https://github.com/OmniDB/OmniDB.git",
-  "folder_name": "OmniDB",
-  "sql_dirs": ["OmniDB/OmniDB/migrations"],
-  "source_dir": "."
-}

@@ -1,7 +1,0 @@
-{
-  "download_method": "git",
-  "download_url": "https://github.com/pierreforstmann/pgpasswd.git",
-  "folder_name": "pgpasswd",
-  "sql_files": [],
-  "source_dir": "."
-}

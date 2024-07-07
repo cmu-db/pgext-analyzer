@@ -60,12 +60,10 @@ custom_variable_fns = [
 
 # List of hooks
 misc_hooks = [
-  "emit_log_hook",
   "shmem_startup_hook",
   "shmem_request_hook",
   "needs_fmgr_hook",
-  "fmgr_hook",
-  "post_parse_analyze_hook"
+  "fmgr_hook"
 ]
 
 query_processing_hooks = [
@@ -84,10 +82,12 @@ query_processing_hooks = [
   "ExecutorRun_hook",
   "ExecutorFinish_hook",
   "ExecutorEnd_hook",
+  "post_parse_analyze_hook"
 ]
 
 utility_hooks = [
-  "ProcessUtility_hook"
+  "ProcessUtility_hook",
+  "emit_log_hook",
 ]
 
 client_auth_hooks = [
@@ -102,7 +102,8 @@ client_auth_hooks = [
 misc_utility_keywords = [
   "BaseBackupAddTarget",
   '_PG_archive_module_init',
-  "_PG_output_plugin_init"
+  "_PG_output_plugin_init",
+  "find_rendezvous_variable(\"PLpgSQL_plugin\")"
 ]
 
 # Types of Extensions
@@ -187,7 +188,8 @@ def does_config_option_exist(cl: str):
 def does_udf_exist(cl : str):
   udf1_str = "create function"
   udf2_str = "create or replace function"
-  return udf1_str in cl.lower() or udf2_str in cl.lower()
+  udf3_str = "create  function"
+  return udf1_str in cl.lower() or udf2_str in cl.lower() or udf3_str in cl.lower()
 
 def does_udt_exist(cl : str):
   udt1_str = "create type"
@@ -204,6 +206,12 @@ def does_table_access_method_exist(cl : str):
   return does_access_method_exist(cl) and "type table" in cl.lower()
 
 def does_index_access_method_exist(cl : str):
+  if "create text search dictionary" in cl.lower():
+    return True
+  
+  if "create operator class" in cl.lower():
+    return True 
+  
   return does_access_method_exist(cl) and "type index" in cl.lower()
 
 def does_bw_worker_exist_rust(cl : str):
@@ -223,6 +231,16 @@ def does_hook_exist_rust(cl: str, hook):
     return False
   hook_fn = rust_hook_map[hook]
   return "fn " + hook_fn in cl
+
+def does_utility_keyword_exist_rust(cl: str):
+  # Logical decoding plugin
+  if "pub unsafe extern \"C\" fn init" in cl and "*mut pg::OutputPluginCallbacks" in cl:
+    return True 
+
+  return False
+
+def does_type_exist_rust(cl: str):
+  return "create type" in cl or "CREATE TYPE" in cl
 
 #####################################################################
 # EXTENSION SOURCE CODE ANALYSIS
@@ -296,8 +314,13 @@ def source_analysis(extn_name):
       elif file_ext[1:] == rust_file_extn:
         tmp_source_file = open(os.path.join(source_dir, os.path.join(root, name)), "r")
         code_lines = tmp_source_file.readlines()
+        function_flag = False
         for cl in code_lines:
           processed_cl = " ".join(cl.strip().split())
+          if function_flag:
+            if "fn " in processed_cl:
+              features_map["Functions"] = True
+
           if does_shmem_exist_rust(processed_cl):
             mechanisms_map["Memory Allocation"] = True
           
@@ -309,6 +332,15 @@ def source_analysis(extn_name):
 
           if does_fdw_exist_rust(processed_cl):
             features_map["Storage Managers"] = True
+
+          if does_utility_keyword_exist_rust(processed_cl):
+            features_map["Utility Commands"] = True
+          
+          if processed_cl.startswith("#[pg_extern"):
+            function_flag = True
+
+          if does_type_exist_rust(processed_cl):
+            features_map["Types"] = True
 
         tmp_source_file.close()
 
@@ -362,8 +394,13 @@ def sql_analysis(extn_name, features_map):
 
   sql_files_list = []
 
+  if "manual_sql_files" in extn_entry:
+    sql_files_list += extn_entry["manual_sql_files"]
+    for f in extn_entry["manual_sql_files"]:
+      subprocess.run("cp " + f + " " + codebase_dir, cwd=current_working_dir + "/extn_sql_files", shell=True)
+
   if "sql_files" in extn_entry:
-    sql_files_list = extn_entry["sql_files"]
+    sql_files_list += extn_entry["sql_files"]
 
   if "sql_dirs" in extn_entry:
     sql_dirs_list = extn_entry["sql_dirs"]
@@ -470,8 +507,8 @@ if __name__ == '__main__':
   mechanisms_csv_file_writer.writerow(["Extension Name"] + types_of_mechanisms)
 
   if DEBUG:
-    download_extn("paradedb", terminal_file)
-    run_extension_info_analysis("paradedb", hooks_csv_file_writer, info_csv_file_writer, mechanisms_csv_file_writer)
+    download_extn("italian_fts", terminal_file)
+    run_extension_info_analysis("italian_fts", hooks_csv_file_writer, info_csv_file_writer, mechanisms_csv_file_writer)
     #extns_list = list(extn_db.keys())
     #extns_list.sort()
     #start_extn = "unidecode"

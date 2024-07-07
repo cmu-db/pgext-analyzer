@@ -2,6 +2,6 @@
   "download_method": "git",
   "download_url": "https://github.com/zachasme/h3-pg.git",
   "folder_name": "h3-pg/h3_postgis",
-  "sql_dirs": ["sql"],
+  "sql_dirs": ["sql/install", "sql/updates"],
   "source_dir": "src"
 }

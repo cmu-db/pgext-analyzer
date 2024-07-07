@@ -387,6 +387,7 @@ def run_sca_analysis(extn_name, results_csv, versioning_csv, vers_chcklist_csv):
 
   # Run CPD analysis
   (tc_loc, tc_tokens), (pc_loc, pc_tokens), (ec_loc, ec_tokens) = run_cpd_analysis(extn_name, source_dir)
+  print(pc_loc)
 
   versioning_loc, (vc_loc, vc_tokens), pg_version_list = run_version_analysis(extn_name, source_dir)
   pg_version_list.sort()
@@ -471,23 +472,14 @@ if __name__ == '__main__':
     "V16"])
 
   if DEBUG:
-    extns_list = list(extn_db.keys())
-    extns_list.sort()
-    start_extn = "bson"
-    start_index = extns_list.index(start_extn, 0)
-
-    for i in range(start_index, len(extns_list)):
-      download_extn(extns_list[i], terminal_file)
-      run_sca_analysis(extns_list[i], sca_csv_file_writer, vers_csv_file_writer, vers_chcklist_file_writer)
-    
+    download_extn("imcs", terminal_file)
+    run_sca_analysis("imcs", sca_csv_file_writer, vers_csv_file_writer, vers_chcklist_file_writer)
   else:
-    for extn in extn_db:
-      download_extn(extn, terminal_file)
-    
     # Determine the percentage of source code copied from Postgres
     extns_list = list(extn_db.keys())
     extns_list.sort()
     for extn in extns_list:
+      download_extn(extn, terminal_file)
       run_sca_analysis(extn, sca_csv_file_writer, vers_csv_file_writer, vers_chcklist_file_writer)
 
   terminal_file.close()
