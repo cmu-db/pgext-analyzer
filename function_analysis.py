@@ -83,15 +83,18 @@ def store_state_results(extn_name, results_json):
     json.dump(results_json, results_file, indent=2)
     results_file.close()
 
+def get_line_start(fn_obj):
+  metavars = fn_obj["extra"]["metavars"]
+  func_start = metavars["$FUNC"]["start"]["line"]
+  ty_start = metavars["$TY"]["start"]["line"]
+  return min(func_start, ty_start)
+
+def get_line_end(fn_obj):
+  return fn_obj["end"]["line"]
+
 def get_csv_output(file):
   extn_name = get_extn_name(file)
   print("Running function analysis on " + extn_name)
-
-  # Get Total LOC of file
-  input_file_name =  current_working_dir + "/" + input_fn_dir + "/" + file
-  input_file_obj = open(input_file_name, "r")
-  total_loc = len(input_file_obj.readlines())
-  input_file_obj.close()
 
   # Get number of copied functions
   fn_semgrep_command = get_semgrep_command(file, "function.yml")
@@ -100,6 +103,12 @@ def get_csv_output(file):
   results_json = process_semgrep_results()
   fns_list = results_json["results"]
   num_copied_fns = len(fns_list)
+
+  total_loc = 0
+  for fn_obj in fns_list:
+    if DEBUG:
+      print(json.dumps(fn_obj, indent=2))
+    total_loc += get_line_end(fn_obj) - get_line_start(fn_obj) + 1
 
   # Get number of state modified functions + instances
   state_semgrep_command = get_semgrep_command(file, "state.yml")
