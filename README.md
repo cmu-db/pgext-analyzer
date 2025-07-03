@@ -11,3 +11,19 @@ Feel free to submit PRs and offer feedback, we would love to hear it!
 - All Python scripts should work with Python version 3.12.
 
 This repository includes submodules. To clone it, you need to use the `--recurse-submodules` option.
+
+# Citation
+
+```
+@article{kim25extensions,
+   author = {Kim, Abigale and Slot, Marco and Andersen, David G., and Pavlo, Andrew},
+   title = {{Anarchy in the Database: A Survey and Evaluation of Database Management System Extensibility}},
+   journal = {Proc. {VLDB} Endow.},
+   volume = {18},
+   number = {6},
+   pages = {1962--1976},
+   year = {2025},
+   url = {https://www.vldb.org/pvldb/vol18/p1962-kim.pdf},
+   doi = {10.14778/3725688.3725719},
+ }
+```
