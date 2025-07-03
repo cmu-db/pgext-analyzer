@@ -14,7 +14,7 @@ This repository includes submodules. To clone it, you need to use the `--recurse
 
 # Citation
 
-```
+```bibtex
 @article{kim25extensions,
    author = {Kim, Abigale and Slot, Marco and Andersen, David G., and Pavlo, Andrew},
    title = {{Anarchy in the Database: A Survey and Evaluation of Database Management System Extensibility}},
