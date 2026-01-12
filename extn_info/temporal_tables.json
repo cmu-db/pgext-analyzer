@@ -1,0 +1,13 @@
+{
+  "download_method": "zip",
+  "download_url": "https://github.com/arkhipov/temporal_tables/releases/download/v1.2.2/temporal_tables-1.2.2.zip",
+  "folder_name": "temporal_tables-1.2.2",
+  "source_dir": ".",
+  "dependencies": [],
+  "install_method": "pgxs",
+  "test_method": "pg_regress",
+  "pg_regress": {
+    "input_dir": ".",
+    "test_list": ["install", "combinations", "invalid_system_period", "invalid_system_period_values", "invalid_types", "no_history_system_period", "no_history_table", "no_system_period", "structure", "versioning", "versioning_custom_system_time", "uninstall"]
+  }
+}
